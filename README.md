@@ -8,7 +8,7 @@ O jogo inteiro roda no navegador: um arquivo `index.html`, a biblioteca Three.js
 
 ## Jogar online
 
-https://mars190-thegiant.github.io/europa-deep/
+https://mars190-thegiant.github.io/Europa-deep/
 
 ## Como abrir
 
@@ -17,7 +17,7 @@ https://mars190-thegiant.github.io/europa-deep/
 **Do jeito certo (com toda a trilha e os filtros de áudio):** sirva a pasta por HTTP.
 
 ```bash
-cd europa-deep
+cd Europa-deep
 python3 -m http.server 8000
 # abra http://localhost:8000 no navegador
 ```
