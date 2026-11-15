@@ -1584,7 +1584,7 @@ function restart(){
       const p=c.createStereoPanner?c.createStereoPanner():null;o.connect(g);if(p){p.pan.value=pan;g.connect(p);p.connect(AudioSys.sfx);}else g.connect(AudioSys.sfx);o.start(t);o.stop(t+.4);}
   }
   function heart(){
-    let bpm=70; const beat=()=>{if(phase!=='dread')return;sfx.tone(55,.18,{vol:.35,f2:40});setTimeout(()=>sfx.tone(50,.15,{vol:.25,f2:38}),170);bpm=Math.min(150,bpm+6);heartT=setTimeout(beat,60000/bpm);};beat();
+    let bpm=90; const beat=()=>{if(phase!=='dread')return;sfx.tone(55,.18,{vol:.35,f2:40});setTimeout(()=>sfx.tone(50,.15,{vol:.25,f2:38}),170);bpm=Math.min(170,bpm+12);heartT=setTimeout(beat,60000/bpm);};beat();
   }
   function scream(){
     const c=AudioSys.ctx; if(!c) return;
@@ -1641,16 +1641,16 @@ function restart(){
     lockMusic('silence');
     log('Lastro liberado. A TÉTIS-7 deveria subir. Ela não se mexe.','warn');
     const ev=[
-      [1200,()=>{hl.forEach(l=>l.userData.off=true);lightsOff=true;sfx.tone(60,.6,{type:'square',vol:.1,f2:30,lp:300});log('Queda de energia. Só a luz de emergência.','crit');}],
-      [3000,()=>{groan();log('Sonar: contato muito grande, 80 m, se aproximando por trás.','strange');ghostBlip(true);}],
-      [6500,()=>{knockAt(.25,-.8);}],
-      [8500,()=>{scrape(3.5,.12);log('Alguma coisa está raspando o casco. Do lado de fora.','strange');shake=.4;}],
-      [11500,()=>{knockAt(.5,.6);shake=.7;sfx.creak(.4);ghostBlip(true);ghostBlip(true);}],
-      [13000,()=>{heart();log('Sonar: 10 m.','crit');}],
-      [15500,()=>{groan();knockAt(.8,0);shake=1;showShade('pass');}],
-      [17500,()=>{log('Sonar: 0 m.','crit');}],
-      [19000,()=>{phase='quiet';clearTimeout(heartT);red.userData.dim=true;}],
-      [21800,jump]
+      [600,()=>{hl.forEach(l=>l.userData.off=true);lightsOff=true;sfx.tone(60,.6,{type:'square',vol:.1,f2:30,lp:300});log('Queda de energia. Só a luz de emergência.','crit');}],
+      [1500,()=>{groan();log('Sonar: contato muito grande, 80 m, se aproximando por trás.','strange');ghostBlip(true);}],
+      [3000,()=>{knockAt(.25,-.8);}],
+      [4000,()=>{scrape(2.5,.12);log('Alguma coisa está raspando o casco. Do lado de fora.','strange');shake=.4;}],
+      [5500,()=>{knockAt(.5,.6);shake=.7;sfx.creak(.4);ghostBlip(true);ghostBlip(true);}],
+      [6200,()=>{heart();log('Sonar: 10 m.','crit');}],
+      [7300,()=>{groan();knockAt(.8,0);shake=1;showShade('pass');}],
+      [8200,()=>{log('Sonar: 0 m.','crit');}],
+      [8800,()=>{phase='quiet';clearTimeout(heartT);red.userData.dim=true;}],
+      [10600,jump]
     ];
     ev.forEach(([ms,f])=>setTimeout(()=>{if(phase!=='end')f();},ms));
   }
