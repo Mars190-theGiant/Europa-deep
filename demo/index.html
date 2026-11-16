@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Europa Abyss · Demo</title>
+<meta name="description" content="Seven-slide demo of Europa Abyss, an educational space mission design game about Jupiter's moon Europa. NASA Space Apps Challenge 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04090f; --panel:rgba(10,24,35,.82); --line:rgba(127,224,255,.18);
+  --ink:#e8f3f6; --muted:#9ab3be; --dim:#5d7580;
+  --teal:#5fe0d0; --cyan:#7fe0ff; --amber:#ffc46a; --orange:#ff9a5a; --green:#7fff9a; --red:#ff6a5a; --violet:#b49cff;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* stage: every slide is designed at 1920x1080 and scaled to fit */
+#deck{position:fixed;inset:0;display:grid;place-items:center}
+.slide{position:absolute;left:50%;top:50%;width:1920px;height:1080px;margin:-540px 0 0 -960px;transform:scale(var(--s,1));
+  background:var(--bg);overflow:hidden;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.slide.on{opacity:1;pointer-events:auto}
+.pad{position:absolute;inset:0;padding:96px 112px}
+
+.kicker{font:700 22px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.04}
+h2{font-size:76px;margin-top:22px;max-width:1150px}
+h2 em{font-style:normal;color:var(--cyan)}
+.lead{font-size:32px;line-height:1.42;color:var(--muted);margin:30px 0 0;max-width:820px}
+.lead b{color:var(--ink);font-weight:600}
+.num{position:absolute;right:112px;bottom:52px;font:600 20px var(--mono);color:var(--dim);letter-spacing:.1em}
+.brand{position:absolute;left:112px;bottom:52px;font:700 20px var(--mono);color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
+.shot{border-radius:20px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6);display:block}
+.cap{font:600 18px var(--mono);color:var(--dim);letter-spacing:.06em;margin-top:14px;text-transform:uppercase}
+
+/* 1 title */
+.s1 .bg{position:absolute;inset:0;background:url(img/title.jpg) right center/auto 100% no-repeat}
+.s1 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,9,15,.97) 0%,rgba(4,9,15,.92) 38%,rgba(4,9,15,.25) 70%,rgba(4,9,15,0) 100%)}
+.s1 h1{font-size:150px;margin-top:40px;max-width:900px}
+.s1 h1 span{display:block;background:linear-gradient(135deg,#7fe0ff,#5fe0d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s1 .tag{font-size:44px;font-weight:700;margin-top:44px;color:var(--ink)}
+.s1 .tag i{font-style:normal;color:var(--amber)}
+.s1 .lead{max-width:780px}
+.s1 .url{position:absolute;left:112px;bottom:96px;font:600 26px var(--mono);color:var(--cyan)}
+
+/* 2 problem */
+.s2 .img{position:absolute;right:-160px;top:100px;width:940px;opacity:.95}
+.s2 .img img{width:100%;border-radius:0;border:0;box-shadow:none;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 46%,transparent 49.5%);mask-image:radial-gradient(circle at 50% 50%,#000 46%,transparent 49.5%)}
+.stats{display:flex;gap:28px;margin-top:56px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px 32px;width:330px}
+.stat b{display:block;font-size:56px;white-space:nowrap;font-weight:800;color:var(--cyan);letter-spacing:-.02em}
+.stat span{display:block;font-size:22px;line-height:1.4;color:var(--muted);margin-top:8px}
+.ask{margin-top:52px;font-size:34px;line-height:1.4;max-width:1000px;border-left:4px solid var(--amber);padding-left:28px}
+.ask b{color:var(--amber)}
+
+/* 3 solution */
+.split{display:grid;grid-template-columns:760px 1fr;gap:72px;align-items:center;height:100%}
+.steps{margin-top:44px;display:grid;gap:22px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start}
+.step i{font-style:normal;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font:800 28px var(--font);color:#02121a;background:linear-gradient(135deg,#2bd1c0,#3aa0ff)}
+.step b{display:block;font-size:32px}
+.step span{display:block;font-size:24px;line-height:1.4;color:var(--muted);margin-top:4px}
+.s3 .shot{width:100%}
+
+/* 4 trade-offs */
+.s4 h2{max-width:1700px}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:52px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px 32px}
+.card h3{margin:0 0 18px;font:700 20px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.row{display:flex;justify-content:space-between;gap:16px;font-size:24px;padding:11px 0;border-top:1px solid rgba(255,255,255,.07)}
+.row:first-of-type{border-top:0}
+.row span{color:var(--muted)}
+.row b{font-weight:600;white-space:nowrap}
+.good{color:var(--green)}.bad{color:var(--red)}.mid{color:var(--amber)}
+.strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:28px}
+.strip figure{margin:0}
+.strip img{width:100%;height:250px;object-fit:cover;object-position:top left}
+.strip .wide img{object-position:center}
+
+/* 5 science */
+.s5 .split{grid-template-columns:1fr 760px}
+.facts{margin-top:40px;display:grid;gap:16px}
+.fact{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;font-size:25px;line-height:1.38;padding:16px 0;border-top:1px solid rgba(255,255,255,.08)}
+.fact:first-child{border-top:0}
+.fact .m{font:700 18px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.fact .m small{display:block;color:var(--dim);font-size:16px;margin-top:4px}
+.s5 .shot{width:100%}
+.note{font-size:22px;color:var(--muted);margin-top:26px}
+
+/* 6 impact */
+.s6 .split{grid-template-columns:640px 1fr}
+.pair{display:grid;grid-template-columns:560px 1fr;gap:28px;align-items:start}
+.pair img{width:100%}
+.pair .end{height:auto}
+.pair .sim{height:400px;object-fit:cover;object-position:50% 40%}
+.bars{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px 28px}
+.bars h3{margin:0 0 12px;font:700 18px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.bar{display:grid;grid-template-columns:190px 1fr 64px;gap:14px;align-items:center;font-size:20px;margin:9px 0}
+.bar div{height:14px;border-radius:7px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar div i{display:block;height:100%;border-radius:7px}
+.bar b{text-align:right;font-family:var(--mono);font-size:19px}
+.who{margin-top:40px;display:grid;gap:20px}
+.who p{margin:0;font-size:26px;line-height:1.42;color:var(--muted);padding-left:26px;border-left:3px solid var(--teal)}
+.who p b{color:var(--ink);font-weight:600}
+
+/* 7 links */
+.s7 .bg{position:absolute;inset:0;background:url(img/title.jpg) right center/auto 100% no-repeat;opacity:.35}
+.s7 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,9,15,1) 25%,rgba(4,9,15,.55) 70%,rgba(4,9,15,.2))}
+.links{margin-top:56px;display:grid;gap:22px;max-width:1150px}
+.link{display:grid;grid-template-columns:270px 1fr;gap:24px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px 30px}
+.link span{font:700 19px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.link a{font:600 28px var(--mono);word-break:break-all}
+.qr{position:absolute;right:140px;top:250px;background:#fff;border-radius:24px;padding:26px;width:400px}
+.qr img{width:100%;display:block}
+.qr p{margin:14px 0 0;text-align:center;color:#04121a;font:700 20px var(--mono);letter-spacing:.06em}
+.built{margin-top:44px;font-size:23px;color:var(--muted);max-width:1150px;line-height:1.5}
+
+/* controls */
+#nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;z-index:5;background:rgba(4,9,15,.7);border:1px solid var(--line);border-radius:999px;padding:6px 8px;backdrop-filter:blur(6px)}
+#nav button{font:600 14px var(--font);color:var(--ink);background:transparent;border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+#nav button:hover{background:rgba(127,224,255,.12)}
+#nav button:focus-visible{outline:2px solid var(--cyan)}
+#nav .dots{display:flex;gap:6px;padding:0 4px}
+#nav .dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer}
+#nav .dots i.on{background:var(--cyan)}
+#nav a{font:600 13px var(--font);color:var(--muted);padding:8px 12px}
+
+/* print / PDF: one slide per page */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  html,body{overflow:visible;height:auto}
+  #deck{position:static;display:block}
+  #nav{display:none}
+  .slide{position:relative;left:auto;top:auto;margin:0;transform:none;opacity:1;break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+<main id="deck">
+
+<!-- 1 · TITLE -->
+<section class="slide s1" aria-label="Title">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="kicker">NASA Space Apps Challenge 2026 · Space Mission Design Game</div>
+    <h1>Europa <span>Abyss</span></h1>
+    <p class="lead">An educational game where you design a mission to the hidden ocean of Jupiter's moon Europa, then dive in and live with your trade-offs.</p>
+    <div class="tag">Design. <i>Dive.</i> Discover.</div>
+    <div class="url">mars190-thegiant.github.io/Europa-deep</div>
+  </div>
+  <div class="num">01 / 07</div>
+</section>
+
+<!-- 2 · PROBLEM -->
+<section class="slide s2" aria-label="The problem">
+  <div class="img"><img src="img/globe.jpg" alt="Rotating 3D globe of Europa on the game's landing page"></div>
+  <div class="pad">
+    <div class="kicker">The problem</div>
+    <h2>Under ~20 km of ice, Europa hides <em>an ocean</em>.</h2>
+    <div class="stats">
+      <div class="stat"><b>2×</b><span>the water of all of Earth's oceans, possibly</span></div>
+      <div class="stat"><b>15–25 km</b><span>of ice shell over an ocean 60–150 km deep</span></div>
+      <div class="stat"><b>3</b><span>ingredients for life: water, chemistry, energy</span></div>
+    </div>
+    <p class="ask">It is one of the best places to search for life. But reaching it is <b>a chain of hard choices</b>: mass, power, cost, travel time and risk. Students read about missions. They rarely get to make those choices.</p>
+  </div>
+  <div class="brand">Europa Abyss</div><div class="num">02 / 07</div>
+</section>
+
+<!-- 3 · SOLUTION -->
+<section class="slide s3" aria-label="Our solution">
+  <div class="pad">
+    <div class="split">
+      <div>
+        <div class="kicker">Our solution</div>
+        <h2>You are the <em>mission designer</em>.</h2>
+        <p class="lead">A free browser game, on computers and phones, in English or Portuguese. Nothing to install.</p>
+        <div class="steps">
+          <div class="step"><i>1</i><div><b>Design</b><span>Pick a target on Europa, a rocket, a trajectory and a crew, all inside a fixed budget.</span></div></div>
+          <div class="step"><i>2</i><div><b>Plan</b><span>Build the base, upgrade the submarine, choose instruments, balance power.</span></div></div>
+          <div class="step"><i>3</i><div><b>Dive</b><span>Pilot a submarine through four ocean zones in 3D, scan, go on EVAs, talk with the crew.</span></div></div>
+        </div>
+      </div>
+      <figure style="margin:0">
+        <img class="shot" src="img/design-map.jpg" alt="Mission design screen with a map of Europa and four landing targets">
+        <div class="cap">Real screen · choosing where to land on Europa</div>
+      </figure>
+    </div>
+  </div>
+  <div class="brand">Europa Abyss</div><div class="num">03 / 07</div>
+</section>
+
+<!-- 4 · HOW THE MISSION WORKS -->
+<section class="slide s4" aria-label="How the mission works">
+  <div class="pad">
+    <div class="kicker">How the mission works</div>
+    <h2>Every choice has a cost, and <em>the ocean remembers it</em>.</h2>
+    <div class="grid4">
+      <div class="card"><h3>Rocket · budget 200</h3>
+        <div class="row"><span>Atlas V 551</span><b><span class="good">35</span> · 12 t cargo</b></div>
+        <div class="row"><span>Falcon Heavy</span><b><span class="mid">55</span> · 18 t cargo</b></div>
+        <div class="row"><span>SLS Block 1</span><b><span class="bad">100</span> · 26 t cargo</b></div>
+      </div>
+      <div class="card"><h3>Trajectory</h3>
+        <div class="row"><span>Direct</span><b>2.7 yr · <span class="bad">65% cargo</span></b></div>
+        <div class="row"><span>Mars-Earth (MEGA)</span><b>5.5 yr · 100% cargo</b></div>
+        <div class="row"><span>Venus-Earth (VEEGA)</span><b>6.5 yr · <span class="good">115%</span>, tired crew</b></div>
+      </div>
+      <div class="card"><h3>In the ocean</h3>
+        <div class="row"><span>Resources</span><b>O₂ · energy · hull · morale</b></div>
+        <div class="row"><span>Events</span><b>random forest, 9 trees</b></div>
+        <div class="row"><span>Odds shaped by</span><b>your earlier choices</b></div>
+      </div>
+    </div>
+    <div class="strip">
+      <figure><img class="shot" src="img/design-rocket.jpg" alt="Rocket and trajectory selection screen"><div class="cap">Rocket and trajectory</div></figure>
+      <figure class="wide"><img class="shot" src="img/base.jpg" alt="3D base on the ice with module list"><div class="cap">Base on the ice</div></figure>
+      <figure class="wide"><img class="shot" src="img/dive.jpg" alt="3D submarine diving in Europa's ocean"><div class="cap">Dive · 4 zones, 20 to 98 km</div></figure>
+    </div>
+  </div>
+  <div class="brand">Europa Abyss</div><div class="num">04 / 07</div>
+</section>
+
+<!-- 5 · NASA SCIENCE -->
+<section class="slide s5" aria-label="NASA science inside">
+  <div class="pad">
+    <div class="split">
+      <div>
+        <div class="kicker">NASA science inside</div>
+        <h2>Fiction for the story. <em>Real data</em> for everything else.</h2>
+        <div class="facts">
+          <div class="fact"><div class="m">Europa Clipper<small>2024 → 2030</small></div><div>Launched on a Falcon Heavy and flies the Mars-Earth gravity assist. The game offers the same rocket and route.</div></div>
+          <div class="fact"><div class="m">Galileo<small>1995–2003</small></div><div>Magnetometer data gave the first strong evidence of a salty ocean.</div></div>
+          <div class="fact"><div class="m">Juno<small>2022 flyby</small></div><div>Measured about 29 km of ice in the region it observed.</div></div>
+          <div class="fact"><div class="m">Webb · Hubble</div><div>Carbon on the surface and signs of water vapor plumes.</div></div>
+        </div>
+        <p class="note">Every scan reveals one of these facts with its source. The full source list is in the project repository.</p>
+      </div>
+      <figure style="margin:0">
+        <img class="shot" src="img/dive-log.jpg" alt="Dive log showing a scenario, a NASA fact and a crew message">
+        <div class="cap">Real screen · dive log with a NASA fact</div>
+      </figure>
+    </div>
+  </div>
+  <div class="brand">Europa Abyss</div><div class="num">05 / 07</div>
+</section>
+
+<!-- 6 · IMPACT -->
+<section class="slide s6" aria-label="Impact">
+  <div class="pad">
+    <div class="split">
+      <div>
+        <div class="kicker">Impact</div>
+        <h2>The game <em>explains</em> why your mission worked, or didn't.</h2>
+        <div class="who">
+          <p><b>The final report reads the data for you.</b> "Two blackouts in a row. Engineering lesson: a power budget needs margin, just like real spacecraft."</p>
+          <p><b>A simulation lab for classrooms.</b> Five ready-made designs, 200 runs each, with charts and a plain-language verdict.</p>
+          <p><b>For middle and high school.</b> Academic tone, bilingual, works on phones, and an international crew that includes a wheelchair-using chief engineer.</p>
+        </div>
+      </div>
+      <div class="pair">
+        <figure style="margin:0"><img class="shot end" src="img/end.jpg" alt="End-of-mission report with grade, resource chart and interpretation"><div class="cap">Mission report</div></figure>
+        <div>
+          <figure style="margin:0"><img class="shot sim" src="img/sim.jpg" alt="Mission simulator with five presets and charts"><div class="cap">Simulator · 200 missions per design</div></figure>
+          <div class="bars"><h3>Success rate · 200 runs</h3>
+            <div class="bar"><span>The Clipper recipe</span><div><i style="width:96%;background:var(--green)"></i></div><b>96%</b></div>
+            <div class="bar"><span>Deep dive</span><div><i style="width:56%;background:var(--amber)"></i></div><b>~56%</b></div>
+            <div class="bar"><span>Too much saving</span><div><i style="width:1.5%;background:var(--red)"></i></div><b>0%</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brand">Europa Abyss</div><div class="num">06 / 07</div>
+</section>
+
+<!-- 7 · TRY IT -->
+<section class="slide s7" aria-label="Try it">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="kicker">Try it now</div>
+    <h2>Design your own mission to <em>Europa</em>.</h2>
+    <div class="links">
+      <div class="link"><span>Start here</span><a href="https://mars190-thegiant.github.io/Europa-deep/">mars190-thegiant.github.io/Europa-deep</a></div>
+      <div class="link"><span>Full game</span><a href="https://mars190-thegiant.github.io/Europa-deep/jogo.html">…/Europa-deep/jogo.html</a></div>
+      <div class="link"><span>Source code</span><a href="https://github.com/Mars190-theGiant/Europa-deep">github.com/Mars190-theGiant/Europa-deep</a></div>
+    </div>
+    <p class="built">Built with HTML5, JavaScript, Three.js, Canvas and the Web Audio API. Original adaptive soundtrack. Hosted on GitHub Pages. No login, no install.</p>
+  </div>
+  <div class="qr"><img src="img/qr.svg" alt="QR code linking to the game"><p>Scan to play</p></div>
+  <div class="brand">Europa Abyss</div><div class="num">07 / 07</div>
+</section>
+
+</main>
+
+<nav id="nav" aria-label="Slide navigation">
+  <button id="prev" aria-label="Previous slide">◂ Prev</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" aria-label="Next slide">Next ▸</button>
+  <a href="europa-abyss-demo.pdf" download>PDF</a>
+</nav>
+
+<script>
+(() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+  let i = 0;
+  slides.forEach((_, k) => { const d = document.createElement('i'); d.title = 'Slide ' + (k + 1); d.onclick = () => go(k); dots.appendChild(d); });
+  function fit() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); document.documentElement.style.setProperty('--s', s); slides.forEach(x => x.style.setProperty('--s', s)); }
+  function go(k) {
+    i = Math.max(0, Math.min(slides.length - 1, k));
+    slides.forEach((x, n) => x.classList.toggle('on', n === i));
+    [...dots.children].forEach((d, n) => d.classList.toggle('on', n === i));
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  addEventListener('resize', fit); fit();
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); go(i + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); go(i - 1); }
+    if (e.key === 'Home') go(0); if (e.key === 'End') go(slides.length - 1);
+  });
+  document.getElementById('prev').onclick = () => go(i - 1);
+  document.getElementById('next').onclick = () => go(i + 1);
+  let x0 = null;
+  addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+})();
+</script>
+</body>
+</html>
