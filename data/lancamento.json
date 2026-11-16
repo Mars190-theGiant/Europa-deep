@@ -1,0 +1,74 @@
+[
+ {
+  "id": "atlas",
+  "trajectory": false,
+  "name": "Atlas V 551",
+  "cost": 35,
+  "capacity": 12,
+  "years": 0,
+  "morale": 0,
+  "hull": 0,
+  "desc": "Foguete médio e confiável. Barato, mas leva pouca carga: vai faltar espaço para módulos e peças.",
+  "fact": "Dado real: um Atlas V 551 lançou a sonda Juno para Júpiter em 2011 e a New Horizons para Plutão em 2006."
+ },
+ {
+  "id": "falcon",
+  "trajectory": false,
+  "name": "Falcon Heavy",
+  "cost": 55,
+  "capacity": 18,
+  "years": 0,
+  "morale": 0,
+  "hull": 0,
+  "desc": "Três núcleos de foguete juntos, com propulsores que voltam e pousam. Bom equilíbrio entre preço e carga.",
+  "fact": "Dado real: um Falcon Heavy lançou a Europa Clipper em 14 de outubro de 2024. O contrato custou cerca de 178 milhões de dólares."
+ },
+ {
+  "id": "sls",
+  "trajectory": false,
+  "name": "SLS Block 1",
+  "cost": 100,
+  "capacity": 26,
+  "years": 0,
+  "morale": 0,
+  "hull": 0,
+  "desc": "O foguete mais potente da NASA. Leva muita carga e permite ir direto, mas consome metade da verba.",
+  "fact": "Dado real: a Europa Clipper ia voar num SLS. Em 2021 a NASA mudou para um foguete comercial, principalmente por custo, aceitando uma viagem mais longa."
+ },
+ {
+  "id": "direta",
+  "trajectory": true,
+  "name": "Trajetória direta",
+  "cost": 0,
+  "capacity": 0.65,
+  "years": 2.7,
+  "morale": 6,
+  "hull": 0,
+  "desc": "Vai reto para Júpiter. Chega rápido e a equipe chega descansada, mas gasta muita energia: só 65% da carga do foguete cabe.",
+  "fact": "Dado real: com o SLS, a Clipper chegaria a Júpiter em menos de 3 anos."
+ },
+ {
+  "id": "mega",
+  "trajectory": true,
+  "name": "Estilingue Marte-Terra (MEGA)",
+  "cost": 0,
+  "capacity": 1.0,
+  "years": 5.5,
+  "morale": -6,
+  "hull": -3,
+  "desc": "Passa por Marte e pela Terra para ganhar velocidade de graça com a gravidade. Leva 100% da carga, mas a viagem é longa.",
+  "fact": "Dado real: a Clipper passou por Marte em março de 2025 e passa pela Terra em dezembro de 2026. Chega a Júpiter em abril de 2030."
+ },
+ {
+  "id": "veega",
+  "trajectory": true,
+  "name": "Estilingue Vênus-Terra-Terra (VEEGA)",
+  "cost": 0,
+  "capacity": 1.15,
+  "years": 6.5,
+  "morale": -12,
+  "hull": -8,
+  "desc": "Três passagens por planetas. Leva ainda mais carga, mas o calor perto de Vênus e os anos de viagem desgastam a nave e a equipe.",
+  "fact": "Dado real: a sonda Galileo usou uma trajetória VEEGA. Foi lançada em 1989 e chegou a Júpiter em 1995."
+ }
+]

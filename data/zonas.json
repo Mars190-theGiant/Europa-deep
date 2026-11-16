@@ -1,0 +1,54 @@
+[
+ {
+  "name": "Interface gelo-oceano",
+  "short": "Interface",
+  "depthKm": 20.4,
+  "hullLoss": 1,
+  "moraleLoss": 1,
+  "fog": "#0a3a48",
+  "fogDensity": 0.04,
+  "ambient": "#2a6a7a",
+  "temp": "−2 °C",
+  "arrival": "O teto de gelo brilha no farol. Acima dele, 20 km de gelo até o vácuo e a base Conamara.",
+  "hullLevel": 0
+ },
+ {
+  "name": "Coluna d’água",
+  "short": "Coluna",
+  "depthKm": 52.0,
+  "hullLoss": 2,
+  "moraleLoss": 2,
+  "fog": "#06202c",
+  "fogDensity": 0.046,
+  "ambient": "#1a4656",
+  "temp": "−1 °C",
+  "arrival": "Nem chão, nem teto. Água escura em todas as direções, cheia de pontinhos de luz.",
+  "hullLevel": 0
+ },
+ {
+  "name": "Campo hidrotermal",
+  "short": "Campo",
+  "depthKm": 97.8,
+  "hullLoss": 3,
+  "moraleLoss": 2,
+  "fog": "#1a100c",
+  "fogDensity": 0.038,
+  "ambient": "#5a3a28",
+  "temp": "+14 °C",
+  "arrival": "O termômetro sobe. Torres de minerais soltam água quente do fundo.",
+  "hullLevel": 0
+ },
+ {
+  "name": "Fenda abissal",
+  "short": "Fenda",
+  "depthKm": 112.6,
+  "hullLoss": 5,
+  "moraleLoss": 4,
+  "fog": "#030c12",
+  "fogDensity": 0.05,
+  "ambient": "#14303c",
+  "temp": "+3 °C",
+  "arrival": "O fundo se abre numa fenda enorme. O sonar demora para voltar.",
+  "hullLevel": 1
+ }
+]

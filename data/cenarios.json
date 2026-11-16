@@ -1,0 +1,697 @@
+[
+ {
+  "id": "rachadura",
+  "speaker": "anja",
+  "title": "Rachadura no teto",
+  "text": "O sonar mostra uma rachadura nova no teto de gelo, bem em cima do poço do cryobot. Água salgada está subindo por ela.",
+  "tags": [
+   "gelo",
+   "risco"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 1,
+  "minCycle": 1,
+  "prefs": [
+   {
+    "feature": 0,
+    "high": false,
+    "mult": 2
+   }
+  ],
+  "choices": [
+   {
+    "label": "Coletar a salmoura",
+    "result": "Vocês coletam a salmoura com o braço robótico. Ela tem sal e gás carbônico, como o Webb viu na superfície.",
+    "science": 14,
+    "hull": -4,
+    "next": "rachadura2"
+   },
+   {
+    "label": "Reforçar o poço",
+    "result": "A Anja instala escoras no poço. Custa verba, mas o caminho de volta fica seguro.",
+    "budget": -12,
+    "hull": 4
+   },
+   {
+    "label": "Só registrar e seguir",
+    "result": "Vocês anotam a posição e seguem. A equipe da Terra vai analisar as imagens.",
+    "science": 4
+   }
+  ]
+ },
+ {
+  "id": "rachadura2",
+  "speaker": "sayaka",
+  "title": "Amostra de salmoura",
+  "text": "A amostra está a −3 °C e não congela, de tão salgada. Quer gastar energia do laboratório para analisar agora ou mandar os dados brutos para a Terra?",
+  "tags": [
+   "gelo",
+   "quimica"
+  ],
+  "branchOnly": true,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Analisar agora",
+    "result": "A análise mostra cloreto de sódio e carbonatos. Isso indica que a água veio de baixo, do oceano.",
+    "energy": -10,
+    "science": 12,
+    "setFlag": "salmoura"
+   },
+   {
+    "label": "Mandar para a Terra",
+    "result": "Os dados chegam à Terra 45 minutos depois. A equipe de lá agradece e libera verba.",
+    "budget": 10
+   }
+  ]
+ },
+ {
+  "id": "jangada",
+  "speaker": "jaciara",
+  "title": "Bloco girando",
+  "text": "Um bloco de gelo do tamanho de um ônibus está girando devagar, preso por baixo do teto. A corrente que gira o bloco pode explicar Conamara Chaos.",
+  "tags": [
+   "gelo",
+   "corrente"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 1,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Medir a corrente",
+    "result": "A Jaciara solta boias com sensores. A corrente é lenta, mas constante: 4 cm por segundo.",
+    "energy": -6,
+    "science": 12
+   },
+   {
+    "label": "Filmar e seguir",
+    "result": "Um vídeo bonito para a Terra. Escolas do mundo todo assistem.",
+    "budget": 6,
+    "morale": 3
+   }
+  ]
+ },
+ {
+  "id": "corrente",
+  "speaker": "jaciara",
+  "title": "Corrente forte",
+  "text": "A corrente aumentou de repente. Dá para usar a corrente para economizar energia ou sair dela para ficar seguro.",
+  "tags": [
+   "corrente",
+   "agua",
+   "risco"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": true,
+  "baseWeight": 1,
+  "minZone": 1,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [
+   {
+    "feature": 5,
+    "high": false,
+    "mult": 2
+   }
+  ],
+  "choices": [
+   {
+    "label": "Pegar carona na corrente",
+    "result": "Os motores desligam e a corrente leva vocês. Energia economizada, mas o casco raspa numa saliência.",
+    "energy": 12,
+    "hull": -6
+   },
+   {
+    "label": "Sair da corrente",
+    "result": "Vocês saem com cuidado. Gasta energia, mas ninguém se machuca.",
+    "energy": -8
+   },
+   {
+    "label": "Lançar boia de medição",
+    "result": "A boia segue a corrente e manda dados por horas. Ótimo para a ciência.",
+    "energy": -4,
+    "science": 10,
+    "needBudget": 5,
+    "budget": -5
+   }
+  ]
+ },
+ {
+  "id": "salinidade",
+  "speaker": "jaciara",
+  "title": "Água em camadas",
+  "text": "Os sensores mostram água doce por cima de água salgada, como num estuário. Isso não era esperado.",
+  "tags": [
+   "agua",
+   "quimica"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 1,
+  "maxZone": 2,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Mapear as camadas",
+    "result": "Vocês sobem e descem medindo. O mapa mostra água derretida do gelo se misturando devagar com o oceano.",
+    "energy": -8,
+    "science": 16,
+    "setFlag": "camadas"
+   },
+   {
+    "label": "Avisar a base e seguir",
+    "result": "A Lúcia repassa para a Terra. Bom achado, pouco gasto.",
+    "science": 5
+   }
+  ]
+ },
+ {
+  "id": "pluma",
+  "speaker": "noor",
+  "title": "Sinal de jato",
+  "text": "A antena da base captou um pico de vapor de água acima da superfície. Pode ser um jato ativo agora mesmo!",
+  "tags": [
+   "quimica",
+   "radiacao",
+   "comunicacao"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 2,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Apontar a antena para o jato",
+    "result": "A base desvia a antena por um ciclo. O espectro mostra água e sal: parece mesmo vir do oceano.",
+    "science": 18,
+    "budget": -6,
+    "next": "pluma2"
+   },
+   {
+    "label": "Manter o canal com a Terra",
+    "result": "Vocês mantêm a rotina de dados. A Terra registra o evento pelos telescópios.",
+    "budget": 6
+   }
+  ]
+ },
+ {
+  "id": "pluma2",
+  "speaker": "lucia",
+  "title": "Jato confirmado?",
+  "text": "LÚCIA: Os dados do jato estão lindos. Publicamos já, ou esperamos mais um ciclo para confirmar?",
+  "tags": [
+   "quimica"
+  ],
+  "branchOnly": true,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Esperar e confirmar",
+    "result": "Ciência boa é ciência confirmada. No ciclo seguinte, o segundo jato confirma o primeiro.",
+    "science": 10,
+    "morale": 2
+   },
+   {
+    "label": "Publicar agora",
+    "result": "A notícia corre o mundo e a verba aumenta. Mas um cientista na Terra pede mais dados.",
+    "budget": 14,
+    "morale": 4
+   }
+  ]
+ },
+ {
+  "id": "tempestade",
+  "speaker": "noor",
+  "title": "Tempestade de radiação",
+  "text": "Júpiter está soltando uma tempestade de partículas. A base na superfície vai receber uma dose alta.",
+  "tags": [
+   "radiacao",
+   "risco",
+   "comunicacao"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 2,
+  "prefs": [
+   {
+    "feature": 1,
+    "high": true,
+    "mult": 2
+   }
+  ],
+  "choices": [
+   {
+    "label": "Proteger os eletrônicos",
+    "result": "Tudo desligado e protegido. Um ciclo sem dados, mas sem estragos.",
+    "energy": -6,
+    "budget": -4
+   },
+   {
+    "label": "Arriscar e medir",
+    "result": "Os instrumentos medem a tempestade. Dados raros, mas uma placa da antena queima.",
+    "science": 14,
+    "budget": -14
+   }
+  ]
+ },
+ {
+  "id": "fonte",
+  "speaker": "sayaka",
+  "title": "Fonte nova",
+  "text": "O termômetro detectou água a 60 °C saindo do chão, longe das chaminés conhecidas. Uma fonte hidrotermal nova!",
+  "tags": [
+   "fundo",
+   "vida"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 2,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Chegar bem perto",
+    "result": "Imagens incríveis e amostras de minerais, mas o calor estressa o casco.",
+    "science": 22,
+    "hull": -8,
+    "next": "fonte2"
+   },
+   {
+    "label": "Medir de longe",
+    "result": "Sensores à distância: menos detalhe, zero risco.",
+    "science": 10,
+    "energy": -4
+   }
+  ]
+ },
+ {
+  "id": "fonte2",
+  "speaker": "sayaka",
+  "title": "Tapete de micróbios?",
+  "text": "Em volta da fonte, uma camada laranja cobre a rocha. Pode ser um tapete de micróbios ou só minerais. Como testar sem contaminar?",
+  "tags": [
+   "vida",
+   "fundo"
+  ],
+  "branchOnly": true,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Usar o kit esterilizado",
+    "result": "O kit custa caro, mas a amostra é limpa. O resultado vai para a Terra com selo de confiança.",
+    "budget": -10,
+    "science": 20,
+    "setFlag": "amostra_limpa"
+   },
+   {
+    "label": "Só fotografar",
+    "result": "Proteção planetária em primeiro lugar. As fotos já ajudam a planejar a próxima missão.",
+    "science": 8,
+    "morale": 3
+   }
+  ]
+ },
+ {
+  "id": "sedimento",
+  "speaker": "anja",
+  "title": "Filtro entupido",
+  "text": "Sedimento fino entrou nos propulsores. Dá para limpar agora ou continuar com menos potência.",
+  "tags": [
+   "fundo",
+   "risco"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": true,
+  "baseWeight": 1,
+  "minZone": 2,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [
+   {
+    "feature": 3,
+    "high": false,
+    "mult": 2
+   }
+  ],
+  "choices": [
+   {
+    "label": "Limpar agora",
+    "result": "A Anja limpa os filtros. Perdem tempo, mas o motor volta ao normal.",
+    "energy": -8,
+    "needCrew": "anja",
+    "hull": 2
+   },
+   {
+    "label": "Seguir assim",
+    "result": "O motor esquenta e gasta mais. Vai precisar de reparo depois.",
+    "energy": -14
+   }
+  ]
+ },
+ {
+  "id": "cansaco",
+  "speaker": "adwoa",
+  "title": "Equipe cansada",
+  "text": "A equipe está dormindo pouco. A Adwoa sugere um ciclo mais leve, com refeição juntos e menos trabalho.",
+  "tags": [
+   "equipe"
+  ],
+  "branchOnly": false,
+  "once": false,
+  "duringDive": false,
+  "baseWeight": 0.8,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [
+   {
+    "feature": 2,
+    "high": false,
+    "mult": 3
+   }
+  ],
+  "choices": [
+   {
+    "label": "Aceitar a pausa",
+    "result": "Todo mundo come junto, conta histórias de casa e dorme. A moral sobe.",
+    "morale": 14,
+    "energy": 4
+   },
+   {
+    "label": "Manter o ritmo",
+    "result": "Mais trabalho, mais dados, mas a equipe sente.",
+    "science": 8,
+    "morale": -6
+   }
+  ]
+ },
+ {
+  "id": "aniversario",
+  "speaker": "adwoa",
+  "title": "Aniversário a bordo",
+  "text": "Hoje é aniversário da Jaciara! A Adwoa guardou um bolo de caneca escondido há meses.",
+  "tags": [
+   "equipe"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 3,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Festa!",
+    "result": "Uma festa pequena com luzes da cabine piscando. A Terra manda vídeos de parabéns.",
+    "morale": 12
+   },
+   {
+    "label": "Comemorar depois",
+    "result": "Ficou para depois. A Jaciara entende, mas fica um silêncio.",
+    "morale": 2
+   }
+  ]
+ },
+ {
+  "id": "escola",
+  "speaker": "noor",
+  "title": "Pergunta de uma escola",
+  "text": "Uma escola de Fortaleza mandou uma pergunta: “Se tiver vida em Europa, ela é parecida com a da Terra?”. Responder usa banda de dados.",
+  "tags": [
+   "comunicacao",
+   "equipe"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Responder em vídeo",
+    "result": "A Sayaka grava uma resposta. Milhões assistem, e a NASA libera verba para divulgação.",
+    "budget": 10,
+    "morale": 6,
+    "energy": -2
+   },
+   {
+    "label": "Responder por texto depois",
+    "result": "Economiza banda. A resposta vai no pacote do próximo ciclo.",
+    "morale": 2
+   }
+  ]
+ },
+ {
+  "id": "verba",
+  "speaker": "lucia",
+  "title": "Corte de verba",
+  "text": "LÚCIA: Más notícias da Terra: o orçamento do ano ficou menor. Precisamos devolver parte da verba ou adiar um módulo.",
+  "tags": [
+   "comunicacao"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 3,
+  "prefs": [
+   {
+    "feature": 4,
+    "high": true,
+    "mult": 2.5
+   }
+  ],
+  "choices": [
+   {
+    "label": "Devolver verba",
+    "result": "Doeu, mas a missão segue completa.",
+    "budget": -18
+   },
+   {
+    "label": "Mostrar resultados",
+    "result": "Vocês mandam um relatório caprichado. Se a ciência for boa, a Terra reconsidera.",
+    "science": 0,
+    "budget": -6,
+    "morale": -2,
+    "next": "verba2"
+   }
+  ]
+ },
+ {
+  "id": "verba2",
+  "speaker": "lucia",
+  "title": "Relatório enviado",
+  "text": "LÚCIA: Eles leram o relatório. Querem saber: a missão vai priorizar ciência ou segurança daqui para frente?",
+  "tags": [
+   "comunicacao"
+  ],
+  "branchOnly": true,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Ciência",
+    "result": "A Terra devolve parte da verba, mas espera mais descobertas.",
+    "budget": 12,
+    "morale": -2,
+    "setFlag": "foco_ciencia"
+   },
+   {
+    "label": "Segurança",
+    "result": "A Terra aprova o plano cauteloso. Menos verba, mais tranquilidade.",
+    "budget": 4,
+    "morale": 6
+   }
+  ]
+ },
+ {
+  "id": "baleia",
+  "speaker": "jaciara",
+  "title": "Luzes ao longe",
+  "text": "Uma nuvem enorme de pontos de luz azul passa devagar ao longe. O sonar mede uns 40 m. Pode ser um organismo, uma colônia ou sedimento brilhante.",
+  "tags": [
+   "vida",
+   "agua"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": true,
+  "baseWeight": 1,
+  "minZone": 1,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Seguir em silêncio",
+    "result": "Motores no mínimo. Vocês acompanham as luzes por meia hora. Ninguém fala nada; não precisa.",
+    "energy": -6,
+    "science": 14,
+    "morale": 8
+   },
+   {
+    "label": "Registrar e manter a rota",
+    "result": "O registro vai para o diário. Talvez uma próxima missão volte aqui.",
+    "science": 5
+   }
+  ]
+ },
+ {
+  "id": "pane",
+  "speaker": "anja",
+  "title": "Pane no gerador",
+  "text": "O gerador do submarino está oscilando. Dá para trocar uma peça agora, usando verba, ou improvisar.",
+  "tags": [
+   "risco"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 1,
+  "prefs": [
+   {
+    "feature": 5,
+    "high": false,
+    "mult": 2.5
+   }
+  ],
+  "choices": [
+   {
+    "label": "Trocar a peça",
+    "result": "Peça nova instalada. Tudo estável.",
+    "budget": -10,
+    "energy": 10
+   },
+   {
+    "label": "Improvisar com o que tem",
+    "result": "A Anja usa peças da impressora 3D. Funciona, mais ou menos.",
+    "energy": 4,
+    "hull": -3
+   }
+  ]
+ },
+ {
+  "id": "comandante",
+  "speaker": "daniel",
+  "title": "Decisão do capitão",
+  "text": "DANIEL: A missão está bem adiantada. Dá para arriscar uma descida mais funda ou consolidar o que já temos. O que você recomenda, cadete?",
+  "tags": [
+   "risco",
+   "fundo"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 3,
+  "minCycle": 4,
+  "prefs": [
+   {
+    "feature": 6,
+    "high": true,
+    "mult": 2
+   }
+  ],
+  "choices": [
+   {
+    "label": "Arriscar",
+    "result": "O capitão sorri. “Então vamos com cuidado.” A equipe fica animada, mas o casco vai sentir.",
+    "morale": 6,
+    "hull": -6,
+    "science": 10
+   },
+   {
+    "label": "Consolidar",
+    "result": "“Boa leitura”, diz o capitão. Vocês revisam os dados e encontram detalhes que tinham passado.",
+    "science": 8,
+    "morale": 3
+   }
+  ]
+ },
+ {
+  "id": "gelo_fino",
+  "speaker": "anja",
+  "title": "Gelo mais fino",
+  "text": "O radar mostra que o gelo aqui tem só 3 km em um ponto. Um lugar ótimo para a próxima missão furar.",
+  "tags": [
+   "gelo",
+   "agua"
+  ],
+  "branchOnly": false,
+  "once": true,
+  "duringDive": false,
+  "baseWeight": 1,
+  "minZone": 0,
+  "maxZone": 1,
+  "minCycle": 2,
+  "prefs": [],
+  "choices": [
+   {
+    "label": "Marcar no mapa",
+    "result": "O ponto entra no mapa da missão. A NASA adora.",
+    "science": 10,
+    "budget": 4
+   }
+  ]
+ }
+]

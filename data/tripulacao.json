@@ -1,0 +1,407 @@
+[
+ {
+  "id": "daniel",
+  "name": "Capitão Daniel Barnard",
+  "short": "Daniel",
+  "role": "Comandante da missão",
+  "origin": "Nashville, Estados Unidos",
+  "salary": 0,
+  "perk": "None",
+  "perkText": "lidera a missão",
+  "color": "#5a7fa8",
+  "bio": "Ex-oficial da Marinha dos EUA e piloto de submarinos de pesquisa por 25 anos. Fala pouco, ouve muito e anota tudo num caderno de papel. O sobrenome é o mesmo de E. E. Barnard, o astrônomo que descobriu Amalteia, uma lua de Júpiter, em 1892.",
+  "greeting": "Bem-vind{o} a bordo, cadete. Aqui ninguém sabe tudo. Por isso a gente trabalha junto.",
+  "mandatory": true,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Liderança",
+    "lines": [
+     "Quando eu comecei, comandante era quem gritava mais alto. Hoje eu sei que é quem pergunta mais.",
+     "Metade das melhores ideias desta missão veio de quem tem menos de 30 anos. Experiência serve para reconhecer uma boa ideia, não para ter todas."
+    ]
+   },
+   {
+    "title": "Galileo",
+    "lines": [
+     "A sonda Galileo foi lançada em 1989 e chegou a Júpiter em 1995. Eu era criança e colei a foto de Europa na parede do quarto.",
+     "Em 2003 a NASA mergulhou a Galileo em Júpiter de propósito, para ela nunca cair em Europa e contaminar o oceano. Isso se chama proteção planetária."
+    ]
+   },
+   {
+    "title": "Trocas de engenharia",
+    "lines": [
+     "Todo projeto é uma troca. Casco mais grosso pesa mais, e peso custa foguete. Foguete maior custa verba. Não existe escolha grátis.",
+     "A Europa Clipper ia voar num SLS, direto para Júpiter. A NASA trocou pelo Falcon Heavy, bem mais barato, e aceitou uma viagem mais longa. Boa engenharia é isso."
+    ]
+   }
+  ],
+  "missionLines": {
+   "pwyll": "Fundo do oceano, mais de 100 km de água em cima. Vamos com calma e com o casco forte."
+  },
+  "mass": 0.6
+ },
+ {
+  "id": "johann",
+  "name": "Johann Mayr",
+  "short": "Johann",
+  "role": "Vice-comandante",
+  "origin": "Ansbach, Alemanha",
+  "salary": 15,
+  "perk": "Command",
+  "perkText": "emergências custam menos: −30% de dano em decisões de risco",
+  "color": "#5a7fa8",
+  "bio": "Vice-comandante e especialista em procedimentos de emergência. Conhece cada checklist de cor e gosta de repetir: calma primeiro, pressa depois.",
+  "greeting": "Checklist feito, cadete? Então podemos ter um bom dia.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "O nome Europa",
+    "lines": [
+     "Quem deu o nome Europa a esta lua foi Simon Mayr, um astrônomo alemão da cidade onde eu nasci. Ele observou as luas de Júpiter na mesma época de Galileu, em 1610.",
+     "Galileu chamava as quatro luas de “estrelas de Médici”. Os nomes de Mayr, Io, Europa, Ganimedes e Calisto, só pegaram séculos depois."
+    ]
+   },
+   {
+    "title": "Emergências",
+    "lines": [
+     "Numa emergência, ninguém pensa bem. Por isso a gente pensa antes e escreve num checklist.",
+     "A tripulação da Apollo 13 voltou para casa em 1970 porque a equipe em terra e a nave trabalharam juntas, passo a passo."
+    ]
+   },
+   {
+    "title": "Segundo no comando",
+    "lines": [
+     "Ser vice é discordar do capitão em particular e apoiar em público. O Daniel me paga um café por cada erro que eu acho nos planos dele.",
+     "Ele já me deve uns quarenta cafés."
+    ]
+   }
+  ],
+  "missionLines": {},
+  "mass": 0.6
+ },
+ {
+  "id": "adwoa",
+  "name": "Comissária Adwoa Mensah",
+  "short": "Adwoa",
+  "role": "Comissária de bordo e bem-estar",
+  "origin": "Kumasi, Gana",
+  "salary": 15,
+  "perk": "Morale",
+  "perkText": "−2 de moral perdida por ciclo, conversas rendem mais",
+  "color": "#ffc46a",
+  "bio": "Cuida da rotina, da comida, do sono e do humor de todo mundo. Usa sempre uma faixa com padrão kente, tecido tradicional de Gana. Antes de Europa, coordenou equipes em estações de pesquisa no deserto e no gelo.",
+  "greeting": "Oi, querid{o}! Já comeu? Em missão longa, quem cuida da equipe cuida da missão.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Primeira da família",
+    "lines": [
+     "Eu fui a primeira pessoa da minha família a entrar numa universidade. Minha avó vendia tecido no mercado de Kumasi e sabia fazer conta de cabeça mais rápido que qualquer calculadora.",
+     "Talento existe em todo lugar. Oportunidade é que não. Por isso eu dou aula on-line para meninas de Gana quando a gente tem banda sobrando."
+    ]
+   },
+   {
+    "title": "Ciência na África",
+    "lines": [
+     "Em 2017, estudantes da All Nations University construíram o GhanaSat-1, o primeiro satélite de Gana. Ele foi solto da Estação Espacial Internacional.",
+     "Hoje vários países africanos têm agências espaciais. A pergunta “quem pode ir ao espaço?” está mudando de resposta."
+    ]
+   },
+   {
+    "title": "Cuidar da equipe",
+    "lines": [
+     "Na Antártida aprendi: o maior risco de uma missão longa não é o frio. É a equipe parar de conversar.",
+     "Dormir, comer junto, rir de besteira. Parece pouco, mas a NASA estuda isso a sério em missões simuladas, como a HERA e a CHAPEA."
+    ]
+   }
+  ],
+  "missionLines": {
+   "conamara": "Missão boa para a primeira vez da equipe. Vamos criar rotina desde o primeiro dia."
+  },
+  "mass": 0.6
+ },
+ {
+  "id": "anja",
+  "name": "Engenheira-chefe Anja Keppler",
+  "short": "Anja",
+  "role": "Engenharia e manutenção",
+  "origin": "Munique, Alemanha",
+  "salary": 20,
+  "perk": "Repair",
+  "perkText": "reparar rende +10% e a doca conserta mais",
+  "color": "#6dffb0",
+  "bio": "Projetou braços robóticos para satélites. Na Terra usa cadeira de rodas; no fundo do oceano de Europa, flutua como todo mundo.",
+  "greeting": "Se fizer barulho estranho, me chama. Se não fizer barulho nenhum, me chama também.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Acessibilidade",
+    "lines": [
+     "Na água e no espaço, pernas fazem pouca diferença. O que faz diferença é a nave ter apoios, alças e comandos ao alcance de todos.",
+     "Em 2022 a Agência Espacial Europeia selecionou John McFall, que usa prótese na perna, para estudar como pessoas com deficiência podem voar ao espaço. Eu chorei quando vi a notícia."
+    ]
+   },
+   {
+    "title": "Pressão",
+    "lines": [
+     "Lá no fundo, a pressão passa de mil vezes a da superfície da Terra. Cada parafuso deste casco foi testado numa câmara hiperbárica.",
+     "Titânio é leve e forte, mas é caro. Aço é barato, mas pesado. Escolher material é escolher onde você vai gastar."
+    ]
+   },
+   {
+    "title": "Engenharia é escolha",
+    "lines": [
+     "Uma regra de engenheira: tudo que você adiciona pesa, gasta energia ou quebra. De preferência só uma das três coisas.",
+     "A Europa Clipper tem um cofre de alumínio e zinco para proteger os eletrônicos da radiação. Ele pesa, mas sem ele a sonda não sobrevive."
+    ]
+   }
+  ],
+  "missionLines": {
+   "conamara": "Gelo que se move quer dizer forças enormes. Vou ficar de olho no casco."
+  },
+  "mass": 0.6
+ },
+ {
+  "id": "sayaka",
+  "name": "Dra. Sayaka Hoshino",
+  "short": "Sayaka",
+  "role": "Astrobióloga",
+  "origin": "Sapporo, Japão",
+  "salary": 20,
+  "perk": "Science",
+  "perkText": "+20% de dados por scan",
+  "color": "#b49cff",
+  "bio": "Estuda micróbios que vivem em gelo e em fontes quentes. Coleciona fotos de neve ao microscópio desde os 10 anos.",
+  "greeting": "Konnichiwa! Cada gota de água daqui pode ter uma resposta. Ou mais perguntas, o que também é ótimo.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Hayabusa2",
+    "lines": [
+     "A sonda japonesa Hayabusa2 trouxe para a Terra pedaços do asteroide Ryugu em dezembro de 2020. Acharam aminoácidos, que são peças das proteínas.",
+     "Pegar uma amostra a bilhões de km e trazer de volta intacta. Eu estudo esse feito até hoje."
+    ]
+   },
+   {
+    "title": "JUICE",
+    "lines": [
+     "A Europa Clipper não está sozinha. A sonda JUICE, da Agência Espacial Europeia, foi lançada em 2023 e chega a Júpiter em 2031. O Japão ajudou a construir instrumentos dela.",
+     "Ciência de verdade é colaboração entre países. Ninguém chega a Júpiter sozinho."
+    ]
+   },
+   {
+    "title": "O que é vida?",
+    "lines": [
+     "Para a vida como conhecemos, precisamos de água líquida, química certa e energia. Europa pode ter as três.",
+     "Encontrar vida não é achar um peixe. Pode ser uma molécula, um padrão químico. Por isso medir com cuidado é mais importante que procurar monstros."
+    ]
+   }
+  ],
+  "missionLines": {
+   "pwyll": "Fontes hidrotermais! Na Terra, elas sustentam vida sem luz do Sol. Estou ansiosa."
+  },
+  "mass": 0.6
+ },
+ {
+  "id": "jaciara",
+  "name": "Jaciara Potiguara",
+  "short": "Jaciara",
+  "role": "Oceanógrafa e piloto",
+  "origin": "Baía da Traição, Paraíba, Brasil",
+  "salary": 15,
+  "perk": "Contact",
+  "perkText": "+10% de chance de contato, navegar custa −1",
+  "color": "#7fff9a",
+  "bio": "Indígena do povo Potiguara, usa traços de urucum no rosto em dias importantes. Aprendeu a ler correntes no litoral da Paraíba antes de aprender a ler mapas, e depois pilotou robôs no fundo do Atlântico.",
+  "greeting": "A água fala, cadete. A gente só precisa aprender a escutar.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Saber ancestral",
+    "lines": [
+     "Meu avô sabia a hora da maré pelo cheiro do vento. A ciência mede com sensores; os povos do mar mediam com o corpo e com a memória. As duas coisas ensinam.",
+     "Muita gente acha que conhecimento indígena é coisa do passado. É conhecimento de agora, que observa a natureza há milhares de anos."
+    ]
+   },
+   {
+    "title": "Oceanos",
+    "lines": [
+     "A Terra tem um oceano por cima e rocha por baixo. Europa tem gelo por cima, oceano no meio e rocha no fundo. Talvez o dobro de toda a água da Terra.",
+     "Correntes de Europa devem ser movidas por calor do fundo e pela maré de Júpiter. Por isso eu meço temperatura e sal o tempo todo."
+    ]
+   },
+   {
+    "title": "Respeito",
+    "lines": [
+     "Antes de entrar no mar, minha família pede licença. Eu faço isso aqui também, em silêncio. Somos visitantes.",
+     "Proteção planetária é isso em linguagem de agência espacial: não sujar o lugar dos outros, mesmo que seja só um micróbio."
+    ]
+   }
+  ],
+  "missionLines": {
+   "thera": "Um lago dentro do gelo... a água deve circular de um jeito que ninguém nunca mediu."
+  },
+  "mass": 0.6
+ },
+ {
+  "id": "noor",
+  "name": "Dra. Noor Manoukian",
+  "short": "Noor",
+  "role": "Médica e comunicações",
+  "origin": "Beirute, Líbano",
+  "salary": 15,
+  "perk": "Comms",
+  "perkText": "+6 de verba por ciclo (mais dados chegam à Terra)",
+  "color": "#8fd3ff",
+  "bio": "Médica de emergência e radioamadora, de família armênio-libanesa. Cuida da saúde da equipe e do canal de dados com a Terra, que leva até 53 minutos para chegar.",
+  "greeting": "Pressão arterial boa, sinal com a Terra bom. Hoje é um dia bom.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Estrelas árabes",
+    "lines": [
+     "Muitas estrelas têm nomes árabes: Aldebaran quer dizer “a seguidora”, Altair é “a águia que voa”. Astrônomos de Bagdá e de Damasco mapearam o céu há mais de mil anos.",
+     "Quando eu era pequena, meu pai me mostrava essas estrelas do terraço. Agora eu mando dados para elas, quase."
+    ]
+   },
+   {
+    "title": "Atraso do rádio",
+    "lines": [
+     "Uma mensagem daqui até a Terra leva entre 33 e 53 minutos. Se der problema, a gente não pode esperar a resposta. Precisa decidir sozinho.",
+     "Por isso a comunicação conta no projeto: antena maior manda mais dados, e mais dados geram mais ciência e mais verba."
+    ]
+   },
+   {
+    "title": "Saúde",
+    "lines": [
+     "Radiação, frio, isolamento, pouca luz. Meu trabalho é perceber o cansaço antes de vocês mesmos perceberem.",
+     "Diversidade na equipe também é segurança. Pessoas diferentes percebem riscos diferentes."
+    ]
+   }
+  ],
+  "missionLines": {
+   "plumas": "Se os jatos vêm do oceano, a gente prova aqui embaixo e a Clipper confirma lá de cima."
+  },
+  "mass": 0.6
+ },
+ {
+  "id": "lucia",
+  "name": "Lúcia Mourão",
+  "short": "Lúcia",
+  "role": "Controle da missão (base Conamara)",
+  "origin": "Salvador, Bahia, Brasil",
+  "salary": 0,
+  "perk": "None",
+  "perkText": "fala pelo rádio, sempre",
+  "color": "#ff9a5a",
+  "bio": "Coordena tudo da base na superfície, 20 km acima. Conhece cada número do submarino e cada pessoa da equipe pelo nome.",
+  "greeting": "TÉTIS-7, aqui é a Lúcia. Te escuto alto e claro.",
+  "mandatory": true,
+  "atBase": true,
+  "topics": [
+   {
+    "title": "Controle da missão",
+    "lines": [
+     "Eu vejo seus números, mas não vejo o que você vê. Por isso descreve tudo. Palavras também são dados.",
+     "Em Salvador a gente diz que ninguém faz nada sozinho. Aqui é igual, só que a 20 km de gelo de distância."
+    ]
+   },
+   {
+    "title": "Superfície",
+    "lines": [
+     "Aqui em cima faz −170 °C e Júpiter ocupa um pedaço enorme do céu. A radiação é tão forte que a base fica enterrada no gelo.",
+     "O cabo de fibra que liga a gente tem 20 km. Ele leva energia, dados e, às vezes, música."
+    ]
+   }
+  ],
+  "missionLines": {},
+  "mass": 0
+ },
+ {
+  "id": "mikolaj",
+  "name": "Mikołaj Wolski",
+  "short": "Mikołaj",
+  "role": "Geofísico e perfuração do gelo",
+  "origin": "Cracóvia, Polônia",
+  "salary": 15,
+  "perk": "Drill",
+  "perkText": "descer e subir custam −2, gelo machuca menos o casco",
+  "color": "#d23c3c",
+  "bio": "Passou seis invernos perfurando gelo na Antártida e na Groenlândia. Fala devagar, como quem conta camadas de gelo.",
+  "greeting": "Cada metro de gelo é um ano de história. Aqui embaixo, talvez milhões.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Perfuração",
+    "lines": [
+     "Na Antártida, o projeto do Lago Vostok perfurou mais de 3,7 km de gelo para chegar a um lago escondido. Levou décadas.",
+     "Um cryobot como o nosso derrete o gelo em vez de cortar. É lento, mas não precisa de uma torre de perfuração gigante."
+    ]
+   },
+   {
+    "title": "Marie Curie",
+    "lines": [
+     "Maria Skłodowska-Curie nasceu em Varsóvia e ganhou dois prêmios Nobel, em física e em química. Ela não pôde estudar na universidade da Polônia por ser mulher.",
+     "Quando alguém diz que um lugar não é para você, lembra dela."
+    ]
+   },
+   {
+    "title": "Camadas",
+    "lines": [
+     "O gelo guarda bolhas de ar de quando ele se formou. Na Terra, assim a gente lê o clima de 800 mil anos atrás.",
+     "Em Europa, as camadas podem contar como o oceano subiu e desceu pelo gelo."
+    ]
+   }
+  ],
+  "missionLines": {},
+  "mass": 0.6
+ },
+ {
+  "id": "jihoon",
+  "name": "Jang Ji-hoon",
+  "short": "Ji-hoon",
+  "role": "Robótica, sonar e drones",
+  "origin": "Daejeon, Coreia do Sul",
+  "salary": 15,
+  "perk": "Sonar",
+  "perkText": "sonar grátis, scan custa −1 e +5% de contato",
+  "color": "#8a6cff",
+  "bio": "Programa robôs submarinos desde a faculdade. Usa um visor de dados no olho esquerdo e conversa com os drones como se fossem animais de estimação.",
+  "greeting": "Pode me chamar de Ji-hoon. Os drones já estão na água, cadete.",
+  "mandatory": false,
+  "atBase": false,
+  "topics": [
+   {
+    "title": "Danuri",
+    "lines": [
+     "Em 2022 a Coreia do Sul mandou a sonda Danuri para a órbita da Lua. Ela leva uma câmera da NASA para fotografar crateras sempre na sombra, onde pode haver gelo.",
+     "Daejeon, minha cidade, é chamada de cidade da ciência. Cresci vendo robôs em feira de escola."
+    ]
+   },
+   {
+    "title": "Sonar",
+    "lines": [
+     "O sonar manda um som e escuta o eco. Golfinhos e morcegos fazem isso há milhões de anos; a gente copiou.",
+     "Na água o som anda a uns 1.500 metros por segundo, quatro vezes mais rápido que no ar."
+    ]
+   },
+   {
+    "title": "Robôs e gente",
+    "lines": [
+     "Robô bom não substitui a equipe. Ele vai aonde é perigoso para a gente ir e traz de volta o que a gente precisa ver.",
+     "Nossos drones têm nomes: Bori, Hana e Pipoca. O Pipoca foi ideia da Jaciara."
+    ]
+   }
+  ],
+  "missionLines": {},
+  "mass": 0.6
+ }
+]

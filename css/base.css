@@ -1,0 +1,36 @@
+/* Abismo de Europa · estilos compartilhados (página inicial e jogo) */
+:root {
+  --bg: #04090f; --bg2: #08131c; --panel: rgba(9, 22, 32, .86); --panel2: rgba(14, 32, 46, .92);
+  --line: rgba(127, 224, 255, .16); --grid: rgba(255, 255, 255, .08);
+  --ink: #e6f2f5; --muted: #8fa9b4; --dim: #5d7580;
+  --teal: #5fe0d0; --cyan: #7fe0ff; --amber: #ffc46a; --orange: #ff9a5a; --green: #7fff9a; --red: #ff6a5a; --violet: #b49cff;
+  --o2: #7fe0ff; --energy: #ffc46a; --hull: #c9d4dc; --morale: #ff9ac8; --budget: #7fff9a; --science: #b49cff;
+  --radius: 14px; --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --safe-l: env(safe-area-inset-left, 0px); --safe-r: env(safe-area-inset-right, 0px); --safe-t: env(safe-area-inset-top, 0px); --safe-b: env(safe-area-inset-bottom, 0px);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+a { color: var(--cyan); }
+button { font: inherit; color: inherit; cursor: pointer; }
+.btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line); background: var(--panel2); color: var(--ink); padding: 10px 16px; border-radius: 999px; font-weight: 600; letter-spacing: .01em; transition: transform .15s, background .15s, border-color .15s; touch-action: manipulation; }
+.btn:hover:not(:disabled) { border-color: var(--cyan); transform: translateY(-1px); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn.primary { background: linear-gradient(135deg, #2bd1c0, #3aa0ff); color: #02121a; border-color: transparent; }
+.btn.warm { background: linear-gradient(135deg, #ffc46a, #ff8a4a); color: #1a0c02; border-color: transparent; }
+.btn.ghost { background: transparent; }
+.btn.small { padding: 6px 12px; font-size: 13px; }
+.chip { border: 1px solid var(--line); background: rgba(8, 20, 30, .7); color: var(--muted); padding: 7px 13px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.chip.on { color: #02121a; background: var(--cyan); border-color: var(--cyan); }
+.kicker { font: 600 12px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--teal); }
+.muted { color: var(--muted); }
+.tag { display: inline-block; font: 700 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 4px 7px; border-radius: 6px; background: rgba(127, 224, 255, .12); color: var(--cyan); }
+.tag.bom { background: rgba(127, 255, 154, .14); color: var(--green); }
+.tag.arriscado, .tag.atenção { background: rgba(255, 196, 106, .15); color: var(--amber); }
+.tag.frágil { background: rgba(255, 106, 90, .16); color: var(--red); }
+.tag.troca { background: rgba(180, 156, 255, .15); color: var(--violet); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+canvas.chart { width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

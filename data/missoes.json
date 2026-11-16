@@ -1,0 +1,127 @@
+[
+ {
+  "id": "conamara",
+  "name": "Gelo que se move",
+  "site": "Conamara Chaos",
+  "map": [
+   0.24,
+   0.55
+  ],
+  "color": "#7fe0ff",
+  "difficulty": "Fácil",
+  "budget": 200,
+  "scans": 5,
+  "requiredZones": [
+   0,
+   1
+  ],
+  "focusZones": [
+   0
+  ],
+  "desc": "Placas de gelo quebradas, giradas e congeladas de novo, como icebergs presos. Um bom lugar para descer: o gelo pode ser mais fino aqui.",
+  "question": "O oceano troca material com a superfície de Europa?",
+  "fact": "A sonda Galileo fotografou Conamara Chaos em 1997. As placas se encaixam como um quebra-cabeça desmontado, sinal de que se moveram sobre algo mole ou líquido.",
+  "src": "NASA/JPL · Galileo",
+  "win": "Os dados mostram sal e gás carbônico subindo pelas fraturas do gelo. Sua missão reforça a ideia de que o oceano conversa com a superfície, e é isso que a Europa Clipper vai medir de perto.",
+  "bias": {
+   "gelo": 2.2,
+   "quimica": 1.4,
+   "equipe": 1.2
+  }
+ },
+ {
+  "id": "thera",
+  "name": "Lago dentro do gelo",
+  "site": "Thera Macula",
+  "map": [
+   0.5,
+   0.24
+  ],
+  "color": "#9fb8ff",
+  "difficulty": "Normal",
+  "budget": 190,
+  "scans": 6,
+  "requiredZones": [
+   0,
+   1,
+   2
+  ],
+  "focusZones": [
+   1
+  ],
+  "desc": "Uma região escura e abaulada no hemisfério sul. Pode haver um lago de água líquida preso dentro da casca de gelo, a poucos quilômetros da superfície.",
+  "question": "Existem lagos de água líquida dentro da casca de gelo?",
+  "fact": "Em 2011, um estudo publicado na revista Nature (Schmidt e colegas) comparou Thera Macula com vulcões sob gelo da Antártida e da Islândia e propôs um lago a uns 3 km de profundidade.",
+  "src": "Nature (2011) · dados da Galileo",
+  "win": "Você mediu correntes e salinidade que combinam com água subindo e descendo pela casca de gelo. A hipótese do lago de Thera ganhou evidências, e o radar REASON da Clipper vai poder confirmá-la.",
+  "bias": {
+   "agua": 2.2,
+   "corrente": 1.6,
+   "comunicacao": 1.2
+  }
+ },
+ {
+  "id": "plumas",
+  "name": "Jatos de vapor",
+  "site": "Região polar sul",
+  "map": [
+   0.44,
+   0.14
+  ],
+  "color": "#b49cff",
+  "difficulty": "Normal",
+  "budget": 185,
+  "scans": 6,
+  "requiredZones": [
+   0,
+   1,
+   2
+  ],
+  "focusZones": [
+   0,
+   2
+  ],
+  "desc": "O Hubble viu sinais de jatos de água saindo do sul de Europa. Se eles vêm do oceano, dá para estudar o oceano pelo espaço.",
+  "question": "Os jatos levam água do oceano até o espaço?",
+  "fact": "O Hubble registrou possíveis plumas em 2012 e em 2014–2016. Em 2019, o telescópio Keck, no Havaí, mediu vapor de água sobre Europa: uns 2.360 kg por segundo, o bastante para encher uma piscina olímpica em minutos.",
+  "src": "NASA · Hubble · Keck (2019)",
+  "win": "As amostras de sal e de vapor batem com a química do oceano profundo. A sua missão mostra que, se os jatos existirem, eles são uma janela para o oceano, sem precisar furar o gelo.",
+  "bias": {
+   "quimica": 2.2,
+   "radiacao": 1.6,
+   "gelo": 1.2
+  }
+ },
+ {
+  "id": "pwyll",
+  "name": "Fontes do fundo",
+  "site": "Abaixo da cratera Pwyll",
+  "map": [
+   0.25,
+   0.36
+  ],
+  "color": "#ff9a5a",
+  "difficulty": "Difícil",
+  "budget": 215,
+  "scans": 6,
+  "requiredZones": [
+   0,
+   2,
+   3
+  ],
+  "focusZones": [
+   2,
+   3
+  ],
+  "desc": "Pwyll é uma das crateras mais jovens de Europa. Bem abaixo dela, no fundo do oceano, pode haver fontes hidrotermais como as da Terra.",
+  "question": "O fundo do oceano de Europa tem energia química para a vida?",
+  "fact": "Na Terra, as fontes hidrotermais do fundo do mar sustentam ecossistemas inteiros sem luz do Sol. Elas foram descobertas em 1977 pelo submarino Alvin, perto das Ilhas Galápagos.",
+  "src": "NOAA · WHOI (Alvin, 1977)",
+  "win": "Você encontrou água quente, minerais e química que poderiam alimentar vida, como nas fontes da Terra. A sua missão não prova que há vida, mas mostra que a energia existe. Essa é a pergunta que move a astrobiologia.",
+  "bias": {
+   "fundo": 2.4,
+   "risco": 1.6,
+   "vida": 1.6
+  }
+ }
+]

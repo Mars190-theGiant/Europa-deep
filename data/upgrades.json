@@ -1,0 +1,104 @@
+[
+ {
+  "id": "Hull",
+  "name": "Casco de titânio",
+  "costs": [
+   25,
+   40
+  ],
+  "mass": [
+   0.8,
+   1.2
+  ],
+  "effects": [
+   "−1 de dano de pressão, libera a Fenda abissal",
+   "−2 de dano de pressão"
+  ],
+  "desc": "Placas extras de titânio. Sem o primeiro nível, o submersível não aguenta descer até a Fenda abissal."
+ },
+ {
+  "id": "Battery",
+  "name": "Baterias",
+  "costs": [
+   20,
+   35
+  ],
+  "mass": [
+   0.7,
+   1.1
+  ],
+  "effects": [
+   "energia máxima 120",
+   "energia máxima 140"
+  ],
+  "desc": "Mais células de lítio no compartimento de lastro."
+ },
+ {
+  "id": "Thrusters",
+  "name": "Propulsores",
+  "costs": [
+   20,
+   35
+  ],
+  "mass": [
+   0.7,
+   1.1
+  ],
+  "effects": [
+   "navegar e mudar de zona custa −2",
+   "custa −4"
+  ],
+  "desc": "Hélices maiores, com menos atrito. Gastam menos energia para o mesmo caminho."
+ },
+ {
+  "id": "Scanner",
+  "name": "Scanner espectral",
+  "costs": [
+   25,
+   40
+  ],
+  "mass": [
+   0.8,
+   1.2
+  ],
+  "effects": [
+   "scan custa −2 e rende +25% dados",
+   "scan custa −4 e rende +50%"
+  ],
+  "desc": "Lê a luz refletida em centenas de cores, como os espectrômetros das sondas."
+ },
+ {
+  "id": "Floodlight",
+  "name": "Farol de LED",
+  "costs": [
+   15,
+   30
+  ],
+  "mass": [
+   0.6,
+   1.0
+  ],
+  "effects": [
+   "+5% de chance de contato, −1 de moral perdida",
+   "+10% de chance, −2"
+  ],
+  "desc": "Uma luz mais forte e mais quente. O escuro pesa menos."
+ },
+ {
+  "id": "Airlock",
+  "name": "Eclusa e traje EVA",
+  "costs": [
+   20,
+   25
+  ],
+  "mass": [
+   0.9,
+   0.4
+  ],
+  "effects": [
+   "libera a EVA (sair do submarino)",
+   "traje com +40% de oxigênio"
+  ],
+  "desc": "Uma câmara que se enche de água para a tripulação sair e caminhar no fundo. O traje é como os das caminhadas espaciais da ISS, adaptado para pressão."
+ }
+]

@@ -1,0 +1,42 @@
+{
+ "facts": [
+  "Dado real (NASA): Europa tem cerca de 3.100 km de diâmetro, um pouco menos que a Lua da Terra.",
+  "Dado real: Galileu Galilei descobriu Europa em janeiro de 1610, junto com Io, Ganimedes e Calisto.",
+  "Dado real (NASA): um sinal de rádio leva de 33 a 53 minutos para ir de Júpiter até a Terra.",
+  "Dado real (NASA): na superfície de Europa a temperatura nunca passa de −160 °C, nem no equador.",
+  "Dado real: a gravidade em Europa é de 1,3 m/s², cerca de 13% da gravidade da Terra.",
+  "Dado real (NASA): com os painéis solares abertos, a Europa Clipper tem uns 30 m de ponta a ponta. É a maior sonda que a NASA já fez para uma missão planetária.",
+  "Dado real (NASA): a Europa Clipper passou por Marte em março de 2025 para ganhar velocidade, e passa pela Terra em dezembro de 2026 a caminho de Júpiter.",
+  "Dado real (NASA): Júpiter tem mais de 90 luas conhecidas. Europa é a quarta maior.",
+  "Dado real (NASA): a Europa Clipper vai sobrevoar Europa em vez de orbitá-la, para passar pouco tempo dentro do cinturão de radiação de Júpiter."
+ ],
+ "baseCalm": [
+  "LÚCIA (base Conamara): Recebi seus dados. Aqui em cima o gelo está a −170 °C, e aí embaixo você tem água líquida. Ainda acho isso incrível.",
+  "LÚCIA: Júpiter está enorme no céu hoje. Parece que vai cair em cima da base. Queria que você visse.",
+  "LÚCIA: O cabo de fibra está firme. São 20 km de gelo entre a gente, mas você está a um “oi” de distância.",
+  "LÚCIA: Respira devagar. Conta as bolhas se precisar. Eu conto com você.",
+  "LÚCIA: Sabia que a gente é a primeira gente a ouvir esse oceano? Grava tudo. Até o silêncio."
+ ],
+ "baseWorried": [
+  "LÚCIA: Seu batimento subiu nos últimos ciclos. Está tudo bem aí?",
+  "LÚCIA: Você está há muito tempo no escuro. Que tal subir um pouco e descansar?",
+  "LÚCIA: Vocês dormiram bem? O médico da Terra pediu os dados de sono da equipe.",
+  "LÚCIA: Não desce mais do que precisa, tá? Só o necessário."
+ ],
+ "baseTired": [
+  "LÚCIA: A equipe está cansada. Que tal um ciclo mais leve? Descansar também é parte da missão.",
+  "LÚCIA: A Adwoa sugeriu uma pausa para todo mundo comer junto. Missão longa se vence com rotina.",
+  "LÚCIA: Lembra: ninguém aqui precisa ser herói sozinho. Divide as tarefas."
+ ],
+ "mystery": [
+  "O hidrofone captou um som grave e longo vindo de longe. A Sayaka anota: na Terra, sons assim viajam milhares de km no canal SOFAR do oceano.",
+  "A câmera externa mostra luzes azuis muito longe. Bioluminescência? Na Terra, cerca de 75% dos animais do mar profundo produzem luz.",
+  "Uma nuvem de partículas brilhantes passa devagar. A Jaciara mede a corrente: 3 cm por segundo, quase parada."
+ ],
+ "eva": {
+  "Interface": "O teto de gelo de Europa pode ter entre 15 e 25 km. O radar REASON da Europa Clipper vai medir essa espessura. (NASA)",
+  "Coluna": "O oceano de Europa pode ter de 60 a 150 km de profundidade, muito mais fundo que a Fossa das Marianas (11 km). (NASA)",
+  "Campo": "Na Terra, fontes hidrotermais sustentam vida sem luz do Sol, usando energia química. Foram descobertas em 1977 pelo submarino Alvin. (WHOI)",
+  "Fenda": "A gravidade de Júpiter estica e aperta Europa a cada 3,5 dias. Esse atrito gera o calor que mantém o oceano líquido. (NASA)"
+ }
+}

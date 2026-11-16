@@ -1,0 +1,106 @@
+[
+ {
+  "id": "Lab",
+  "name": "Laboratório",
+  "cost": 30,
+  "effect": "+50% dados por scan",
+  "desc": "Uma cúpula com microscópios e sequenciadores. As amostras sobem pelo cabo e viram artigos científicos.",
+  "color": "#7fe0ff",
+  "slot": [
+   -6,
+   2
+  ],
+  "mass": 2.2
+ },
+ {
+  "id": "Greenhouse",
+  "name": "Estufa de algas",
+  "cost": 25,
+  "effect": "−5% de O2 gasto por ciclo",
+  "desc": "Algas sob luz artificial produzem oxigênio extra, que desce pelo cabo junto com a energia.",
+  "color": "#7fff9a",
+  "slot": [
+   6,
+   2
+  ],
+  "mass": 2.0
+ },
+ {
+  "id": "Rtg",
+  "name": "Gerador RTG",
+  "cost": 35,
+  "effect": "+6 energia por ciclo",
+  "desc": "Um gerador termoelétrico de radioisótopo, como os das sondas Voyager e do rover Perseverance.",
+  "color": "#ffb040",
+  "slot": [
+   -7,
+   -5
+  ],
+  "mass": 2.4
+ },
+ {
+  "id": "Antenna",
+  "name": "Antena de alto ganho",
+  "cost": 20,
+  "effect": "+8 de verba por ciclo",
+  "desc": "Mais dados chegam à Terra, mais gente acompanha a missão e a NASA libera mais verba.",
+  "color": "#e8f6ff",
+  "slot": [
+   7,
+   -5
+  ],
+  "mass": 1.8
+ },
+ {
+  "id": "Commons",
+  "name": "Módulo de convivência",
+  "cost": 20,
+  "effect": "conversar rende +5 de moral, −1 de perda por ciclo",
+  "desc": "Cozinha, música e uma janela para Júpiter. A equipe da base fica mais perto de você.",
+  "color": "#ffd08a",
+  "slot": [
+   -2.5,
+   7
+  ],
+  "mass": 1.8
+ },
+ {
+  "id": "RepairDock",
+  "name": "Doca de manutenção",
+  "cost": 30,
+  "effect": "+10% casco por ciclo na Interface",
+  "desc": "Robôs descem pelo poço do cryobot e soldam o casco quando você está perto do gelo.",
+  "color": "#c0c8d0",
+  "slot": [
+   2.5,
+   7
+  ],
+  "mass": 2.2
+ },
+ {
+  "id": "SonarStation",
+  "name": "Estação de sonar",
+  "cost": 25,
+  "effect": "sonar grátis e contato garantido",
+  "desc": "Hidrofones presos no gelo triangulam os sinais do oceano e guiam o submersível.",
+  "color": "#9fb8ff",
+  "slot": [
+   0,
+   -8
+  ],
+  "mass": 2.0
+ },
+ {
+  "id": "Quarters",
+  "name": "Alojamento ampliado",
+  "cost": 20,
+  "effect": "+4 de moral por ciclo para toda a equipe",
+  "desc": "Beliches, chuveiro e um canto silencioso. Em missões longas, dormir bem é questão de segurança.",
+  "color": "#ffa0c8",
+  "slot": [
+   -9,
+   8
+  ],
+  "mass": 1.8
+ }
+]

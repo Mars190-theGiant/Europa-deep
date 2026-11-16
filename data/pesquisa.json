@@ -1,0 +1,74 @@
+[
+ {
+  "id": "Reason",
+  "instrument": "REASON",
+  "name": "Radar de gelo",
+  "cost": 20,
+  "effect": "+15% de chance de achar contato ao navegar",
+  "fact": "O REASON é um radar que manda ondas de rádio através do gelo de Europa para medir a espessura da camada e procurar bolsões de água líquida lá dentro.",
+  "src": "NASA · Europa Clipper"
+ },
+ {
+  "id": "EThemis",
+  "instrument": "E-THEMIS",
+  "name": "Mapa térmico",
+  "cost": 20,
+  "effect": "recarga na fonte dá +45 energia e só −3% casco",
+  "fact": "O E-THEMIS é uma câmera de infravermelho térmico. Ela procura regiões mais quentes na superfície, que podem indicar água perto do gelo ou erupções recentes.",
+  "src": "NASA · Europa Clipper / Arizona State University"
+ },
+ {
+  "id": "Mise",
+  "instrument": "MISE",
+  "name": "Espectrômetro de mapeamento",
+  "cost": 25,
+  "effect": "+25% de dados em todos os scans",
+  "fact": "O MISE analisa a luz infravermelha refletida por Europa para identificar sais, gelos e compostos orgânicos na superfície.",
+  "src": "NASA/JPL · Europa Clipper"
+ },
+ {
+  "id": "Ecm",
+  "instrument": "ECM",
+  "name": "Magnetômetro",
+  "cost": 15,
+  "effect": "dano de correntes cai pela metade",
+  "fact": "O magnetômetro da Europa Clipper (ECM) fica na ponta de uma haste de 8,5 m. Ele mede o campo magnético induzido para estimar a profundidade e a salinidade do oceano.",
+  "src": "NASA · Europa Clipper"
+ },
+ {
+  "id": "Maspex",
+  "instrument": "MASPEX",
+  "name": "Espectrômetro de massa",
+  "cost": 20,
+  "effect": "eletrólise rende +26% de O2",
+  "fact": "O MASPEX mede a composição dos gases perto de Europa, incluindo os que podem vir de plumas do oceano.",
+  "src": "NASA · Europa Clipper / SwRI"
+ },
+ {
+  "id": "EuropaUvs",
+  "instrument": "Europa-UVS",
+  "name": "Caçador de plumas",
+  "cost": 35,
+  "effect": "+1 turno por ciclo",
+  "fact": "O Europa-UVS observa em luz ultravioleta para procurar plumas de vapor de água e estudar a atmosfera fina de Europa.",
+  "src": "NASA · Europa Clipper / SwRI"
+ },
+ {
+  "id": "Eis",
+  "instrument": "EIS",
+  "name": "Câmeras de mapeamento",
+  "cost": 15,
+  "effect": "+4 de verba por scan (as imagens viram divulgação)",
+  "fact": "O EIS tem uma câmera grande-angular e uma de ângulo estreito. Juntas, vão mapear quase toda a superfície de Europa com detalhes de até 100 m.",
+  "src": "NASA · Europa Clipper / APL"
+ },
+ {
+  "id": "Gravity",
+  "instrument": "Gravidade e rádio",
+  "name": "Previsão de marés",
+  "cost": 25,
+  "effect": "eventos ruins ficam 40% menos frequentes",
+  "fact": "Medindo pequenas mudanças no sinal de rádio da sonda, a equipe calcula quanto Europa se deforma com as marés de Júpiter, o que revela o que existe lá dentro.",
+  "src": "NASA · Europa Clipper"
+ }
+]

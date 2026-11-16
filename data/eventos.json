@@ -1,0 +1,253 @@
+[
+ {
+  "weight": 2,
+  "kind": "Warn",
+  "sfx": "Clank",
+  "lines": [
+   "Uma corrente forte jogou a TÉTIS-7 contra a rocha."
+  ],
+  "minZone": 1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": -6,
+  "hullRandom": 6,
+  "morale": 0,
+  "budget": 0,
+  "isCurrent": true,
+  "negative": true,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 1,
+  "kind": "Warn",
+  "sfx": "None",
+  "lines": [
+   "A célula de eletrólise travou por horas. O2 −8%."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": -8,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": true,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 1,
+  "kind": "Warn",
+  "sfx": "Alarm",
+  "lines": [
+   "Curto-circuito no barramento principal. Energia −10."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": -10,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": true,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Good",
+  "sfx": "Bubbles",
+  "lines": [
+   "Um cardume de luzes azuis passou devagar pela janela. Por alguns minutos você esqueceu da profundidade."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 5,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": false,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Warn",
+  "sfx": "Creak",
+  "lines": [
+   "O gelo estalou bem acima de você, alto como um trovão. Casco −5%."
+  ],
+  "minZone": -1,
+  "exactZone": 0,
+  "o2": 0,
+  "energy": 0,
+  "hull": -5,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": true,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Warn",
+  "sfx": "Creak",
+  "lines": [
+   "O casco rangeu o ciclo inteiro. Aqui a pressão passa de {bar} bar."
+  ],
+  "minZone": 2,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": -4,
+  "hullRandom": 0,
+  "morale": -2,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": true,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Strange",
+  "sfx": "Knock",
+  "lines": [
+   "Três estalos no casco: é o metal se ajustando à água fria. A Anja explica que o titânio encolhe um pouco a cada grau."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": false,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Good",
+  "sfx": "None",
+  "lines": [
+   "TERRA (atraso de 41 min): Recebemos suas imagens. A sala de controle inteira ficou em silêncio olhando para elas.",
+   "TERRA (atraso de 47 min): Sua família mandou um áudio. Está no pacote de dados. Ouça quando puder.",
+   "TERRA (atraso de 35 min): Os dados do casco estão bons. Continue com calma."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 6,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": false,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Good",
+  "sfx": "Swell",
+  "lines": [
+   "O hidrofone captou um som grave e longo vindo de longe. A Sayaka anota: na Terra, sons assim viajam milhares de km no canal SOFAR do oceano.",
+   "A câmera externa mostra luzes azuis muito longe. Bioluminescência? Na Terra, cerca de 75% dos animais do mar profundo produzem luz.",
+   "Uma nuvem de partículas brilhantes passa devagar. A Jaciara mede a corrente: 3 cm por segundo, quase parada."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 4,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": false,
+  "countsAnomaly": true
+ },
+ {
+  "weight": 1,
+  "kind": "Warn",
+  "sfx": "None",
+  "lines": [
+   "Sedimento fino entupiu o filtro do propulsor. Energia −8."
+  ],
+  "minZone": -1,
+  "exactZone": 3,
+  "o2": 0,
+  "energy": -8,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": true,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 2,
+  "kind": "Sys",
+  "sfx": "None",
+  "lines": [
+   "Ciclo calmo. Só o zumbido do gerador e as bolhas."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 3,
+  "budget": 0,
+  "isCurrent": false,
+  "negative": false,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 1,
+  "kind": "Good",
+  "sfx": "Build",
+  "lines": [
+   "A NASA gostou dos seus relatórios e liberou uma verba extra para a missão. +15 de verba."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": 15,
+  "isCurrent": false,
+  "negative": false,
+  "countsAnomaly": false
+ },
+ {
+  "weight": 1,
+  "kind": "Warn",
+  "sfx": "Alarm",
+  "lines": [
+   "Uma tempestade de radiação de Júpiter atingiu a base. Os reparos na superfície custaram 10 de verba."
+  ],
+  "minZone": -1,
+  "exactZone": -1,
+  "o2": 0,
+  "energy": 0,
+  "hull": 0,
+  "hullRandom": 0,
+  "morale": 0,
+  "budget": -10,
+  "isCurrent": false,
+  "negative": true,
+  "countsAnomaly": false
+ }
+]
