@@ -3,9 +3,19 @@ import { loadDB } from './engine.js';
 import { PRESETS, simulate, interpret, REASON_TEXT } from './sim.js';
 import { lineChart, barChart, stackBar } from './charts.js';
 import { Stage, GlobeScene } from './world3d.js';
+import { EN, tr, applyStatic } from './i18n.js';
+
+applyStatic();
+const num = (v, d) => EN ? v.toFixed(d) : v.toFixed(d).replace('.', ',');
+const TONE = EN ? { bom: 'good', arriscado: 'risky', 'atenção': 'warning', 'frágil': 'fragile', troca: 'trade-off', leitura: 'reading' } : {};
 
 const $ = s => document.querySelector(s);
-const FILTERS = {
+const FILTERS = EN ? {
+  real: 'Natural color, approximate: bright ice streaked with <b>lineae</b>, reddish fractures where salt and other compounds from the ocean may have reached the surface.',
+  realce: 'Enhanced color, like the Galileo and Juno mosaics: the exaggerated contrast shows the purest ice in blue and the fractures and chaos terrain in reddish brown.',
+  termico: 'Illustrative: what searching for warmer spots with Europa Clipper’s <b>E-THEMIS</b> thermal camera might look like. Warm regions may point to water near the surface.',
+  corte: 'Inside (NASA model): an ice shell 15 to 25 km thick, a salty ocean 60 to 150 km deep, a rocky mantle and an iron core. Drag to rotate.',
+} : {
   real: 'Cor natural, aproximada: gelo claro riscado por <b>lineae</b>, fraturas avermelhadas onde sal e outros compostos do oceano podem ter chegado à superfície.',
   realce: 'Cor realçada, como os mosaicos da Galileo e da Juno: o contraste exagerado mostra o gelo mais puro em azul e as fraturas e o terreno caótico em marrom-avermelhado.',
   termico: 'Ilustrativo: como seria procurar pontos mais quentes com a câmera térmica <b>E-THEMIS</b> da Europa Clipper. Regiões quentes podem indicar água perto da superfície.',
@@ -66,7 +76,7 @@ for (const p of PRESETS) {
   const L = db.L[p.rocket], Tj = db.L[p.trajectory], M = db.M[p.mission];
   const b = document.createElement('button');
   b.className = 'preset'; b.dataset.id = p.id;
-  b.innerHTML = `<b>${p.name}</b><span class="spec">${M.site} · ${L.name}<br>${Tj.name.replace('Estilingue ', '')}</span><p>${p.pitch}</p><span class="pct" data-pct>simular ▸<i><s style="width:0"></s></i></span>`;
+  b.innerHTML = `<b>${p.name}</b><span class="spec">${M.site} · ${L.name}<br>${Tj.name.replace('Estilingue ', '').replace(' slingshot', '').replace('Slingshot ', '')}</span><p>${p.pitch}</p><span class="pct" data-pct>${tr('simular', 'simulate')} ▸<i><s style="width:0"></s></i></span>`;
   b.addEventListener('click', () => show(p.id, true));
   presetsEl.appendChild(b);
 }
@@ -74,7 +84,7 @@ function runPreset(p) {
   if (!results[p.id]) results[p.id] = simulate(db, p, 200, 1);
   const r = results[p.id];
   const el = presetsEl.querySelector(`[data-id="${p.id}"] [data-pct]`);
-  el.innerHTML = `${Math.round(r.winRate * 100)}% de sucesso<i><s style="width:${r.winRate * 100}%;background:${r.winRate >= 0.7 ? 'var(--green)' : r.winRate >= 0.4 ? 'var(--amber)' : 'var(--red)'}"></s></i>`;
+  el.innerHTML = `${Math.round(r.winRate * 100)}% ${tr('de sucesso', 'success')}<i><s style="width:${r.winRate * 100}%;background:${r.winRate >= 0.7 ? 'var(--green)' : r.winRate >= 0.4 ? 'var(--amber)' : 'var(--red)'}"></s></i>`;
   return r;
 }
 function show(id, scroll) {
@@ -83,17 +93,17 @@ function show(id, scroll) {
   $('#result').hidden = false;
   $('#r-win').textContent = Math.round(r.winRate * 100) + '%';
   $('#r-win').style.color = r.winRate >= 0.7 ? 'var(--green)' : r.winRate >= 0.4 ? 'var(--amber)' : 'var(--red)';
-  $('#r-cyc').textContent = r.avgCycles.toFixed(1).replace('.', ',');
+  $('#r-cyc').textContent = num(r.avgCycles, 1);
   $('#r-score').textContent = Math.round(r.avgScore);
-  $('#r-scans').textContent = r.avgScans.toFixed(1).replace('.', ',');
+  $('#r-scans').textContent = num(r.avgScans, 1);
   $('#r-play').href = 'jogo.html?projeto=' + p.id;
-  const xs = r.avg.map(a => a.cycle === 1 ? 'início' : a.cycle - 1);
+  const xs = r.avg.map(a => a.cycle === 1 ? tr('início', 'start') : a.cycle - 1);
   const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   lineChart($('#c-lines'), xs, [
     { label: 'O₂', color: cssv('--o2'), values: r.avg.map(a => a.o2) },
-    { label: 'Energia', color: cssv('--energy'), values: r.avg.map(a => Math.min(100, a.energy)) },
-    { label: 'Casco', color: cssv('--hull'), values: r.avg.map(a => a.hull) },
-    { label: 'Moral', color: cssv('--morale'), values: r.avg.map(a => a.morale) },
+    { label: tr('Energia', 'Energy'), color: cssv('--energy'), values: r.avg.map(a => Math.min(100, a.energy)) },
+    { label: tr('Casco', 'Hull'), color: cssv('--hull'), values: r.avg.map(a => a.hull) },
+    { label: tr('Moral', 'Morale'), color: cssv('--morale'), values: r.avg.map(a => a.morale) },
   ], { height: 230, danger: 25 });
   const order = ['win', 'time', 'o2', 'hull', 'energy', 'morale'];
   const parts = order.filter(k => r.reasons[k]).map(k => ({ label: REASON_TEXT[k], value: r.reasons[k], color: REASON_COLOR[k] }));
@@ -103,7 +113,7 @@ function show(id, scroll) {
   for (const q of PRESETS) runPreset(q);
   barChart($('#c-bars'), PRESETS.map(q => ({ label: q.name, value: results[q.id].winRate, max: 1, text: Math.round(results[q.id].winRate * 100) + '%', active: q.id === id,
     color: q.id === id ? 'var(--amber)' : 'rgba(127,224,255,.45)' })).map(i => Object.assign(i, { color: i.color.startsWith('var') ? cssv(i.color.slice(4, -1)) : i.color })), { max: 1 });
-  $('#interp').innerHTML = interpret(r, p, db).map(x => `<div><span class="tag ${x.tone}">${x.tone}</span>${x.text}</div>`).join('');
+  $('#interp').innerHTML = interpret(r, p, db).map(x => `<div><span class="tag ${x.tone}">${TONE[x.tone] || x.tone}</span>${x.text}</div>`).join('');
   if (scroll) $('#result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 // roda o primeiro projeto quando o simulador aparecer na tela
@@ -112,7 +122,12 @@ io.observe($('#simulador'));
 let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { const on = presetsEl.querySelector('.preset.on'); if (on) show(on.dataset.id, false); }, 200); });
 
 // ------------------------------------------------------------------ quiz
-const QUIZ = [
+const QUIZ = EN ? [
+  { q: 'Europa Clipper was going to fly on an SLS, straight to Jupiter. Why did NASA switch to a Falcon Heavy?', o: ['The SLS could not carry the probe’s weight', 'Cost: the Falcon Heavy was much cheaper, even with a longer trip', 'The Falcon Heavy is faster than the SLS'], a: 1, why: 'The switch was mainly about cost. In exchange, Clipper does a “slingshot” at Mars (2025) and Earth (2026) and only reaches Jupiter in 2030. In the game, that is the MEGA trajectory.' },
+  { q: 'Why will Europa Clipper fly past Europa 49 times instead of orbiting it?', o: ['To spend little time inside Jupiter’s radiation belt', 'Because Europa does not have enough gravity', 'To save landing fuel'], a: 0, why: 'Europa’s surface receives about 5.4 sieverts of radiation per day. Passing quickly and moving away protects the electronics, which also sit inside an aluminum and zinc vault.' },
+  { q: 'Which Galileo measurement was the best clue that a salty ocean lies under the ice?', o: ['Photos of fish on the surface', 'An induced magnetic field that changes along with Jupiter’s', 'A temperature of 30 °C at the equator'], a: 1, why: 'Salty water conducts electricity. Galileo’s magnetometer measured an induced field at Europa, and the simplest explanation is a layer of salty water under the ice.' },
+  { q: 'In 2003, NASA crashed the Galileo probe into Jupiter on purpose. Why?', o: ['To measure Jupiter’s atmosphere until the end', 'So it would never fall on Europa and contaminate an ocean that might have life', 'Because it was running out of fuel and there was no other option'], a: 1, why: 'This is called planetary protection: not carrying microbes from Earth to a place that may have life. In the game, some scenario choices revolve around this same idea.' },
+] : [
   { q: 'A Europa Clipper ia voar num SLS, direto para Júpiter. Por que a NASA trocou por um Falcon Heavy?', o: ['O SLS não aguentava o peso da sonda', 'Custo: o Falcon Heavy era bem mais barato, mesmo com uma viagem mais longa', 'O Falcon Heavy é mais rápido que o SLS'], a: 1, why: 'A troca foi principalmente por custo. Em troca, a Clipper faz um “estilingue” em Marte (2025) e na Terra (2026) e só chega a Júpiter em 2030. No jogo, essa é a trajetória MEGA.' },
   { q: 'Por que a Europa Clipper vai sobrevoar Europa 49 vezes em vez de ficar em órbita dela?', o: ['Para passar pouco tempo dentro do cinturão de radiação de Júpiter', 'Porque Europa não tem gravidade suficiente', 'Para economizar combustível de pouso'], a: 0, why: 'A superfície de Europa recebe cerca de 5,4 sievert de radiação por dia. Passar rápido e se afastar protege os eletrônicos, que ainda ficam num cofre de alumínio e zinco.' },
   { q: 'Qual medição da sonda Galileo foi a melhor pista de que existe um oceano salgado sob o gelo?', o: ['Fotos de peixes na superfície', 'Um campo magnético induzido, que muda junto com o de Júpiter', 'A temperatura de 30 °C no equador'], a: 1, why: 'Água salgada conduz eletricidade. O magnetômetro da Galileo mediu um campo induzido em Europa, e a explicação mais simples é uma camada de água salgada embaixo do gelo.' },
@@ -122,17 +137,17 @@ let qi = 0, score = 0;
 function renderQuiz() {
   const box = $('#quiz-box');
   if (qi >= QUIZ.length) {
-    box.innerHTML = `<p class="kicker">Resultado</p><p class="quiz-q">${score} de ${QUIZ.length} certas. ${score === QUIZ.length ? 'Pronta(o) para projetar a próxima missão.' : 'As respostas estão todas no jogo, em cada scan e em cada conversa com a equipe.'}</p><div class="cta"><a class="btn primary" href="jogo.html">Jogar</a><button class="btn ghost" id="qz-again">Refazer</button></div>`;
+    box.innerHTML = `<p class="kicker">${tr('Resultado', 'Result')}</p><p class="quiz-q">${tr('{s} de {n} certas.', '{s} of {n} correct.', { s: score, n: QUIZ.length })} ${score === QUIZ.length ? tr('Pronta(o) para projetar a próxima missão.', 'Ready to design the next mission.') : tr('As respostas estão todas no jogo, em cada scan e em cada conversa com a equipe.', 'All the answers are in the game, in every scan and every talk with the crew.')}</p><div class="cta"><a class="btn primary" href="jogo.html">${tr('Jogar', 'Play')}</a><button class="btn ghost" id="qz-again">${tr('Refazer', 'Try again')}</button></div>`;
     $('#qz-again').onclick = () => { qi = 0; score = 0; renderQuiz(); };
     return;
   }
   const Q = QUIZ[qi];
-  box.innerHTML = `<p class="kicker">Pergunta ${qi + 1} de ${QUIZ.length}</p><p class="quiz-q">${Q.q}</p><div class="quiz-opts">${Q.o.map((o, i) => `<button data-i="${i}">${o}</button>`).join('')}</div><p class="quiz-why" hidden></p><div class="quiz-nav"><span class="muted">${score} certa${score === 1 ? '' : 's'}</span><button class="btn small" id="qz-next" hidden>Próxima ▸</button></div>`;
+  box.innerHTML = `<p class="kicker">${tr('Pergunta {i} de {n}', 'Question {i} of {n}', { i: qi + 1, n: QUIZ.length })}</p><p class="quiz-q">${Q.q}</p><div class="quiz-opts">${Q.o.map((o, i) => `<button data-i="${i}">${o}</button>`).join('')}</div><p class="quiz-why" hidden></p><div class="quiz-nav"><span class="muted">${score} ${tr('certa', 'correct')}${score === 1 || EN ? '' : 's'}</span><button class="btn small" id="qz-next" hidden>${tr('Próxima', 'Next')} ▸</button></div>`;
   box.querySelectorAll('.quiz-opts button').forEach(b => b.addEventListener('click', () => {
     if (box.dataset.done === '1') return; box.dataset.done = '1';
     const i = +b.dataset.i; if (i === Q.a) score++;
     box.querySelectorAll('.quiz-opts button').forEach(x => { const k = +x.dataset.i; if (k === Q.a) x.classList.add('ok'); else if (k === i) x.classList.add('no'); });
-    const w = box.querySelector('.quiz-why'); w.hidden = false; w.innerHTML = (i === Q.a ? '<b>Isso!</b> ' : '<b>Quase.</b> ') + Q.why;
+    const w = box.querySelector('.quiz-why'); w.hidden = false; w.innerHTML = (i === Q.a ? tr('<b>Isso!</b> ', '<b>Right!</b> ') : tr('<b>Quase.</b> ', '<b>Not quite.</b> ')) + Q.why;
     $('#qz-next').hidden = false;
   }));
   box.dataset.done = '0';

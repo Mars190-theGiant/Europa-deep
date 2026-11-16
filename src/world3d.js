@@ -1,6 +1,7 @@
 // Abismo de Europa · cenas 3D (Three.js r128, carregado como script global THREE).
 // Europa e Júpiter, a base na superfície, o submarino montável, o oceano por zona e a caminhada (EVA).
 const T = window.THREE;
+import { EN } from './i18n.js';
 
 // ------------------------------------------------------------------ utilidades
 export function seeded(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
@@ -316,7 +317,7 @@ export class BaseScene {
     for (let i = 0; i < 6; i++) add(tower, new T.BoxGeometry(1.3, 0.06, 1.3), std('#f0c040'), 0, 0.6 + i, 0);
     add(tower, new T.CylinderGeometry(1.1, 1.1, 0.12, 24), std('#20303c'), 0, 0.02, 0);
     add(tower, new T.CylinderGeometry(0.35, 0.35, 1.6, 16), std('#e05030', { metalness: 0.3 }), 0, 4.6, 0);
-    const lab = document.createElement('canvas'); lab.width = 512; lab.height = 64; const lg = lab.getContext('2d'); lg.fillStyle = '#7fe0ff'; lg.font = 'bold 40px sans-serif'; lg.textAlign = 'center'; lg.fillText('BASE CONAMARA', 256, 46);
+    const lab = document.createElement('canvas'); lab.width = 512; lab.height = 64; const lg = lab.getContext('2d'); lg.fillStyle = '#7fe0ff'; lg.font = 'bold 40px sans-serif'; lg.textAlign = 'center'; lg.fillText(EN ? 'CONAMARA BASE' : 'BASE CONAMARA', 256, 46);
     const sign = new T.Sprite(new T.SpriteMaterial({ map: new T.CanvasTexture(lab), transparent: true, depthWrite: false })); sign.scale.set(9, 1.1, 1); sign.position.set(0, 5.4, 0); this.scene.add(sign);
     // módulos
     this.slots = {};

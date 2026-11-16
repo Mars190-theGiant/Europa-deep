@@ -1,26 +1,27 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="theme-color" content="#04090f">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Abismo de Europa · o jogo</title>
+<title>Abismo de Europa · the game</title>
+<meta name="title-pt" content="Abismo de Europa · o jogo">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23d8cfc0'/%3E%3Cpath d='M5 13c8 3 14-4 22 1M7 21c6-2 12 3 19-2' stroke='%23965f3c' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
-<canvas id="view" aria-label="Cena 3D"></canvas>
+<canvas id="view" aria-label="3D scene" data-pt-aria="Cena 3D"></canvas>
 <div id="ui">
   <!-- barra de recursos -->
   <div id="hud" hidden>
     <div class="res" id="res"></div>
     <div class="hud-r">
       <span id="hud-cycle" class="pill"></span>
-      <button class="ico" id="b-map" title="Mapa (M)">🗺</button>
-      <button class="ico" id="b-diary" title="Diário (D)">📓</button>
-      <button class="ico" id="b-mute" title="Som (S)">🔊</button>
+      <button class="ico" id="b-map" title="Map (M)" data-pt-title="Mapa (M)">🗺</button>
+      <button class="ico" id="b-diary" title="Log (D)" data-pt-title="Diário (D)">📓</button>
+      <button class="ico" id="b-mute" title="Sound (S)" data-pt-title="Som (S)">🔊</button>
     </div>
   </div>
 
@@ -29,10 +30,10 @@
     <div class="title-box">
       <p class="kicker">NASA Space Apps · Space Mission Design Game</p>
       <h1>ABISMO<br><span>DE EUROPA</span></h1>
-      <p class="sub">Projete a missão. Monte a base. Mergulhe no oceano escondido de uma lua de Júpiter.</p>
-      <div class="row"><button class="btn primary big" id="b-start">Começar a missão</button></div>
-      <div class="row small"><a href="./" class="btn ghost small">Página inicial</a><button class="btn ghost small" id="b-how">Como jogar</button><a href="classico/" class="btn ghost small">Versão clássica</a></div>
-      <p class="hint">Melhor com fones e o celular deitado.</p>
+      <p class="sub" data-pt="Projete a missão. Monte a base. Mergulhe no oceano escondido de uma lua de Júpiter.">Design the mission. Build the base. Dive into the hidden ocean of a moon of Jupiter.</p>
+      <div class="row"><button class="btn primary big" id="b-start" data-pt="Começar a missão">Start the mission</button></div>
+      <div class="row small"><a href="./" class="btn ghost small" data-pt="Página inicial">Home page</a><button class="btn ghost small" id="b-how" data-pt="Como jogar">How to play</button><a href="classico/" class="btn ghost small" data-pt="Versão clássica">Classic version (PT)</a><button class="btn ghost small lang" data-lang-toggle>EN · PT</button></div>
+      <p class="hint" data-pt="Melhor com fones e o celular deitado.">Best with headphones and the phone in landscape.</p>
     </div>
   </section>
 
@@ -40,13 +41,13 @@
   <section id="s-design" class="screen" hidden>
     <div class="design">
       <header class="d-head">
-        <p class="kicker">Projeto da missão</p>
+        <p class="kicker" data-pt="Projeto da missão">Mission design</p>
         <nav class="steps" id="steps"></nav>
       </header>
       <div class="d-body" id="d-body"></div>
       <footer class="d-foot">
         <div class="d-meters" id="d-meters"></div>
-        <div class="d-nav"><button class="btn ghost" id="d-prev">◂ Voltar</button><button class="btn primary" id="d-next">Próximo ▸</button></div>
+        <div class="d-nav"><button class="btn ghost" id="d-prev" data-pt="◂ Voltar">◂ Back</button><button class="btn primary" id="d-next" data-pt="Próximo ▸">Next ▸</button></div>
       </footer>
     </div>
   </section>
@@ -58,7 +59,7 @@
       <div class="tab-body" id="plan-body"></div>
     </aside>
     <aside class="panel plan-side" id="plan-side"></aside>
-    <div class="plan-go"><button class="btn warm big" id="b-dive">Mergulhar ▸</button></div>
+    <div class="plan-go"><button class="btn warm big" id="b-dive" data-pt="Mergulhar ▸">Dive ▸</button></div>
   </section>
 
   <!-- mergulho -->
@@ -70,10 +71,10 @@
 
   <!-- EVA -->
   <section id="s-eva" class="screen" hidden>
-    <div class="eva-top"><div class="suit"><span>O₂ DO TRAJE</span><i><s id="suit-bar"></s></i><b id="suit-txt"></b></div><div class="pill" id="eva-count"></div></div>
-    <div class="eva-help" id="eva-help">WASD ou setas: mover · Espaço/C: subir/descer · Shift: nadar rápido · arraste: câmera · E: entrar na eclusa</div>
+    <div class="eva-top"><div class="suit"><span data-pt="O₂ DO TRAJE">SUIT O₂</span><i><s id="suit-bar"></s></i><b id="suit-txt"></b></div><div class="pill" id="eva-count"></div></div>
+    <div class="eva-help" id="eva-help" data-pt="WASD ou setas: mover · Espaço/C: subir/descer · Shift: nadar rápido · arraste: câmera · E: entrar na eclusa">WASD or arrows: move · Space/C: up/down · Shift: swim fast · drag: camera · E: enter the airlock</div>
     <div class="stick" id="stick"><i></i></div>
-    <div class="eva-btns"><button class="btn small" id="eva-up">▲ subir</button><button class="btn small" id="eva-down">▼ descer</button><button class="btn warm" id="eva-back">Voltar à eclusa</button></div>
+    <div class="eva-btns"><button class="btn small" id="eva-up" data-pt="▲ subir">▲ up</button><button class="btn small" id="eva-down" data-pt="▼ descer">▼ down</button><button class="btn warm" id="eva-back" data-pt="Voltar à eclusa">Back to the airlock</button></div>
   </section>
 
   <!-- fim -->
@@ -88,16 +89,16 @@
         <p id="dlg-text"></p>
         <div id="dlg-choices"></div>
         <p id="dlg-note"></p>
-        <button class="btn small" id="dlg-next">Continuar ▸</button>
+        <button class="btn small" id="dlg-next" data-pt="Continuar ▸">Continue ▸</button>
       </div>
     </div>
   </div>
 
   <div id="card" hidden></div>
-  <div id="sheet" hidden><div class="sheet-box"><button class="ico close" id="sheet-x" aria-label="Fechar">✕</button><div id="sheet-body"></div></div></div>
+  <div id="sheet" hidden><div class="sheet-box"><button class="ico close" id="sheet-x" aria-label="Close" data-pt-aria="Fechar">✕</button><div id="sheet-body"></div></div></div>
   <div id="toast" hidden></div>
   <div id="fade"><span id="fade-txt"></span></div>
-  <div id="rotate" hidden><div><p>📱↻</p><p>Gire o celular para jogar deitado.</p><button class="btn small" id="rot-ok">Continuar assim</button></div></div>
+  <div id="rotate" hidden><div><p>📱↻</p><p data-pt="Gire o celular para jogar deitado.">Turn your phone sideways to play in landscape.</p><button class="btn small" id="rot-ok" data-pt="Continuar assim">Keep it like this</button></div></div>
 </div>
 
 <script src="lib/three.min.js"></script>

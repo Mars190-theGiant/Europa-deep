@@ -2,6 +2,7 @@
 // Cada árvore divide o estado da missão com cortes sorteados em atributos sorteados, como no Random Forest.
 // Cada folha guarda pesos por cenário feitos por bootstrap (reamostragem) e pelas preferências de cada cenário.
 // Na hora de sortear, todas as árvores votam, os votos são multiplicados pelo viés da missão e um cenário é sorteado.
+import { tr } from './i18n.js';
 import { mulberry } from './engine.js';
 
 export const FEATURES = ['zona', 'ciclo', 'moral', 'casco', 'verba', 'energia', 'descobertas', 'missão'];
@@ -97,7 +98,9 @@ export class ScenarioForest {
     const v = this.lastVotes.find(x => x.sc === sc);
     if (!v) return '';
     const top = this.lastVotes.slice(0, 3).map(x => x.sc.title + ' ' + Math.round(x.share * 100) + '%');
-    return 'Floresta aleatória: ' + this.trees.length + ' árvores votaram. Este cenário teve ' + Math.round(v.share * 100) + '% dos votos (' + v.trees + ' árvores o preferiram). Mais votados: ' + top.join(', ') + '.';
+    return tr('Floresta aleatória: {n} árvores votaram. Este cenário teve {p}% dos votos ({t} árvores o preferiram). Mais votados: {top}.',
+      'Random forest: {n} trees voted. This scenario got {p}% of the votes ({t} trees preferred it). Most voted: {top}.',
+      { n: this.trees.length, p: Math.round(v.share * 100), t: v.trees, top: top.join(', ') });
   }
   votes() { return this.lastVotes.map(v => ({ title: v.sc.title, share: v.share, trees: v.trees })); }
 }

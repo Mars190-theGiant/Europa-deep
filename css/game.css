@@ -115,7 +115,8 @@ html, body { height: 100%; overflow: hidden; overscroll-behavior: none; -webkit-
 /* mergulho */
 .zone-box { position: absolute; top: 64px; right: 10px; width: min(300px, 40vw); padding: 10px 12px; font-size: 12px; line-height: 1.45; }
 .zone-box b { font-size: 15px; display: block; }
-.zone-box .depth { font: 700 20px var(--mono); color: var(--cyan); }
+.zone-box .depth { font: 700 20px var(--mono); color: var(--cyan); white-space: nowrap; }
+.zone-box .kicker { margin-right: 10px; }
 .log { position: absolute; left: 10px; top: 64px; bottom: 100px; width: min(420px, 46vw); display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; overflow: hidden; pointer-events: none !important; mask-image: linear-gradient(transparent, #000 30%); -webkit-mask-image: linear-gradient(transparent, #000 30%); }
 .log p { margin: 0; font-size: 13px; line-height: 1.45; background: rgba(4, 12, 18, .72); padding: 6px 10px; border-radius: 8px; border-left: 3px solid var(--grid); }
 .log p.sys { color: var(--muted); }

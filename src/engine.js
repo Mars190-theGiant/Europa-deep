@@ -1,6 +1,7 @@
 // Abismo de Europa · motor de regras (sem gráficos).
 // Portado do GameManager da versão Unity v2. O mesmo motor roda o jogo e o simulador da página inicial.
 import { ScenarioForest } from './forest.js';
+import { EN, tr, mergeEN } from './i18n.js';
 
 export const CONFIG = {
   maxCycles: 12, turnsPerCycle: 5,
@@ -12,7 +13,7 @@ export const CONFIG = {
   G: 1.315, iceKm: 20,
 };
 
-export const ACTIONS = [
+const ACTIONS_PT = [
   { id: 'Explore', key: '1', name: 'Navegar', turn: true, eff: 'procura um contato' },
   { id: 'Scan', key: '2', name: 'Escanear', turn: true, eff: 'dado real da NASA', why: 'sem contato' },
   { id: 'Sonar', key: '3', name: 'Sonar', turn: false, eff: 'não gasta turno' },
@@ -26,12 +27,34 @@ export const ACTIONS = [
   { id: 'Eva', key: 'E', name: 'Sair (EVA)', turn: true, eff: 'caminhada com o traje', why: 'precisa da eclusa' },
   { id: 'Dock', key: 'A', name: 'Acoplar', turn: true, eff: 'termina a missão', why: 'falta cumprir a meta' },
 ];
+const ACTIONS_EN = [
+  { id: 'Explore', key: '1', name: 'Navigate', turn: true, eff: 'look for a contact' },
+  { id: 'Scan', key: '2', name: 'Scan', turn: true, eff: 'real NASA data', why: 'no contact' },
+  { id: 'Sonar', key: '3', name: 'Sonar', turn: false, eff: 'costs no turn' },
+  { id: 'Electrolysis', key: '4', name: 'Electrolysis', turn: true, eff: '+O₂' },
+  { id: 'Repair', key: '5', name: 'Repair', turn: true, eff: '+hull' },
+  { id: 'Descend', key: '6', name: 'Descend ▼', turn: true, eff: 'deeper zone', why: 'already at the bottom' },
+  { id: 'Ascend', key: '7', name: 'Ascend ▲', turn: true, eff: 'shallower zone', why: 'already at the ice' },
+  { id: 'VentCharge', key: '8', name: 'Recharge', turn: true, eff: '+energy at the vent', why: 'only at the hydrothermal field' },
+  { id: 'TalkBase', key: '9', name: 'Call the base', turn: true, eff: '+morale' },
+  { id: 'Rest', key: '0', name: 'Rest', turn: true, eff: '+8 morale, +4 energy' },
+  { id: 'Eva', key: 'E', name: 'Go out (EVA)', turn: true, eff: 'walk in the suit', why: 'needs the airlock' },
+  { id: 'Dock', key: 'A', name: 'Dock', turn: true, eff: 'ends the mission', why: 'goal not met yet' },
+];
+export const ACTIONS = EN ? ACTIONS_EN : ACTIONS_PT;
 
-export const EVA_SAMPLES = {
+const EVA_SAMPLES_EN = {
+  0: [['Brine crystal', 'Ice so salty it never freezes completely.'], ['Ice with ancient bubbles', 'Gas bubbles trapped in the ice keep the chemistry of the past.'], ['Salt crust', 'Salt that came from below and stuck to the ice ceiling.'], ['Blue ice sample', 'Very compressed ice with no bubbles absorbs red light and looks blue.']],
+  2: [['Sulfide mineral', 'Minerals that hot water deposits as it cools, like in Earth’s chimneys.'], ['Orange mat', 'It could be microbial life or just oxidized iron. Only the lab can tell.'], ['Hot water flask', 'Water at 60 °C, rich in dissolved minerals.'], ['Basalt', 'Volcanic rock: Europa’s seafloor may have volcanism.']],
+  3: [['Fine sediment', 'Dust that has settled slowly on the floor for millions of years.'], ['Seafloor salt crystal', 'Salts growing where the water stays still.'], ['Rift rock', 'Fresh rock, exposed when the floor split open.'], ['Rift water', 'Water warmer than its surroundings: a sign of internal heat.']],
+};
+
+const EVA_SAMPLES_PT = {
   0: [['Cristal de salmoura', 'Gelo com tanto sal que não congela por inteiro.'], ['Gelo com bolhas antigas', 'Bolhas de gás presas no gelo guardam a química de antes.'], ['Crosta de sal', 'Sal que veio de baixo e grudou no teto de gelo.'], ['Amostra de gelo azul', 'Gelo muito compactado, sem bolhas, absorve o vermelho e parece azul.']],
   2: [['Mineral de sulfeto', 'Minerais que a água quente deposita ao esfriar, como nas chaminés da Terra.'], ['Tapete laranja', 'Pode ser vida microbiana ou só ferro oxidado. Só o laboratório vai dizer.'], ['Frasco de água quente', 'Água a 60 °C, rica em minerais dissolvidos.'], ['Basalto', 'Rocha vulcânica: o fundo de Europa pode ter vulcanismo.']],
   3: [['Sedimento fino', 'Pó que se acumula devagar no fundo há milhões de anos.'], ['Cristal de sal do fundo', 'Sais crescendo onde a água fica parada.'], ['Rocha da fenda', 'Uma rocha nova, exposta quando o fundo se abriu.'], ['Água da fenda', 'Água mais quente que a do entorno: sinal de calor interno.']],
 };
+export const EVA_SAMPLES = EN ? EVA_SAMPLES_EN : EVA_SAMPLES_PT;
 
 const FILES = ['missoes', 'tripulacao', 'lancamento', 'cenarios', 'zonas', 'alvos', 'eventos', 'modulos', 'upgrades', 'pesquisa', 'textos'];
 
@@ -39,6 +62,7 @@ export async function loadDB(base = 'data/') {
   const parts = await Promise.all(FILES.map(f => fetch(base + f + '.json').then(r => { if (!r.ok) throw new Error(f + ': ' + r.status); return r.json(); })));
   const [missions, crew, launches, scenarios, zones, targets, events, modules, upgrades, research, text] = parts;
   const db = { missions, crew, launches, scenarios, zones, targets, events, modules, upgrades, research, text };
+  if (EN) mergeEN(db, await fetch(base + 'en.json').then(r => r.json()));
   const idx = (list) => Object.fromEntries(list.map(x => [x.id, x]));
   db.M = idx(missions); db.C = idx(crew); db.L = idx(launches); db.S = idx(scenarios); db.T = idx(targets);
   db.MOD = idx(modules); db.UP = idx(upgrades); db.R = idx(research);
@@ -49,8 +73,8 @@ export const pressureBar = km => {
   const ice = Math.min(km, CONFIG.iceKm) * 1000, water = Math.max(0, km - CONFIG.iceKm) * 1000;
   return Math.round((917 * CONFIG.G * ice + 1030 * CONFIG.G * water) / 1e5);
 };
-export const dec = (v, d) => v.toFixed(d).replace('.', ',');
-export const thousands = v => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+export const dec = (v, d) => EN ? v.toFixed(d) : v.toFixed(d).replace('.', ',');
+export const thousands = v => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, EN ? ',' : '.');
 export const pad = n => String(n).padStart(2, '0');
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
@@ -96,7 +120,7 @@ export class Game {
   level(id) { return this.S.upgrades[id] || 0; }
   has(id) { return this.S.modules.has(id) || this.S.research.has(id); }
   onBoard(id) { const c = this.db.C[id]; return !!c && (c.atBase || this.S.crew.has(id)); }
-  protagonistName() { return this.S.protagonist === 'menina' ? 'Cadete Luísa' : 'Cadete Téo'; }
+  protagonistName() { return tr('Cadete ', 'Cadet ') + (this.S.protagonist === 'menina' ? 'Luísa' : 'Téo'); }
   gender(s) { return (s || '').replace(/\{o\}/g, this.S.protagonist === 'menina' ? 'a' : 'o'); }
 
   // ------------------------------------------------------------------ modificadores (MissionModifiers.cs)
@@ -165,9 +189,9 @@ export class Game {
     return m;
   }
   designProblem() {
-    if (!this.mission) return 'escolha uma missão no mapa';
-    if (this.designBudget() < 0) return 'a verba não fecha: tire alguém da equipe ou escolha um foguete mais barato';
-    if (this.massUsed() > this.capacity() + 1e-6) return 'carga demais para este foguete e trajetória';
+    if (!this.mission) return tr('escolha uma missão no mapa', 'pick a mission on the map');
+    if (this.designBudget() < 0) return tr('a verba não fecha: tire alguém da equipe ou escolha um foguete mais barato', 'over budget: drop someone from the crew or pick a cheaper rocket');
+    if (this.massUsed() > this.capacity() + 1e-6) return tr('carga demais para este foguete e trajetória', 'too much cargo for this rocket and trajectory');
     return null;
   }
   confirmDesign(seed) {
@@ -178,13 +202,13 @@ export class Game {
     S.morale = clamp(S.morale + t.morale, 10, 100);
     S.hull = clamp(S.hull + t.hull, 10, 100);
     S.decisions = [
-      'Missão: ' + m.name + ' (' + m.site + ')',
-      'Foguete: ' + r.name + ' · −' + r.cost + ' de verba · ' + dec(r.capacity, 0) + ' t',
-      'Trajetória: ' + t.name + ' · ' + dec(t.years, 1) + ' anos · carga ×' + dec(t.capacity, 2) +
-        (t.morale ? ' · moral ' + (t.morale > 0 ? '+' : '') + t.morale : '') + (t.hull ? ' · casco ' + t.hull + '%' : ''),
+      tr('Missão', 'Mission') + ': ' + m.name + ' (' + m.site + ')',
+      tr('Foguete: {n} · −{c} de verba · {t} t', 'Rocket: {n} · −{c} budget · {t} t', { n: r.name, c: r.cost, t: dec(r.capacity, 0) }),
+      tr('Trajetória: {n} · {y} anos · carga ×{c}', 'Trajectory: {n} · {y} years · cargo ×{c}', { n: t.name, y: dec(t.years, 1), c: dec(t.capacity, 2) }) +
+        (t.morale ? tr(' · moral ', ' · morale ') + (t.morale > 0 ? '+' : '') + t.morale : '') + (t.hull ? tr(' · casco ', ' · hull ') + t.hull + '%' : ''),
     ];
     const extra = this.db.crew.filter(c => S.crew.has(c.id) && !c.mandatory).map(c => c.short);
-    S.decisions.push('Equipe extra: ' + (extra.length ? extra.join(', ') : 'ninguém (só o comandante)') + ' · salários −' + S.crewSalaries);
+    S.decisions.push(tr('Equipe extra: {e} · salários −{s}', 'Extra crew: {e} · salaries −{s}', { e: extra.length ? extra.join(', ') : tr('ninguém (só o comandante)', 'nobody (only the commander)'), s: S.crewSalaries }));
     this.forest = new ScenarioForest(this.db.scenarios, seed ?? Math.floor(this.R() * 1e9), this.rng);
     this.recompute();
     this.snapshot();
@@ -193,52 +217,55 @@ export class Game {
   goalText() {
     const m = this.mission;
     const zones = m.requiredZones.map(z => this.db.zones[z].short).join(', ');
-    return m.scans + ' descobertas, com pelo menos uma em: ' + zones + '. Depois volte à Interface e acople até o ciclo ' + CONFIG.maxCycles + '. Agora: ' + this.S.scans.length + '/' + m.scans + '.';
+    return tr('{n} descobertas, com pelo menos uma em: {z}. Depois volte à Interface e acople até o ciclo {c}. Agora: {k}/{n}.',
+      '{n} discoveries, with at least one in: {z}. Then go back to the Interface and dock by cycle {c}. Now: {k}/{n}.',
+      { n: m.scans, z: zones, c: CONFIG.maxCycles, k: this.S.scans.length });
   }
 
   // ------------------------------------------------------------------ planejamento
   canBuyModule(id) {
     const m = this.db.MOD[id];
-    if (!m || this.S.modules.has(id)) return 'já construído';
-    if (this.S.budget < m.cost) return 'verba insuficiente';
-    if (this.massUsed() + m.mass > this.capacity() + 1e-3) return 'sem capacidade no foguete (' + dec(this.capacity() - this.massUsed(), 1) + ' t livres)';
+    if (!m || this.S.modules.has(id)) return tr('já construído', 'already built');
+    if (this.S.budget < m.cost) return tr('verba insuficiente', 'not enough budget');
+    if (this.massUsed() + m.mass > this.capacity() + 1e-3) return this.noRoom();
     return null;
   }
   buyModule(id) {
     if (this.canBuyModule(id)) return false;
     const m = this.db.MOD[id];
     this.S.budget -= m.cost; this.S.budgetSpent += m.cost; this.S.modules.add(id);
-    this.S.purchases.push('Construído: ' + m.name + ' (ciclo ' + this.S.cycle + ')');
+    this.S.purchases.push(tr('Construído: {n} (ciclo {c})', 'Built: {n} (cycle {c})', { n: m.name, c: this.S.cycle }));
     this.recompute(); return true;
   }
   canBuyUpgrade(id) {
     const u = this.db.UP[id], lv = this.level(id);
-    if (!u || lv >= u.costs.length) return 'nível máximo';
-    if (this.S.zone !== 0) return 'só com o submarino na Interface';
-    if (this.S.budget < u.costs[lv]) return 'verba insuficiente';
-    if (this.massUsed() + u.mass[lv] > this.capacity() + 1e-3) return 'sem capacidade no foguete (' + dec(this.capacity() - this.massUsed(), 1) + ' t livres)';
+    if (!u || lv >= u.costs.length) return tr('nível máximo', 'max level');
+    if (this.S.zone !== 0) return tr('só com o submarino na Interface', 'only with the sub at the Interface');
+    if (this.S.budget < u.costs[lv]) return tr('verba insuficiente', 'not enough budget');
+    if (this.massUsed() + u.mass[lv] > this.capacity() + 1e-3) return this.noRoom();
     return null;
   }
+  noRoom() { return tr('sem capacidade no foguete ({t} t livres)', 'no room on the rocket ({t} t free)', { t: dec(this.capacity() - this.massUsed(), 1) }); }
   buyUpgrade(id) {
     if (this.canBuyUpgrade(id)) return false;
     const u = this.db.UP[id], lv = this.level(id);
     this.S.budget -= u.costs[lv]; this.S.budgetSpent += u.costs[lv];
     this.S.upgrades[id] = lv + 1;
     if (id === 'Battery') this.S.energy += 20;
-    this.S.purchases.push('Instalado: ' + u.name + ' Nv' + (lv + 1) + ' (ciclo ' + this.S.cycle + ')');
+    this.S.purchases.push(tr('Instalado: {n} Nv{l} (ciclo {c})', 'Installed: {n} Lv{l} (cycle {c})', { n: u.name, l: lv + 1, c: this.S.cycle }));
     this.recompute(); return true;
   }
   canBuyResearch(id) {
     const r = this.db.R[id];
-    if (!r || this.S.research.has(id)) return 'já pesquisado';
-    if (this.S.sciencePool < r.cost) return 'faltam dados';
+    if (!r || this.S.research.has(id)) return tr('já pesquisado', 'already researched');
+    if (this.S.sciencePool < r.cost) return tr('faltam dados', 'not enough data');
     return null;
   }
   buyResearch(id) {
     if (this.canBuyResearch(id)) return false;
     const r = this.db.R[id];
     this.S.sciencePool -= r.cost; this.S.research.add(id);
-    this.S.purchases.push('Pesquisa: ' + r.instrument + ' (ciclo ' + this.S.cycle + ')');
+    this.S.purchases.push(tr('Pesquisa: {n} (ciclo {c})', 'Research: {n} (cycle {c})', { n: r.instrument, c: this.S.cycle }));
     this.recompute(); return true;
   }
   adjustPower(sys, d) {
@@ -257,23 +284,23 @@ export class Game {
 
   check(id) {
     const S = this.S, a = ACTIONS.find(x => x.id === id);
-    if (!a || S.over) return 'indisponível';
-    if (a.turn && S.turns <= 0) return 'sem turnos';
-    if (S.energy < this.cost(id)) return 'sem energia';
+    if (!a || S.over) return tr('indisponível', 'unavailable');
+    if (a.turn && S.turns <= 0) return tr('sem turnos', 'no turns left');
+    if (S.energy < this.cost(id)) return tr('sem energia', 'no energy');
     switch (id) {
       case 'Scan': return S.contact ? null : a.why;
       case 'Descend': {
         if (S.zone >= this.db.zones.length - 1) return a.why;
         const nx = this.db.zones[S.zone + 1];
-        if (this.level('Hull') < nx.hullLevel) return 'precisa de casco Nv' + nx.hullLevel;
+        if (this.level('Hull') < nx.hullLevel) return tr('precisa de casco Nv', 'needs hull Lv') + nx.hullLevel;
         return null;
       }
       case 'Ascend': return S.zone > 0 ? null : a.why;
       case 'VentCharge': return S.zone === 2 ? null : a.why;
-      case 'Dock': return S.zone === 0 && this.goalMet() ? null : (S.zone !== 0 && this.goalMet() ? 'suba até a Interface' : a.why);
+      case 'Dock': return S.zone === 0 && this.goalMet() ? null : (S.zone !== 0 && this.goalMet() ? tr('suba até a Interface', 'go up to the Interface') : a.why);
       case 'Eva':
         if (!this.mods.evaAllowed) return a.why;
-        if (S.zone === 1) return 'sem chão nem teto aqui';
+        if (S.zone === 1) return tr('sem chão nem teto aqui', 'no floor or ceiling here');
         return null;
     }
     return null;
@@ -294,9 +321,9 @@ export class Game {
           tgt = this.pick(pool.length ? pool : left);
         }
         out.contact = tgt;
-        if (tgt) { S.contact = tgt.id; this.log('Contato ' + tgt.code + ' a 14 m. Assinatura desconhecida. O scanner pode identificar.'); }
-        else if (!left.length) this.log('O sonar não encontra nada novo nesta zona. Tudo aqui já foi registrado.', 'sys');
-        else this.log('Só neve marinha passando pelo farol. Nenhum contato.', 'sys');
+        if (tgt) { S.contact = tgt.id; this.log(tr('Contato {c} a 14 m. Assinatura desconhecida. O scanner pode identificar.', 'Contact {c} at 14 m. Unknown signature. The scanner can identify it.', { c: tgt.code })); }
+        else if (!left.length) this.log(tr('O sonar não encontra nada novo nesta zona. Tudo aqui já foi registrado.', 'The sonar finds nothing new in this zone. Everything here is already logged.'), 'sys');
+        else this.log(tr('Só neve marinha passando pelo farol. Nenhum contato.', 'Only marine snow drifting through the floodlight. No contact.'), 'sys');
         if (this.R() < 0.18 && this.forest) {
           const sc = this.forest.pick(this, true);
           if (sc) out.scenario = { sc, explain: this.forest.explain(sc) };
@@ -304,7 +331,7 @@ export class Game {
         if (!out.scenario && S.zone >= 2 && this.R() < 0.15) {
           const d = Math.round((3 + this.R() * 3) * this.mods.currentDamageMult);
           S.hull -= d; out.bump = true;
-          this.log('Você raspou numa rocha que o farol não mostrou. Casco −' + d + '%.', 'warn');
+          this.log(tr('Você raspou numa rocha que o farol não mostrou. Casco −{d}%.', 'You scraped a rock the floodlight did not show. Hull −{d}%.', { d }), 'warn');
         }
         break;
       }
@@ -317,42 +344,43 @@ export class Game {
         S.sciencePool += sci; S.scienceTotal += sci; S.scienceThisCycle += sci;
         S.budget += this.mods.budgetPerScan;
         out.target = t; out.science = sci; out.focus = focus;
-        this.log('SCAN ' + t.code + ' · ' + t.name.toUpperCase() + ' · +' + sci + ' dados' + (this.mods.budgetPerScan ? ' · +' + this.mods.budgetPerScan + ' verba' : ''), 'disc');
+        this.log('SCAN ' + t.code + ' · ' + t.name.toUpperCase() + ' · +' + sci + tr(' dados', ' data') + (this.mods.budgetPerScan ? ' · +' + this.mods.budgetPerScan + tr(' verba', ' budget') : ''), 'disc');
         this.log(t.desc);
-        this.log('DADO REAL · ' + t.fact + ' [' + t.src + ']', 'fact');
-        if (focus) this.log('Este alvo responde à pergunta da missão: +25% de dados.', 'good');
-        if (this.goalMet()) this.log('Objetivo científico cumprido. Volte para a Interface gelo-oceano e acople à base.', 'good');
-        else this.log('Descobertas: ' + S.scans.length + '/' + this.mission.scans + '.', 'sys');
+        this.log(tr('DADO REAL', 'REAL DATA') + ' · ' + t.fact + ' [' + t.src + ']', 'fact');
+        if (focus) this.log(tr('Este alvo responde à pergunta da missão: +25% de dados.', 'This target answers the mission question: +25% data.'), 'good');
+        if (this.goalMet()) this.log(tr('Objetivo científico cumprido. Volte para a Interface gelo-oceano e acople à base.', 'Science goal met. Go back to the ice-ocean Interface and dock with the base.'), 'good');
+        else this.log(tr('Descobertas', 'Discoveries') + ': ' + S.scans.length + '/' + this.mission.scans + '.', 'sys');
         break;
       }
       case 'Sonar': {
         const left = this.remainingInZone();
         out.left = left;
-        this.log('Sonar: ' + (left > 0 ? left + ' assinatura' + (left > 1 ? 's' : '') + ' sem registro nesta zona.' : 'nada novo nesta zona.'), 'sys');
+        this.log('Sonar: ' + (left > 0 ? left + tr(' assinatura', ' unlogged signature') + (left > 1 ? 's' : '') + tr(' sem registro nesta zona.', ' in this zone.') : tr('nada novo nesta zona.', 'nothing new in this zone.')), 'sys');
         break;
       }
       case 'Electrolysis':
         S.o2 += this.mods.electroO2;
-        this.log('Eletrólise: a água do mar vira hidrogênio e oxigênio. +' + this.mods.electroO2 + '% O₂.', 'good');
+        this.log(tr('Eletrólise: a água do mar vira hidrogênio e oxigênio. +{n}% O₂.', 'Electrolysis: seawater becomes hydrogen and oxygen. +{n}% O₂.', { n: this.mods.electroO2 }), 'good');
         break;
       case 'Repair':
         S.hull += this.mods.repairAmount;
-        this.log('Soldas reforçadas com o braço robótico. +' + this.mods.repairAmount + '% casco.' + (S.crew.has('anja') ? ' (A Anja ajudou.)' : ''), 'good');
+        this.log(tr('Soldas reforçadas com o braço robótico. +{n}% casco.', 'Welds reinforced with the robotic arm. +{n}% hull.', { n: this.mods.repairAmount }) + (S.crew.has('anja') ? tr(' (A Anja ajudou.)', ' (Anja helped.)') : ''), 'good');
         break;
       case 'Descend': case 'Ascend': {
         const dir = id === 'Descend' ? 1 : -1, from = S.zone;
         S.zone += dir; S.contact = null; S.deepest = Math.max(S.deepest, S.zone);
         const Z = this.db.zones[S.zone];
         out.dir = dir;
-        this.log((dir > 0 ? 'Lastro cheio. Descendo' : 'Lastro vazio. Subindo') + ' para: ' + Z.name.toUpperCase() + ', ' + dec(Z.depthKm, 1) + ' km abaixo da superfície do gelo.', 'sys');
+        this.log(tr('{a} para: {z}, {k} km abaixo da superfície do gelo.', '{a} to: {z}, {k} km below the ice surface.', {
+          a: dir > 0 ? tr('Lastro cheio. Descendo', 'Ballast full. Descending') : tr('Lastro vazio. Subindo', 'Ballast empty. Ascending'), z: Z.name.toUpperCase(), k: dec(Z.depthKm, 1) }), 'sys');
         this.log(Z.arrival);
-        if (from === 0 && S.zone === 1) this.log('Dica: cada zona tem 4 coisas para descobrir.', 'sys');
-        if (S.zone === 0) this.log('De volta à Interface. No próximo planejamento dá para instalar upgrades no submarino.', 'sys');
+        if (from === 0 && S.zone === 1) this.log(tr('Dica: cada zona tem 4 coisas para descobrir.', 'Tip: each zone has 4 things to discover.'), 'sys');
+        if (S.zone === 0) this.log(tr('De volta à Interface. No próximo planejamento dá para instalar upgrades no submarino.', 'Back at the Interface. In the next planning phase you can install sub upgrades.'), 'sys');
         break;
       }
       case 'VentCharge':
         S.energy += this.mods.ventEnergy; S.hull -= this.mods.ventHull; S.morale -= 1;
-        this.log('Gerador termoelétrico encostado na fonte. A água a 300 °C esquenta o casco por fora. +' + this.mods.ventEnergy + ' energia, −' + this.mods.ventHull + '% casco.', 'good');
+        this.log(tr('Gerador termoelétrico encostado na fonte. A água a 300 °C esquenta o casco por fora. +{e} energia, −{h}% casco.', 'Thermoelectric generator pressed against the vent. The 300 °C water heats the hull from outside. +{e} energy, −{h}% hull.', { e: this.mods.ventEnergy, h: this.mods.ventHull }), 'good');
         break;
       case 'TalkBase': {
         let line, gain;
@@ -362,12 +390,12 @@ export class Game {
         gain += this.mods.talkBonus;
         S.morale += gain;
         out.line = line.replace(/^LÚCIA[^:]*:\s*/, '');
-        this.log(line + ' (moral +' + gain + ')');
+        this.log(line + tr(' (moral +', ' (morale +') + gain + ')');
         break;
       }
       case 'Rest':
         S.morale += 8; S.energy += 4;
-        this.log('Luzes apagadas. Só o zumbido do gerador e as bolhas. +8 moral, +4 energia.', 'good');
+        this.log(tr('Luzes apagadas. Só o zumbido do gerador e as bolhas. +8 moral, +4 energia.', 'Lights off. Only the hum of the generator and the bubbles. +8 morale, +4 energy.'), 'good');
         break;
       case 'Eva':
         S.evaCount++;
@@ -375,7 +403,7 @@ export class Game {
           samples: EVA_SAMPLES[S.zone].map(([name, info]) => ({ name, info, science: 6 + Math.floor(this.R() * 5) })) };
         break;
       case 'Dock':
-        this.log('Acoplando ao cryobot… travas fechadas.', 'good');
+        this.log(tr('Acoplando ao cryobot… travas fechadas.', 'Docking with the cryobot… latches closed.'), 'good');
         out.finish = 'win';
         break;
     }
@@ -392,9 +420,9 @@ export class Game {
     for (const s of collected) sci += Math.round(s.science * this.mods.scienceMult);
     S.sciencePool += sci; S.scienceTotal += sci; S.scienceThisCycle += sci; S.evaSamples += collected.length;
     S.o2 -= 3;
-    if (aborted) { S.morale -= 5; this.log('O oxigênio do traje acabou e o cabo de segurança puxou você de volta. Susto, mas tudo bem. Moral −5.', 'warn'); }
+    if (aborted) { S.morale -= 5; this.log(tr('O oxigênio do traje acabou e o cabo de segurança puxou você de volta. Susto, mas tudo bem. Moral −5.', 'The suit ran out of oxygen and the safety line pulled you back. A scare, but you are fine. Morale −5.'), 'warn'); }
     else S.morale += 4;
-    this.log('EVA concluída: ' + collected.length + ' amostras · +' + sci + ' dados · O₂ do submarino −3% (eclusa).', 'disc');
+    this.log(tr('EVA concluída: {n} amostras · +{s} dados · O₂ do submarino −3% (eclusa).', 'EVA complete: {n} samples · +{s} data · sub O₂ −3% (airlock).', { n: collected.length, s: sci }), 'disc');
     this.clamp(); this.checkEnd();
     return sci;
   }
@@ -403,16 +431,16 @@ export class Game {
   effectSummary(c) {
     const parts = [];
     const P = (v, n) => { if (v && Math.abs(v) > 0.01) parts.push((v > 0 ? '+' : '') + Math.round(v) + ' ' + n); };
-    P(c.science, 'dados'); P(c.budget, 'verba'); P(c.energy, 'energia'); P(c.hull, 'casco'); P(c.o2, 'O₂'); P(c.morale, 'moral');
-    return parts.length ? parts.join(' · ') : 'sem custo';
+    P(c.science, tr('dados', 'data')); P(c.budget, tr('verba', 'budget')); P(c.energy, tr('energia', 'energy')); P(c.hull, tr('casco', 'hull')); P(c.o2, 'O₂'); P(c.morale, tr('moral', 'morale'));
+    return parts.length ? parts.join(' · ') : tr('sem custo', 'no cost');
   }
   choiceBlocked(c) {
-    if (c.needCrew && !this.onBoard(c.needCrew)) return 'precisa de ' + (this.db.C[c.needCrew]?.short || c.needCrew) + ' na equipe';
-    if (c.needBudget && this.S.budget < c.needBudget) return 'verba insuficiente';
+    if (c.needCrew && !this.onBoard(c.needCrew)) return tr('precisa de {n} na equipe', 'needs {n} on the crew', { n: this.db.C[c.needCrew]?.short || c.needCrew });
+    if (c.needBudget && this.S.budget < c.needBudget) return tr('verba insuficiente', 'not enough budget');
     return null;
   }
   scenarioSpeaker(sc) { return this.onBoard(sc.speaker) ? sc.speaker : 'daniel'; }
-  startScenario(sc) { this.S.seen.add(sc.id); this.log('CENÁRIO · ' + sc.title, 'sys'); }
+  startScenario(sc) { this.S.seen.add(sc.id); this.log(tr('CENÁRIO', 'SCENARIO') + ' · ' + sc.title, 'sys'); }
   /** Aplica a escolha. Devolve o cenário seguinte (ramo), se houver. */
   choose(sc, c) {
     const S = this.S;
@@ -422,7 +450,7 @@ export class Game {
     S.sciencePool += sci; S.scienceTotal += sci; S.scienceThisCycle += sci;
     if (c.setFlag) S.flags.add(c.setFlag);
     this.clamp();
-    S.decisions.push('Ciclo ' + S.cycle + ' · ' + sc.title + ': ' + c.label);
+    S.decisions.push(tr('Ciclo', 'Cycle') + ' ' + S.cycle + ' · ' + sc.title + ': ' + c.label);
     this.log(sc.title + ': ' + c.label + '. ' + c.result + ' (' + this.effectSummary(c) + ')', (c.hull < 0 || c.morale < 0) ? 'warn' : 'good');
     this.recompute();
     if (!S.over) this.checkEnd();
@@ -448,16 +476,17 @@ export class Game {
     S.energy += M.generator - M.systems;
     S.o2 -= M.o2PerCycle; S.hull -= pressure; S.morale -= moraleLoss; S.morale += M.moralePerCycle;
     const report = { cycle: c0, zone: Z.name, lines: [] };
-    report.lines.push('Gerador +' + M.generator + ', sistemas −' + M.systems + ' energia · suporte vital −' + M.o2PerCycle + '% O₂ · pressão −' + pressure + '% casco');
-    this.log('— CICLO ' + pad(c0) + ' encerrado. Gerador +' + M.generator + ', sistemas −' + M.systems + ' energia. Suporte vital −' + M.o2PerCycle + '% O₂. Pressão −' + pressure + '% casco.', 'sys');
+    const V = { g: M.generator, s: M.systems, o: M.o2PerCycle, p: pressure, c: pad(c0) };
+    report.lines.push(tr('Gerador +{g}, sistemas −{s} energia · suporte vital −{o}% O₂ · pressão −{p}% casco', 'Generator +{g}, systems −{s} energy · life support −{o}% O₂ · pressure −{p}% hull', V));
+    this.log(tr('— CICLO {c} encerrado. Gerador +{g}, sistemas −{s} energia. Suporte vital −{o}% O₂. Pressão −{p}% casco.', '— CYCLE {c} over. Generator +{g}, systems −{s} energy. Life support −{o}% O₂. Pressure −{p}% hull.', V), 'sys');
     let note = '';
     if (S.energy <= 0) {
-      S.energy = 0; S.blackouts++; S.o2 -= 8; S.morale -= 8; note = 'blecaute';
-      this.log('BLECAUTE. O farol, o aquecedor e o sonar apagaram por horas.' + (S.blackouts >= 2 ? ' De novo.' : ' Se acontecer de novo, a base vai ter que puxar você.'), 'crit');
-      report.lines.push('BLECAUTE no fim do ciclo.'); report.blackout = true;
+      S.energy = 0; S.blackouts++; S.o2 -= 8; S.morale -= 8; note = tr('blecaute', 'blackout');
+      this.log(tr('BLECAUTE. O farol, o aquecedor e o sonar apagaram por horas.', 'BLACKOUT. The floodlight, the heater and the sonar went dark for hours.') + (S.blackouts >= 2 ? tr(' De novo.', ' Again.') : tr(' Se acontecer de novo, a base vai ter que puxar você.', ' If it happens again, the base will have to pull you up.')), 'crit');
+      report.lines.push(tr('BLECAUTE no fim do ciclo.', 'BLACKOUT at the end of the cycle.')); report.blackout = true;
     } else S.blackouts = 0;
-    if (S.hull < 35) { S.o2 -= 4; this.log('O casco fraco está deixando entrar água nas juntas. O₂ −4%.', 'warn'); }
-    if (S.zone === 0 && M.dockRepair > 0) { S.hull += M.dockRepair; report.lines.push('Doca de manutenção: +' + M.dockRepair + '% casco'); }
+    if (S.hull < 35) { S.o2 -= 4; this.log(tr('O casco fraco está deixando entrar água nas juntas. O₂ −4%.', 'The weak hull is letting water in at the joints. O₂ −4%.'), 'warn'); }
+    if (S.zone === 0 && M.dockRepair > 0) { S.hull += M.dockRepair; report.lines.push(tr('Doca de manutenção: +{n}% casco', 'Repair dock: +{n}% hull', { n: M.dockRepair })); }
     let ev = '';
     if (this.R() < 0.75) { const e = this.pickEvent(); if (e) ev = this.runEvent(e); }
     if (ev) report.event = ev;
@@ -470,7 +499,7 @@ export class Game {
     const funding = M.budgetPerCycle + fromScience;
     S.budget += funding;
     report.funding = funding;
-    report.lines.push('Verba recebida da NASA: +' + funding + ' (' + M.budgetPerCycle + ' fixa + ' + fromScience + ' pelos ' + S.scienceThisCycle + ' dados do ciclo)');
+    report.lines.push(tr('Verba recebida da NASA: +{f} ({b} fixa + {s} pelos {d} dados do ciclo)', 'Funding from NASA: +{f} ({b} fixed + {s} for the {d} data this cycle)', { f: funding, b: M.budgetPerCycle, s: fromScience, d: S.scienceThisCycle }));
     this.clamp();
     S.diary.push({ cycle: c0, zone: Z.name, o2: Math.round(S.o2), energy: Math.round(S.energy), hull: Math.round(S.hull), morale: Math.round(S.morale),
       budget: funding, science: S.scienceThisCycle, scans: S.scans.filter(s => s.cycle === c0).map(s => this.db.T[s.id].name), event: ev, note });
@@ -501,7 +530,7 @@ export class Game {
     S.o2 += e.o2; S.energy += e.energy; S.hull += hull; S.morale += e.morale; S.budget += e.budget;
     if (e.countsAnomaly) S.anomalies++;
     let line = this.pick(e.lines).replace('{bar}', thousands(pressureBar(this.db.zones[S.zone].depthKm)));
-    if (e.isCurrent) line += ' Casco ' + hull + '%.';
+    if (e.isCurrent) line += tr(' Casco ', ' Hull ') + hull + '%.';
     const kind = { Warn: 'warn', Good: 'good', Strange: 'strange', Sys: 'sys' }[e.kind] || 'normal';
     this.log(line, kind);
     this.sfx(e.sfx);
@@ -535,7 +564,7 @@ export class Game {
 
   ending() {
     const S = this.S, Z = this.db.zones[S.zone], tired = S.win && S.morale < 35;
-    const E = {
+    const E = EN ? this.endingEN(Z, tired) : {
       win: [tired ? 'Missão concluída, com custo' : 'Missão concluída', 'De volta ao gelo',
         'A TÉTIS-7 encaixou no cryobot. Os dados de ' + S.scans.length + ' descobertas sobem pelo cabo, atravessam 20 km de gelo e partem para a Terra. ' + this.mission.win + (tired ? ' A equipe está exausta: da próxima vez, mais descanso.' : ' A Lúcia abre a escotilha e diz que vocês estão com cheiro de mar.')],
       o2: ['Missão abortada · suporte vital', 'Reserva de ar no limite', 'O CO₂ subiu e o alarme não parou mais. A base acionou o resgate de emergência e puxou a TÉTIS-7 pelo cabo, 20 km para cima. Você chegou tont' + (S.protagonist === 'menina' ? 'a' : 'o') + ', mas viv' + (S.protagonist === 'menina' ? 'a' : 'o') + '. Lição: oxigênio é o recurso que não perdoa.'],
@@ -546,5 +575,17 @@ export class Game {
     };
     const [kicker, title, body] = E[S.endReason] || E.time;
     return { kicker, title, body };
+  }
+  endingEN(Z, tired) {
+    const S = this.S;
+    return {
+      win: [tired ? 'Mission complete, at a cost' : 'Mission complete', 'Back to the ice',
+        'TETHYS-7 locked into the cryobot. The data from ' + S.scans.length + ' discoveries travel up the cable, through 20 km of ice, and on to Earth. ' + this.mission.win + (tired ? ' The crew is exhausted: next time, more rest.' : ' Lúcia opens the hatch and says you smell like the sea.')],
+      o2: ['Mission aborted · life support', 'Air reserve at the limit', 'CO₂ kept rising and the alarm never stopped. The base triggered the emergency rescue and pulled TETHYS-7 up the cable, 20 km. You arrived dizzy, but alive. Lesson: oxygen is the resource that never forgives.'],
+      hull: ['Mission aborted · structural failure', 'The hull gave way', 'At ' + dec(Z.depthKm, 1) + ' km deep, the pressure is over ' + thousands(pressureBar(Z.depthKm)) + ' bar. A joint failed, the emergency ballast dropped and the sub rose on its own to the shaft. Everyone is fine, but the mission is over. Engineering lesson: a hull is an investment, not an expense.'],
+      energy: ['Mission aborted · power failure', 'Total darkness', 'Two blackouts in a row. The base pulled the cable slowly, for hours. Engineering lesson: a power budget needs margin, just like real spacecraft.'],
+      morale: ['Mission aborted · exhausted crew', 'Time to go home', 'Crew morale hit zero: nobody was sleeping well and mistakes started to appear. Lúcia ordered the cable reeled in. Lesson: people are a mission resource too.'],
+      time: ['Mission over', 'The cable was reeled in', 'Cycle ' + CONFIG.maxCycles + ' ended and the base had to retrieve the cryobot before the ice closed the borehole. The data collected go on to Earth, but the mission question was left without a full answer.'],
+    };
   }
 }

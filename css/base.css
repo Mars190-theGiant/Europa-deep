@@ -34,3 +34,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 canvas.chart { width: 100%; display: block; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* botão de idioma */
+.lang { font: inherit; font-size: 12px; letter-spacing: .06em; color: var(--muted); background: transparent; border: 1px solid rgba(127,224,255,.3); border-radius: 999px; padding: 5px 10px; cursor: pointer; }
+.lang b { color: var(--ink); }
+.lang:hover { border-color: rgba(127,224,255,.7); }

@@ -1,0 +1,290 @@
+{
+ "missions": {
+  "conamara": {"name": "Moving ice", "site": "Conamara Chaos", "difficulty": "Easy",
+   "desc": "Broken ice plates that rotated and froze again, like trapped icebergs. A good place to go down: the ice may be thinner here.",
+   "question": "Does the ocean exchange material with Europa’s surface?",
+   "fact": "The Galileo spacecraft photographed Conamara Chaos in 1997. The plates fit together like a broken jigsaw puzzle, a sign that they moved over something soft or liquid.",
+   "src": "NASA/JPL · Galileo",
+   "win": "The data show salt and carbon dioxide rising through cracks in the ice. Your mission supports the idea that the ocean talks to the surface, and that is exactly what Europa Clipper will measure up close."},
+  "thera": {"name": "A lake inside the ice", "site": "Thera Macula", "difficulty": "Normal",
+   "desc": "A dark, domed region in the southern hemisphere. There may be a lake of liquid water trapped inside the ice shell, a few kilometers below the surface.",
+   "question": "Are there lakes of liquid water inside the ice shell?",
+   "fact": "In 2011, a study in the journal Nature (Schmidt and colleagues) compared Thera Macula with volcanoes under the ice in Antarctica and Iceland and proposed a lake about 3 km deep.",
+   "src": "Nature (2011) · Galileo data",
+   "win": "You measured currents and salinity that match water moving up and down through the ice shell. The Thera lake hypothesis gained evidence, and Clipper’s REASON radar will be able to confirm it."},
+  "plumas": {"name": "Vapor jets", "site": "South polar region", "difficulty": "Normal",
+   "desc": "Hubble saw signs of water jets coming out of Europa’s south. If they come from the ocean, we can study the ocean from space.",
+   "question": "Do the jets carry ocean water into space?",
+   "fact": "Hubble recorded possible plumes in 2012 and in 2014–2016. In 2019, the Keck telescope in Hawaii measured water vapor above Europa: about 2,360 kg per second, enough to fill an Olympic pool in minutes.",
+   "src": "NASA · Hubble · Keck (2019)",
+   "win": "The salt and vapor samples match the chemistry of the deep ocean. Your mission shows that, if the jets exist, they are a window into the ocean, without drilling through the ice."},
+  "pwyll": {"name": "Seafloor vents", "site": "Below Pwyll crater", "difficulty": "Hard",
+   "desc": "Pwyll is one of Europa’s youngest craters. Far below it, on the ocean floor, there may be hydrothermal vents like the ones on Earth.",
+   "question": "Does Europa’s seafloor have chemical energy for life?",
+   "fact": "On Earth, hydrothermal vents on the seafloor support whole ecosystems without sunlight. They were discovered in 1977 by the submarine Alvin, near the Galápagos Islands.",
+   "src": "NOAA · WHOI (Alvin, 1977)",
+   "win": "You found hot water, minerals and chemistry that could feed life, like Earth’s vents. Your mission does not prove there is life, but it shows the energy is there. That is the question that drives astrobiology."}
+ },
+ "crew": {
+  "daniel": {"name": "Captain Daniel Barnard", "short": "Daniel", "role": "Mission commander", "origin": "Nashville, United States", "perkText": "leads the mission",
+   "bio": "Former US Navy officer and research submarine pilot for 25 years. Says little, listens a lot and writes everything in a paper notebook. He shares a surname with E. E. Barnard, the astronomer who discovered Amalthea, a moon of Jupiter, in 1892.",
+   "greeting": "Welcome aboard, cadet. Nobody here knows everything. That is why we work together.",
+   "topics": [
+    {"title": "Leadership", "lines": ["When I started, the commander was whoever shouted loudest. Today I know it is whoever asks the most questions.", "Half of the best ideas on this mission came from people under 30. Experience helps you recognize a good idea, not have all of them."]},
+    {"title": "Galileo", "lines": ["The Galileo probe launched in 1989 and reached Jupiter in 1995. I was a kid and taped a picture of Europa to my bedroom wall.", "In 2003 NASA crashed Galileo into Jupiter on purpose, so it would never fall on Europa and contaminate the ocean. That is called planetary protection."]},
+    {"title": "Engineering trade-offs", "lines": ["Every project is a trade. A thicker hull weighs more, and weight costs rocket. A bigger rocket costs budget. There is no free choice.", "Europa Clipper was going to fly on an SLS, straight to Jupiter. NASA switched to the much cheaper Falcon Heavy and accepted a longer trip. That is good engineering."]}
+   ],
+   "missionLines": {"pwyll": "The ocean floor, more than 100 km of water above us. We go slowly and with a strong hull."}},
+  "johann": {"name": "Johann Mayr", "short": "Johann", "role": "Vice-commander", "origin": "Ansbach, Germany", "perkText": "emergencies cost less: −30% damage from risky decisions",
+   "bio": "Vice-commander and emergency procedures specialist. Knows every checklist by heart and likes to repeat: calm first, hurry later.",
+   "greeting": "Checklist done, cadet? Then we can have a good day.",
+   "topics": [
+    {"title": "The name Europa", "lines": ["The person who named this moon Europa was Simon Mayr, a German astronomer from the town where I was born. He watched Jupiter’s moons at the same time as Galileo, in 1610.", "Galileo called the four moons the “Medicean stars”. Mayr’s names, Io, Europa, Ganymede and Callisto, only caught on centuries later."]},
+    {"title": "Emergencies", "lines": ["In an emergency, nobody thinks well. That is why we think beforehand and write it in a checklist.", "The Apollo 13 crew made it home in 1970 because the ground team and the spacecraft worked together, step by step."]},
+    {"title": "Second in command", "lines": ["Being vice means disagreeing with the captain in private and supporting him in public. Daniel buys me a coffee for every mistake I find in his plans.", "He owes me about forty coffees by now."]}
+   ]},
+  "adwoa": {"name": "Steward Adwoa Mensah", "short": "Adwoa", "role": "Steward and crew well-being", "origin": "Kumasi, Ghana", "perkText": "−2 morale lost per cycle, conversations give more",
+   "bio": "Takes care of the routine, the food, the sleep and everyone’s mood. Always wears a kente-pattern band, a traditional Ghanaian cloth. Before Europa, she coordinated teams at research stations in the desert and on the ice.",
+   "greeting": "Hi, dear! Have you eaten? On a long mission, whoever looks after the crew looks after the mission.",
+   "topics": [
+    {"title": "First in the family", "lines": ["I was the first person in my family to go to university. My grandmother sold cloth at the Kumasi market and did math in her head faster than any calculator.", "Talent is everywhere. Opportunity is not. That is why I teach online classes to girls in Ghana when we have spare bandwidth."]},
+    {"title": "Science in Africa", "lines": ["In 2017, students at All Nations University built GhanaSat-1, Ghana’s first satellite. It was released from the International Space Station.", "Today several African countries have space agencies. The answer to “who gets to go to space?” is changing."]},
+    {"title": "Caring for the crew", "lines": ["In Antarctica I learned: the biggest risk on a long mission is not the cold. It is the crew stopping talking to each other.", "Sleeping, eating together, laughing at silly things. It sounds small, but NASA studies this seriously in simulated missions like HERA and CHAPEA."]}
+   ],
+   "missionLines": {"conamara": "A good mission for the crew’s first time. Let’s build a routine from day one."}},
+  "anja": {"name": "Chief Engineer Anja Keppler", "short": "Anja", "role": "Engineering and maintenance", "origin": "Munich, Germany", "perkText": "repairs give +10% and the dock fixes more",
+   "bio": "Designed robotic arms for satellites. On Earth she uses a wheelchair; at the bottom of Europa’s ocean, she floats like everyone else.",
+   "greeting": "If something makes a strange noise, call me. If it makes no noise at all, call me too.",
+   "topics": [
+    {"title": "Accessibility", "lines": ["In water and in space, legs make little difference. What matters is that the ship has handholds, straps and controls within everyone’s reach.", "In 2022 the European Space Agency selected John McFall, who uses a prosthetic leg, to study how people with disabilities can fly to space. I cried when I saw the news."]},
+    {"title": "Pressure", "lines": ["Down at the bottom, the pressure is more than a thousand times that at Earth’s surface. Every bolt in this hull was tested in a hyperbaric chamber.", "Titanium is light and strong, but expensive. Steel is cheap, but heavy. Choosing a material is choosing where you will spend."]},
+    {"title": "Engineering is choosing", "lines": ["An engineer’s rule: everything you add weighs something, uses energy or breaks. Preferably only one of the three.", "Europa Clipper has an aluminum-zinc vault to protect its electronics from radiation. It is heavy, but without it the probe would not survive."]}
+   ],
+   "missionLines": {"conamara": "Moving ice means enormous forces. I’ll keep an eye on the hull."}},
+  "sayaka": {"name": "Dr. Sayaka Hoshino", "short": "Sayaka", "role": "Astrobiologist", "origin": "Sapporo, Japan", "perkText": "+20% data per scan",
+   "bio": "Studies microbes that live in ice and hot springs. She has collected microscope photos of snowflakes since she was 10.",
+   "greeting": "Konnichiwa! Every drop of water here may hold an answer. Or more questions, which is great too.",
+   "topics": [
+    {"title": "Hayabusa2", "lines": ["The Japanese probe Hayabusa2 brought pieces of the asteroid Ryugu back to Earth in December 2020. They found amino acids, the building blocks of proteins.", "Picking up a sample billions of km away and bringing it back intact. I still study that feat today."]},
+    {"title": "JUICE", "lines": ["Europa Clipper is not alone. The European Space Agency’s JUICE probe launched in 2023 and reaches Jupiter in 2031. Japan helped build some of its instruments.", "Real science is collaboration between countries. Nobody gets to Jupiter alone."]},
+    {"title": "What is life?", "lines": ["For life as we know it, we need liquid water, the right chemistry and energy. Europa may have all three.", "Finding life does not mean finding a fish. It could be a molecule, a chemical pattern. That is why measuring carefully matters more than looking for monsters."]}
+   ],
+   "missionLines": {"pwyll": "Hydrothermal vents! On Earth they support life without sunlight. I can’t wait."}},
+  "jaciara": {"name": "Jaciara Potiguara", "short": "Jaciara", "role": "Oceanographer and pilot", "origin": "Baía da Traição, Paraíba, Brazil", "perkText": "+10% contact chance, navigating costs −1",
+   "bio": "Indigenous, of the Potiguara people, she wears urucum paint lines on her face on important days. She learned to read currents on the coast of Paraíba before she learned to read maps, and later piloted robots on the floor of the Atlantic.",
+   "greeting": "The water speaks, cadet. We just need to learn to listen.",
+   "topics": [
+    {"title": "Ancestral knowledge", "lines": ["My grandfather knew the tide by the smell of the wind. Science measures with sensors; the peoples of the sea measured with their bodies and their memory. Both teach.", "Many people think Indigenous knowledge belongs to the past. It is knowledge of today, observing nature for thousands of years."]},
+    {"title": "Oceans", "lines": ["Earth has an ocean on top and rock below. Europa has ice on top, ocean in the middle and rock at the bottom. Maybe twice all the water on Earth.", "Europa’s currents must be driven by heat from below and by Jupiter’s tides. That is why I measure temperature and salt all the time."]},
+    {"title": "Respect", "lines": ["Before going into the sea, my family asks permission. I do it here too, in silence. We are visitors.", "Planetary protection is the same thing in space-agency language: do not dirty someone else’s home, even if it is just a microbe."]}
+   ],
+   "missionLines": {"thera": "A lake inside the ice... the water must circulate in a way nobody has ever measured."}},
+  "noor": {"name": "Dr. Noor Manoukian", "short": "Noor", "role": "Physician and communications", "origin": "Beirut, Lebanon", "perkText": "+6 budget per cycle (more data reaches Earth)",
+   "bio": "Emergency physician and ham radio operator, from an Armenian-Lebanese family. She looks after the crew’s health and the data link with Earth, which takes up to 53 minutes to arrive.",
+   "greeting": "Good blood pressure, good signal with Earth. Today is a good day.",
+   "topics": [
+    {"title": "Arabic star names", "lines": ["Many stars have Arabic names: Aldebaran means “the follower”, Altair is “the flying eagle”. Astronomers in Baghdad and Damascus mapped the sky more than a thousand years ago.", "When I was little, my father showed me those stars from the rooftop. Now I send data toward them, almost."]},
+    {"title": "Radio delay", "lines": ["A message from here to Earth takes between 33 and 53 minutes. If something goes wrong, we cannot wait for the answer. We have to decide on our own.", "That is why communications matter in the design: a bigger antenna sends more data, and more data means more science and more budget."]},
+    {"title": "Health", "lines": ["Radiation, cold, isolation, little light. My job is to notice fatigue before you notice it yourselves.", "Diversity in the crew is also safety. Different people notice different risks."]}
+   ],
+   "missionLines": {"plumas": "If the jets come from the ocean, we prove it down here and Clipper confirms it from above."}},
+  "lucia": {"name": "Lúcia Mourão", "short": "Lúcia", "role": "Mission control (Conamara base)", "origin": "Salvador, Bahia, Brazil", "perkText": "speaks over the radio, always",
+   "bio": "Coordinates everything from the surface base, 20 km above. She knows every number on the submarine and every crew member by name.",
+   "greeting": "TETHYS-7, this is Lúcia. I hear you loud and clear.",
+   "topics": [
+    {"title": "Mission control", "lines": ["I see your numbers, but I don’t see what you see. So describe everything. Words are data too.", "In Salvador we say nobody does anything alone. It is the same here, just with 20 km of ice in between."]},
+    {"title": "The surface", "lines": ["Up here it is −170 °C and Jupiter fills a huge part of the sky. The radiation is so strong that the base is buried in the ice.", "The fiber cable connecting us is 20 km long. It carries power, data and, sometimes, music."]}
+   ]},
+  "mikolaj": {"name": "Mikołaj Wolski", "short": "Mikołaj", "role": "Geophysicist and ice drilling", "origin": "Kraków, Poland", "perkText": "descending and ascending cost −2, ice hurts the hull less",
+   "bio": "Spent six winters drilling ice in Antarctica and Greenland. Speaks slowly, like someone counting layers of ice.",
+   "greeting": "Every meter of ice is a year of history. Down here, maybe millions.",
+   "topics": [
+    {"title": "Drilling", "lines": ["In Antarctica, the Lake Vostok project drilled more than 3.7 km of ice to reach a hidden lake. It took decades.", "A cryobot like ours melts the ice instead of cutting it. It is slow, but it does not need a giant drilling tower."]},
+    {"title": "Marie Curie", "lines": ["Maria Skłodowska-Curie was born in Warsaw and won two Nobel Prizes, in physics and in chemistry. She could not study at a Polish university because she was a woman.", "When someone says a place is not for you, remember her."]},
+    {"title": "Layers", "lines": ["Ice keeps air bubbles from when it formed. On Earth, that is how we read the climate of 800,000 years ago.", "On Europa, the layers may tell how the ocean rose and fell through the ice."]}
+   ]},
+  "jihoon": {"name": "Jang Ji-hoon", "short": "Ji-hoon", "role": "Robotics, sonar and drones", "origin": "Daejeon, South Korea", "perkText": "free sonar, scanning costs −1 and +5% contact",
+   "bio": "Has programmed underwater robots since college. Wears a data visor over his left eye and talks to the drones as if they were pets.",
+   "greeting": "You can call me Ji-hoon. The drones are already in the water, cadet.",
+   "topics": [
+    {"title": "Danuri", "lines": ["In 2022 South Korea sent the Danuri probe into orbit around the Moon. It carries a NASA camera to photograph craters always in shadow, where there may be ice.", "Daejeon, my city, is called the city of science. I grew up seeing robots at school fairs."]},
+    {"title": "Sonar", "lines": ["Sonar sends a sound and listens to the echo. Dolphins and bats have done this for millions of years; we copied them.", "In water, sound travels at about 1,500 meters per second, four times faster than in air."]},
+    {"title": "Robots and people", "lines": ["A good robot does not replace the crew. It goes where it is dangerous for us and brings back what we need to see.", "Our drones have names: Bori, Hana and Popcorn. Popcorn was Jaciara’s idea."]}
+   ]}
+ },
+ "launches": {
+  "atlas": {"name": "Atlas V 551", "desc": "Mid-size and reliable rocket. Cheap, but carries little cargo: space for modules and parts will be tight.", "fact": "Real fact: an Atlas V 551 launched the Juno probe to Jupiter in 2011 and New Horizons to Pluto in 2006."},
+  "falcon": {"name": "Falcon Heavy", "desc": "Three rocket cores together, with boosters that fly back and land. A good balance between price and cargo.", "fact": "Real fact: a Falcon Heavy launched Europa Clipper on October 14, 2024. The contract cost about 178 million dollars."},
+  "sls": {"name": "SLS Block 1", "desc": "NASA’s most powerful rocket. Carries a lot of cargo and allows a direct trip, but eats half the budget.", "fact": "Real fact: Europa Clipper was going to fly on an SLS. In 2021 NASA switched to a commercial rocket, mainly because of cost, accepting a longer trip."},
+  "direta": {"name": "Direct trajectory", "desc": "Goes straight to Jupiter. Arrives fast and the crew arrives rested, but it takes a lot of energy: only 65% of the rocket’s cargo fits.", "fact": "Real fact: with the SLS, Clipper would have reached Jupiter in less than 3 years."},
+  "mega": {"name": "Mars-Earth slingshot (MEGA)", "desc": "Flies past Mars and Earth to gain speed for free from gravity. Carries 100% of the cargo, but the trip is long.", "fact": "Real fact: Clipper flew past Mars in March 2025 and flies past Earth in December 2026. It reaches Jupiter in April 2030."},
+  "veega": {"name": "Venus-Earth-Earth slingshot (VEEGA)", "desc": "Three planetary flybys. Carries even more cargo, but the heat near Venus and the years of travel wear down the ship and the crew.", "fact": "Real fact: the Galileo probe used a VEEGA trajectory. It launched in 1989 and reached Jupiter in 1995."}
+ },
+ "scenarios": {
+  "rachadura": {"title": "Crack in the ceiling", "text": "The sonar shows a new crack in the ice ceiling, right above the cryobot shaft. Salty water is rising through it.", "choices": [
+   {"label": "Collect the brine", "result": "You collect the brine with the robotic arm. It has salt and carbon dioxide, just like Webb saw on the surface."},
+   {"label": "Reinforce the shaft", "result": "Anja installs braces in the shaft. It costs budget, but the way back is safe."},
+   {"label": "Just log it and move on", "result": "You note the position and move on. The team on Earth will analyze the images."}]},
+  "rachadura2": {"title": "Brine sample", "text": "The sample is at −3 °C and does not freeze, it is so salty. Spend lab energy to analyze it now, or send the raw data to Earth?", "choices": [
+   {"label": "Analyze now", "result": "The analysis shows sodium chloride and carbonates. That means the water came from below, from the ocean."},
+   {"label": "Send to Earth", "result": "The data reach Earth 45 minutes later. The team there is grateful and releases budget."}]},
+  "jangada": {"title": "Spinning block", "text": "A block of ice the size of a bus is slowly spinning, stuck under the ceiling. The current turning it may explain Conamara Chaos.", "choices": [
+   {"label": "Measure the current", "result": "Jaciara releases buoys with sensors. The current is slow but steady: 4 cm per second."},
+   {"label": "Film it and move on", "result": "A beautiful video for Earth. Schools all over the world watch it."}]},
+  "corrente": {"title": "Strong current", "text": "The current suddenly picked up. You can ride it to save energy, or get out of it to stay safe.", "choices": [
+   {"label": "Ride the current", "result": "The motors shut off and the current carries you. Energy saved, but the hull scrapes a ledge."},
+   {"label": "Leave the current", "result": "You get out carefully. It costs energy, but nobody gets hurt."},
+   {"label": "Launch a measuring buoy", "result": "The buoy follows the current and sends data for hours. Great for science."}]},
+  "salinidade": {"title": "Layered water", "text": "The sensors show fresh water on top of salty water, like in an estuary. Nobody expected that.", "choices": [
+   {"label": "Map the layers", "result": "You go up and down measuring. The map shows meltwater from the ice slowly mixing with the ocean."},
+   {"label": "Tell the base and move on", "result": "Lúcia passes it on to Earth. A good find, little cost."}]},
+  "pluma": {"title": "Jet signal", "text": "The base antenna picked up a spike of water vapor above the surface. It could be an active jet right now!", "choices": [
+   {"label": "Point the antenna at the jet", "result": "The base turns the antenna for a cycle. The spectrum shows water and salt: it really seems to come from the ocean."},
+   {"label": "Keep the channel with Earth", "result": "You keep the data routine. Earth records the event with its telescopes."}]},
+  "pluma2": {"title": "Jet confirmed?", "text": "LÚCIA: The jet data look beautiful. Do we publish now, or wait one more cycle to confirm?", "choices": [
+   {"label": "Wait and confirm", "result": "Good science is confirmed science. In the next cycle, a second jet confirms the first."},
+   {"label": "Publish now", "result": "The news goes around the world and the budget grows. But a scientist on Earth asks for more data."}]},
+  "tempestade": {"title": "Radiation storm", "text": "Jupiter is releasing a storm of particles. The surface base will get a high dose.", "choices": [
+   {"label": "Protect the electronics", "result": "Everything shut down and shielded. One cycle without data, but no damage."},
+   {"label": "Take the risk and measure", "result": "The instruments measure the storm. Rare data, but an antenna board burns out."}]},
+  "fonte": {"title": "New vent", "text": "The thermometer detected 60 °C water coming out of the ground, far from the known chimneys. A new hydrothermal vent!", "choices": [
+   {"label": "Get very close", "result": "Amazing images and mineral samples, but the heat stresses the hull."},
+   {"label": "Measure from a distance", "result": "Remote sensors: less detail, zero risk."}]},
+  "fonte2": {"title": "Microbial mat?", "text": "Around the vent, an orange layer covers the rock. It could be a mat of microbes or just minerals. How do we test without contaminating?", "choices": [
+   {"label": "Use the sterile kit", "result": "The kit is expensive, but the sample is clean. The result goes to Earth with a seal of confidence."},
+   {"label": "Just photograph it", "result": "Planetary protection first. The photos already help plan the next mission."}]},
+  "sedimento": {"title": "Clogged filter", "text": "Fine sediment got into the thrusters. Clean it now, or carry on with less power.", "choices": [
+   {"label": "Clean it now", "result": "Anja cleans the filters. You lose time, but the motor is back to normal."},
+   {"label": "Carry on", "result": "The motor heats up and uses more. It will need repairs later."}]},
+  "cansaco": {"title": "Tired crew", "text": "The crew is sleeping too little. Adwoa suggests a lighter cycle, with a meal together and less work.", "choices": [
+   {"label": "Take the break", "result": "Everyone eats together, tells stories from home and sleeps. Morale goes up."},
+   {"label": "Keep the pace", "result": "More work, more data, but the crew feels it."}]},
+  "aniversario": {"title": "Birthday on board", "text": "Today is Jaciara’s birthday! Adwoa has kept a mug cake hidden for months.", "choices": [
+   {"label": "Party!", "result": "A small party with the cabin lights blinking. Earth sends birthday videos."},
+   {"label": "Celebrate later", "result": "It was left for later. Jaciara understands, but there is a silence."}]},
+  "escola": {"title": "A question from a school", "text": "A school in Fortaleza sent a question: “If there is life on Europa, is it like life on Earth?”. Answering uses data bandwidth.", "choices": [
+   {"label": "Answer with a video", "result": "Sayaka records an answer. Millions watch, and NASA releases outreach budget."},
+   {"label": "Answer in text later", "result": "Saves bandwidth. The answer goes in the next cycle’s data package."}]},
+  "verba": {"title": "Budget cut", "text": "LÚCIA: Bad news from Earth: this year’s budget got smaller. We need to give back part of the budget or postpone a module.", "choices": [
+   {"label": "Give back budget", "result": "It hurt, but the mission goes on complete."},
+   {"label": "Show results", "result": "You send a polished report. If the science is good, Earth will reconsider."}]},
+  "verba2": {"title": "Report sent", "text": "LÚCIA: They read the report. They want to know: will the mission prioritize science or safety from now on?", "choices": [
+   {"label": "Science", "result": "Earth returns part of the budget, but expects more discoveries."},
+   {"label": "Safety", "result": "Earth approves the careful plan. Less budget, more peace of mind."}]},
+  "baleia": {"title": "Lights in the distance", "text": "A huge cloud of blue points of light passes slowly in the distance. The sonar measures about 40 m. It could be an organism, a colony or glowing sediment.", "choices": [
+   {"label": "Follow in silence", "result": "Motors at minimum. You follow the lights for half an hour. Nobody says anything; no need."},
+   {"label": "Log it and keep course", "result": "The record goes into the log. Maybe a future mission will come back here."}]},
+  "pane": {"title": "Generator failure", "text": "The submarine’s generator is fluctuating. You can replace a part now, using budget, or improvise.", "choices": [
+   {"label": "Replace the part", "result": "New part installed. Everything stable."},
+   {"label": "Improvise with what we have", "result": "Anja uses parts from the 3D printer. It works, more or less."}]},
+  "comandante": {"title": "Captain’s decision", "text": "DANIEL: The mission is well ahead. We could risk a deeper dive or consolidate what we have. What do you recommend, cadet?", "choices": [
+   {"label": "Take the risk", "result": "The captain smiles. “Then we go carefully.” The crew gets excited, but the hull will feel it."},
+   {"label": "Consolidate", "result": "“Good call,” says the captain. You review the data and find details you had missed."}]},
+  "gelo_fino": {"title": "Thinner ice", "text": "The radar shows the ice here is only 3 km thick at one point. A great place for the next mission to drill.", "choices": [
+   {"label": "Mark it on the map", "result": "The spot goes onto the mission map. NASA loves it."}]}
+ },
+ "zones": [
+  {"name": "Ice-ocean interface", "short": "Interface", "arrival": "The ice ceiling shines in the floodlight. Above it, 20 km of ice up to the vacuum and the Conamara base."},
+  {"name": "Water column", "short": "Column", "arrival": "No floor, no ceiling. Dark water in every direction, full of little points of light."},
+  {"name": "Hydrothermal field", "short": "Field", "arrival": "The thermometer rises. Mineral towers release hot water from the floor."},
+  {"name": "Abyssal rift", "short": "Rift", "arrival": "The floor opens into a huge rift. The sonar takes a long time to come back."}
+ ],
+ "targets": {
+  "fratura": {"name": "Blue fracture", "desc": "A crack runs across the ice ceiling. Brine bubbles rise through it slowly, as if the ice were breathing.", "fact": "Europa’s ice shell should be between 15 and 25 km thick. Europa Clipper’s REASON radar was designed to measure that thickness and look for water inside the ice.", "src": "NASA · Europa Clipper (REASON)"},
+  "jangadas": {"name": "Ice rafts", "desc": "Blocks the size of buildings, tilted, stuck to the ceiling. They seem to have rotated before freezing again.", "fact": "The Galileo probe photographed the Conamara Chaos region, where ice plates broke, moved and froze again, like trapped icebergs.", "src": "NASA/JPL · Galileo"},
+  "pingente": {"name": "Brinicle", "desc": "A white tube of ice hangs from the ceiling into the dark. The water around it is colder and saltier.", "fact": "In 2019, the Hubble Space Telescope found sodium chloride, table salt, in the Tara Regio region. In 2023, James Webb found carbon dioxide in the same place, which probably came from the ocean.", "src": "NASA · Hubble and James Webb"},
+  "veu": {"name": "Glass-veil", "desc": "A transparent creature the size of an umbrella pulses near a crack. It has no eyes, but it turns toward your light.", "fact": "Hubble saw signs of water plumes coming from Europa in 2012 and 2016. In 2018, scientists reviewed 1997 data from the Galileo probe and found the signature of a plume.", "src": "NASA · Hubble and Galileo"},
+  "lanterna": {"name": "Wandering lantern", "desc": "A long body with rows of points of light. It swims in wide circles around the submarine, always at the edge of the floodlight.", "fact": "Europa’s ocean may hold twice as much water as all of Earth’s oceans.", "src": "NASA Science"},
+  "no": {"name": "Magnetic knot", "desc": "Not an animal. The compass spins by itself and a faint mesh of light appears on the scanner, like a field drawn in the water.", "fact": "Galileo’s magnetometer measured an induced magnetic field at Europa that changes along with Jupiter’s field. The best explanation is a layer of salty water, which conducts electricity, under the ice.", "src": "NASA/JPL · Galileo (magnetometer)"},
+  "cardume": {"name": "Mirror shoal", "desc": "Hundreds of silver bodies turn at the same time. For a moment, the shoal draws the shape of the submarine.", "fact": "Europa orbits Jupiter every 3.5 days. Jupiter’s gravity stretches and squeezes the moon all the time, and that friction generates the heat that may keep the ocean liquid.", "src": "NASA Science"},
+  "coroa": {"name": "Crown jelly", "desc": "A huge jellyfish with a crown of golden filaments. It rises slowly toward the ice, as if it knew where the surface was.", "fact": "The Juno probe measured that Europa’s surface produces about 12 kg of oxygen per second, when Jupiter’s radiation breaks the ice apart. Some of it may reach the ocean.", "src": "NASA · Juno"},
+  "chamine": {"name": "Black smoker", "desc": "A mineral tower twice the height of the submarine. The water coming out of it shimmers, hot and dark.", "fact": "For life as we know it, three ingredients are needed: liquid water, the right chemistry and a source of energy. Europa Clipper will investigate whether Europa has all three.", "src": "NASA · Europa Clipper"},
+  "tubos": {"name": "Tube colony", "desc": "Thousands of white tubes with red tips around the vent. They pull their tips in when your light passes.", "fact": "Europa Clipper launched on October 14, 2024, on a Falcon Heavy rocket, from Kennedy Space Center. It reaches Jupiter in April 2030 and will make 49 flybys of Europa, some only 25 km above the surface.", "src": "NASA · Europa Clipper"},
+  "tapete": {"name": "Thermal mat", "desc": "A living layer covers the hot rock, orange and yellow. When the current changes, its color changes too.", "fact": "Europa Clipper carries nine science instruments and a gravity experiment. The E-THEMIS thermal camera looks for hot spots on the ice and the MISE spectrometer looks for salts and organic compounds.", "src": "NASA · Europa Clipper (E-THEMIS, MISE)"},
+  "raspador": {"name": "Sulfur scraper", "desc": "Something with a thick shell scrapes the rock near the vent. It stops when you stop, and starts scraping again when you turn the light.", "fact": "Europa’s surface receives about 5.4 sieverts of radiation per day, enough to kill a person. That is why Europa Clipper’s electronics sit inside an aluminum-zinc alloy vault.", "src": "NASA · Europa Clipper"},
+  "costelas": {"name": "Rock ribs", "desc": "Huge arches rise from the floor in a row, like the ribs of a giant whale. Sayaka thinks they are rock layers carved by hot water.", "fact": "Europa’s ocean should be between 60 and 150 km deep. That is 5 to 14 times the depth of the Mariana Trench, the deepest point on Earth (11 km).", "src": "NASA Science"},
+  "olho": {"name": "The deep beacon", "desc": "A huge sphere covered with glowing colonies, attached to the floor. The light pulses slowly, like a natural lighthouse.", "fact": "The Galileo probe launched in 1989 and reached Jupiter in 1995. In 2003 NASA deliberately sent it into Jupiter, so there would be no risk of it crashing on Europa and contaminating a possible ocean with life.", "src": "NASA/JPL · Galileo"},
+  "jardim": {"name": "Salt garden", "desc": "White crystals grow in fans inside a crack. They tinkle against the hull when you get close.", "fact": "Europa’s surface has few craters, a sign that it is young: between 40 and 90 million years old. The ice renews itself, perhaps with water coming from below.", "src": "NASA Science · Galileo"},
+  "placa": {"name": "Engraved plaque", "desc": "A metal plaque on the floor, with engraved words. It is the commemorative plaque the crew itself brought to leave at the deepest point of the mission.", "fact": "Europa Clipper carries a tantalum plate with the poem “In Praise of Mystery” by poet Ada Limón, and a chip with 2.6 million names sent by people all over the world.", "src": "NASA · Europa Clipper"}
+ },
+ "events": [
+  {"lines": ["A strong current threw TETHYS-7 against the rock."]},
+  {"lines": ["The electrolysis cell jammed for hours. O₂ −8%."]},
+  {"lines": ["Short circuit on the main bus. Energy −10."]},
+  {"lines": ["A school of blue lights passed slowly by the window. For a few minutes you forgot about the depth."]},
+  {"lines": ["The ice cracked right above you, loud as thunder. Hull −5%."]},
+  {"lines": ["The hull creaked the whole cycle. Here the pressure is above {bar} bar."]},
+  {"lines": ["Three knocks on the hull: it is the metal adjusting to the cold water. Anja explains that titanium shrinks a little with every degree."]},
+  {"lines": ["EARTH (41 min delay): We received your images. The whole control room went silent looking at them.", "EARTH (47 min delay): Your family sent an audio message. It is in the data package. Listen when you can.", "EARTH (35 min delay): The hull data look good. Keep going calmly."]},
+  {"lines": ["The hydrophone picked up a long, deep sound from far away. Sayaka notes: on Earth, sounds like this travel thousands of km in the ocean’s SOFAR channel.", "The external camera shows blue lights very far away. Bioluminescence? On Earth, about 75% of deep-sea animals produce light.", "A cloud of glowing particles drifts slowly by. Jaciara measures the current: 3 cm per second, almost still."]},
+  {"lines": ["Fine sediment clogged the thruster filter. Energy −8."]},
+  {"lines": ["Quiet cycle. Just the hum of the generator and the bubbles."]},
+  {"lines": ["NASA liked your reports and released extra budget for the mission. +15 budget."]},
+  {"lines": ["A radiation storm from Jupiter hit the base. Repairs on the surface cost 10 budget."]}
+ ],
+ "modules": {
+  "Lab": {"name": "Laboratory", "effect": "+50% data per scan", "desc": "A dome with microscopes and sequencers. Samples go up the cable and become scientific papers."},
+  "Greenhouse": {"name": "Algae greenhouse", "effect": "−5% O₂ used per cycle", "desc": "Algae under artificial light produce extra oxygen, which goes down the cable together with the power."},
+  "Rtg": {"name": "RTG generator", "effect": "+6 energy per cycle", "desc": "A radioisotope thermoelectric generator, like the ones on the Voyager probes and the Perseverance rover."},
+  "Antenna": {"name": "High-gain antenna", "effect": "+8 budget per cycle", "desc": "More data reaches Earth, more people follow the mission and NASA releases more budget."},
+  "Commons": {"name": "Commons module", "effect": "talking gives +5 morale, −1 loss per cycle", "desc": "Kitchen, music and a window onto Jupiter. The base crew feels closer to you."},
+  "RepairDock": {"name": "Maintenance dock", "effect": "+10% hull per cycle at the Interface", "desc": "Robots go down the cryobot shaft and weld the hull when you are near the ice."},
+  "SonarStation": {"name": "Sonar station", "effect": "free sonar and guaranteed contact", "desc": "Hydrophones fixed in the ice triangulate the ocean’s signals and guide the submarine."},
+  "Quarters": {"name": "Expanded quarters", "effect": "+4 morale per cycle for the whole crew", "desc": "Bunks, a shower and a quiet corner. On long missions, sleeping well is a safety matter."}
+ },
+ "upgrades": {
+  "Hull": {"name": "Titanium hull", "effects": ["−1 pressure damage, unlocks the Abyssal rift", "−2 pressure damage"], "desc": "Extra titanium plates. Without the first level, the submarine cannot go down to the Abyssal rift."},
+  "Battery": {"name": "Batteries", "effects": ["max energy 120", "max energy 140"], "desc": "More lithium cells in the ballast compartment."},
+  "Thrusters": {"name": "Thrusters", "effects": ["navigating and changing zone cost −2", "cost −4"], "desc": "Bigger propellers with less drag. They use less energy for the same distance."},
+  "Scanner": {"name": "Spectral scanner", "effects": ["scanning costs −2 and gives +25% data", "scanning costs −4 and gives +50%"], "desc": "Reads reflected light in hundreds of colors, like the spectrometers on space probes."},
+  "Floodlight": {"name": "LED floodlight", "effects": ["+5% contact chance, −1 morale lost", "+10% chance, −2"], "desc": "A stronger, warmer light. The dark weighs less."},
+  "Airlock": {"name": "Airlock and EVA suit", "effects": ["unlocks EVA (leaving the submarine)", "suit with +40% oxygen"], "desc": "A chamber that fills with water so the crew can go out and walk on the bottom. The suit is like the ISS spacewalk suits, adapted for pressure."}
+ },
+ "research": {
+  "Reason": {"name": "Ice radar", "effect": "+15% chance of finding a contact when navigating", "fact": "REASON is a radar that sends radio waves through Europa’s ice to measure the thickness of the shell and look for pockets of liquid water inside it.", "src": "NASA · Europa Clipper"},
+  "EThemis": {"name": "Thermal map", "effect": "vent recharge gives +45 energy and only −3% hull", "fact": "E-THEMIS is a thermal infrared camera. It looks for warmer regions on the surface, which may point to water near the ice or recent eruptions.", "src": "NASA · Europa Clipper / Arizona State University"},
+  "Mise": {"name": "Mapping spectrometer", "effect": "+25% data on every scan", "fact": "MISE analyzes the infrared light reflected by Europa to identify salts, ices and organic compounds on the surface.", "src": "NASA/JPL · Europa Clipper"},
+  "Ecm": {"name": "Magnetometer", "effect": "current damage is halved", "fact": "Europa Clipper’s magnetometer (ECM) sits at the end of an 8.5 m boom. It measures the induced magnetic field to estimate the depth and salinity of the ocean.", "src": "NASA · Europa Clipper"},
+  "Maspex": {"name": "Mass spectrometer", "effect": "electrolysis gives +26% O₂", "fact": "MASPEX measures the composition of gases near Europa, including those that may come from ocean plumes.", "src": "NASA · Europa Clipper / SwRI"},
+  "EuropaUvs": {"name": "Plume hunter", "effect": "+1 turn per cycle", "fact": "Europa-UVS observes in ultraviolet light to look for water vapor plumes and study Europa’s thin atmosphere.", "src": "NASA · Europa Clipper / SwRI"},
+  "Eis": {"name": "Mapping cameras", "effect": "+4 budget per scan (the images become outreach)", "fact": "EIS has a wide-angle camera and a narrow-angle camera. Together they will map almost all of Europa’s surface with details down to 100 m.", "src": "NASA · Europa Clipper / APL"},
+  "Gravity": {"name": "Tide forecast", "effect": "bad events become 40% less frequent", "fact": "By measuring tiny changes in the probe’s radio signal, the team calculates how much Europa deforms with Jupiter’s tides, which reveals what is inside it.", "src": "NASA · Europa Clipper"}
+ },
+ "text": {
+  "facts": [
+   "Real fact (NASA): Europa is about 3,100 km across, a little smaller than Earth’s Moon.",
+   "Real fact: Galileo Galilei discovered Europa in January 1610, together with Io, Ganymede and Callisto.",
+   "Real fact (NASA): a radio signal takes 33 to 53 minutes to travel from Jupiter to Earth.",
+   "Real fact (NASA): on Europa’s surface the temperature never rises above −160 °C, not even at the equator.",
+   "Real fact: gravity on Europa is 1.3 m/s², about 13% of Earth’s gravity.",
+   "Real fact (NASA): with its solar arrays open, Europa Clipper is about 30 m from tip to tip. It is the largest spacecraft NASA has ever built for a planetary mission.",
+   "Real fact (NASA): Europa Clipper flew past Mars in March 2025 to gain speed, and flies past Earth in December 2026 on its way to Jupiter.",
+   "Real fact (NASA): Jupiter has more than 90 known moons. Europa is the fourth largest.",
+   "Real fact (NASA): Europa Clipper will fly by Europa instead of orbiting it, to spend little time inside Jupiter’s radiation belt."
+  ],
+  "baseCalm": [
+   "LÚCIA (Conamara base): Got your data. Up here the ice is at −170 °C, and down there you have liquid water. I still find that amazing.",
+   "LÚCIA: Jupiter is huge in the sky today. It looks like it’s going to fall on the base. I wish you could see it.",
+   "LÚCIA: The fiber cable is holding. There are 20 km of ice between us, but you are just a “hi” away.",
+   "LÚCIA: Breathe slowly. Count the bubbles if you need to. I’m counting on you.",
+   "LÚCIA: Did you know we are the first people to ever hear this ocean? Record everything. Even the silence."
+  ],
+  "baseWorried": [
+   "LÚCIA: Your heart rate went up over the last cycles. Is everything all right down there?",
+   "LÚCIA: You have been in the dark for a long time. How about going up a bit and resting?",
+   "LÚCIA: Did you all sleep well? The doctor on Earth asked for the crew’s sleep data.",
+   "LÚCIA: Don’t go deeper than you need to, okay? Only what’s necessary."
+  ],
+  "baseTired": [
+   "LÚCIA: The crew is tired. How about a lighter cycle? Resting is part of the mission too.",
+   "LÚCIA: Adwoa suggested a break so everyone can eat together. Long missions are won with routine.",
+   "LÚCIA: Remember: nobody here needs to be a hero alone. Share the tasks."
+  ],
+  "eva": {
+   "Interface": "Europa’s ice ceiling may be between 15 and 25 km thick. Europa Clipper’s REASON radar will measure that thickness. (NASA)",
+   "Column": "Europa’s ocean may be 60 to 150 km deep, much deeper than the Mariana Trench (11 km). (NASA)",
+   "Field": "On Earth, hydrothermal vents support life without sunlight, using chemical energy. They were discovered in 1977 by the submarine Alvin. (WHOI)",
+   "Rift": "Jupiter’s gravity stretches and squeezes Europa every 3.5 days. That friction generates the heat that keeps the ocean liquid. (NASA)"
+  }
+ }
+}

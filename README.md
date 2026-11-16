@@ -1,76 +1,82 @@
 # Abismo de Europa
 
-Jogo educativo de projeto de missão espacial para o NASA Space Apps (desafio **Space Mission Design Game**). Você projeta uma missão para o oceano escondido sob o gelo de Europa, lua de Júpiter: escolhe o destino, o foguete, a trajetória e a equipe dentro de uma verba e de uma carga limitadas, monta a base e o submarino, e mergulha para descobrir se o projeto funciona.
+**English** · [Português](README.pt-BR.md)
 
-**Jogar:** <https://mars190-thegiant.github.io/Europa-deep/>
+An educational space mission design game for NASA Space Apps (challenge **Space Mission Design Game**). You design a mission to the ocean hidden under the ice of Europa, a moon of Jupiter: pick the destination, rocket, trajectory and crew within a limited budget and cargo capacity, build the base and the submarine, and dive to find out whether your design works.
 
-| Página | O que é |
+**Play:** <https://mars190-thegiant.github.io/Europa-deep/>
+
+| Page | What it is |
 |---|---|
-| [`/`](https://mars190-thegiant.github.io/Europa-deep/) | Página inicial: o problema, globo 3D de Europa com filtros, simulador de projetos prontos com gráficos e quiz |
-| [`/jogo.html`](https://mars190-thegiant.github.io/Europa-deep/jogo.html) | O jogo (versão 2, portada do projeto Unity v2) |
-| [`/classico/`](https://mars190-thegiant.github.io/Europa-deep/classico/) | A primeira versão, com cabine em primeira pessoa e clima de mistério |
+| [`/`](https://mars190-thegiant.github.io/Europa-deep/) | Home page: the problem, a 3D globe of Europa with filters, a simulator of ready-made designs with charts, and a quiz |
+| [`/jogo.html`](https://mars190-thegiant.github.io/Europa-deep/jogo.html) | The game (version 2, ported from the Unity v2 project) |
+| [`/classico/`](https://mars190-thegiant.github.io/Europa-deep/classico/) | The first version, with a first-person cockpit and a mystery mood (Portuguese only) |
 
-Os dados científicos são reais (NASA, JPL, Hubble, James Webb, Juno, Galileo). As criaturas e as pessoas são ficção.
+**Languages:** the site and the game open in English. The **EN · PT** button at the top (or `?lang=pt` in the address) switches to Portuguese, and the browser remembers the choice.
 
-## Como jogar
+The science data are real (NASA, JPL, Hubble, James Webb, Juno, Galileo). The creatures and the people are fiction.
 
-1. **Projeto.** Escolha quem você é (Luísa Galvão ou Téo Junqueira), o destino no mapa (4 missões, do fácil ao difícil), o foguete (Atlas V 551, Falcon Heavy, SLS), a trajetória (direta, MEGA, VEEGA) e a equipe. Foguete e salários custam verba; tudo pesa no foguete.
-2. **Planejamento**, entre um ciclo e outro: 8 módulos da base, 6 upgrades do submarino, 8 instrumentos reais da Europa Clipper pagos com dados, 6 células de energia para dividir, conversas com a equipe.
-3. **Mergulho:** 12 ciclos de 5 turnos. Navegar, escanear, sonar, eletrólise, reparo, descer e subir entre 4 zonas, recarregar na fonte hidrotermal, falar com a base, descansar, sair em **EVA** com o astronauta (precisa da eclusa) e acoplar.
-4. **Imprevistos** sorteados por uma **floresta aleatória** de 9 árvores de decisão que olham o estado da missão e votam; a missão escolhida puxa os votos para os temas dela. Algumas escolhas abrem um segundo cenário.
-5. **Fim:** nota de S a D, gráfico dos recursos ao longo da missão, uma leitura do que os números querem dizer e o resumo “Como suas escolhas moldaram a missão”.
+## How to play
 
-Teclado: 1–0, E e A para as ações, Enter encerra o ciclo, D diário, M mapa, S som. Na EVA: WASD ou setas, Espaço e C, Shift, E. No celular tudo é por toque, com joystick na EVA; melhor com o celular deitado.
+1. **Design.** Choose who you are (Luísa Galvão or Téo Junqueira), the destination on the map (4 missions, from easy to hard), the rocket (Atlas V 551, Falcon Heavy, SLS), the trajectory (direct, MEGA, VEEGA) and the crew. The rocket and salaries cost budget; everything has mass on the rocket.
+2. **Planning**, between cycles: 8 base modules, 6 submarine upgrades, 8 real Europa Clipper instruments paid with data, 6 power cells to split, and talks with the crew.
+3. **Dive:** 12 cycles of 5 turns. Navigate, scan, sonar, electrolysis, repair, descend and ascend between 4 zones, recharge at the hydrothermal vent, call the base, rest, go out on **EVA** with the astronaut (needs the airlock) and dock.
+4. **The unexpected:** scenarios are drawn by a **random forest** of 9 decision trees that look at the mission state and vote; the chosen mission pulls the votes toward its themes. Some choices open a second scenario.
+5. **The end:** a grade from S to D, a chart of resources over the mission, a reading of what the numbers mean, and the summary “How your choices shaped the mission”.
 
-## Simulador (página inicial)
+Keyboard: 1–0, E and A for actions, Enter ends the cycle, D log, M map, S sound. On EVA: WASD or arrows, Space and C, Shift, E. On phones everything is touch, with a joystick on EVA; best in landscape.
 
-Cinco projetos prontos rodam 200 vezes cada, com as mesmas regras do jogo (`src/engine.js`) e um piloto automático que às vezes erra (`src/sim.js`). A página mostra a taxa de sucesso, os recursos médios por ciclo, como as missões terminaram, a comparação entre os projetos e uma interpretação em texto: o que é bom, o que é arriscado e o que limita cada projeto. O botão “Jogar com este projeto” abre o jogo com aquela escolha já preenchida (`jogo.html?projeto=clipper`).
+## Simulator (home page)
 
-## Como o código está organizado
+Five ready-made designs run 200 times each, with the same rules as the game (`src/engine.js`) and an autopilot that sometimes makes mistakes (`src/sim.js`). The page shows the success rate, the average resources per cycle, how the missions ended, a comparison between designs, and a written interpretation: what is good, what is risky and what limits each design. The “Play this design” button opens the game with that choice already filled in (`jogo.html?projeto=clipper`).
 
-Não é um HTML único: são módulos JavaScript, dados em JSON, Three.js para o 3D e HTML/CSS para a interface 2D.
+## How the code is organized
+
+It is not a single HTML file: it uses JavaScript modules, JSON data, Three.js for 3D and HTML/CSS for the 2D interface.
 
 ```
-index.html          página inicial          css/site.css   src/landing.js
-jogo.html           jogo                    css/game.css   src/game.js
-css/base.css        estilos compartilhados
-src/engine.js       regras: recursos, ações, fim de ciclo, eventos, finais, pontuação (portado do GameManager do Unity)
-src/forest.js       floresta aleatória que escolhe os cenários (portado de ScenarioForest.cs)
-src/sim.js          projetos prontos, piloto automático e interpretação dos resultados
-src/world3d.js      cenas Three.js: globo de Europa com filtros, Júpiter, base, submarino montável, oceano por zona, EVA
-src/map2d.js        mapa da superfície e corte gelo/oceano em Canvas 2D
-src/charts.js       gráficos em Canvas 2D
-src/audio.js        trilha com crossfade (Web Audio) e efeitos gerados na hora
-data/*.json         missões, tripulação, foguetes e trajetórias, 20 cenários, zonas, alvos, eventos, módulos, upgrades, pesquisa, textos
-img/crew/           retratos da tripulação
-audio/              trilha original (ogg e mp3)
+index.html          home page               css/site.css   src/landing.js
+jogo.html           game                    css/game.css   src/game.js
+css/base.css        shared styles
+src/engine.js       rules: resources, actions, end of cycle, events, endings, score (ported from the Unity GameManager)
+src/forest.js       random forest that picks the scenarios (ported from ScenarioForest.cs)
+src/sim.js          ready-made designs, autopilot and interpretation of results
+src/i18n.js         language (English default, Portuguese optional), static texts and the en.json merge
+src/world3d.js      Three.js scenes: Europa globe with filters, Jupiter, base, buildable sub, ocean by zone, EVA
+src/map2d.js        surface map and ice/ocean cross-section in Canvas 2D
+src/charts.js       Canvas 2D charts
+src/audio.js        soundtrack with crossfade (Web Audio) and generated sound effects
+data/*.json         missions, crew, rockets and trajectories, 20 scenarios, zones, targets, events, modules, upgrades, research, texts (Portuguese)
+data/en.json        English layer for all the data (merged by id in loadDB)
+img/crew/           crew portraits
+audio/              original soundtrack (ogg and mp3)
 lib/three.min.js    Three.js r128 (MIT)
-classico/           a primeira versão do jogo
+classico/           the first version of the game
 ```
 
-Os arquivos em `data/` foram convertidos do projeto Unity (`DefaultContent.cs` e `DefaultContent.MissionDesign.cs`). Para mudar um número ou um texto, edite o JSON.
+The files in `data/` were converted from the Unity project (`DefaultContent.cs` and `DefaultContent.MissionDesign.cs`). To change a number or a text, edit the JSON. English text for the data lives in `data/en.json`; interface text lives in the code, in `tr('português', 'English')` calls.
 
-## Rodar localmente
+## Running locally
 
-Os módulos JavaScript precisam de um servidor (abrir o arquivo com dois cliques não funciona):
+JavaScript modules need a server (double-clicking the file does not work):
 
 ```bash
 python3 -m http.server 8000
-# abra http://localhost:8000
+# open http://localhost:8000
 ```
 
-## Trilha sonora
+## Soundtrack
 
-| Estado | Música |
+| State | Music |
 |---|---|
-| Título | `abismo_europa_vibrante_ganza` |
-| Projeto e planejamento | `abismo_europa_calmo_mergulho` |
-| Diálogos, descanso, vitória | `abismo_europa_calma` |
-| Exploração e EVA | `abismo_europa_animada_maracas` |
-| Fenda abissal, recurso crítico, derrota | `abismo_europa_ambiente` com filtro passa-baixa |
+| Title | `abismo_europa_vibrante_ganza` |
+| Design and planning | `abismo_europa_calmo_mergulho` |
+| Dialogue, rest, victory | `abismo_europa_calma` |
+| Exploration and EVA | `abismo_europa_animada_maracas` |
+| Abyssal rift, critical resource, defeat | `abismo_europa_ambiente` with a low-pass filter |
 
-## Dados usados
+## Data used
 
-Gelo de 15 a 25 km e radar REASON; oceano de 60 a 150 km com o dobro da água da Terra; Conamara Chaos (Galileo); sal na Tara Regio (Hubble, 2019) e CO₂ (James Webb, 2023); plumas (Hubble 2012–2016, Galileo 1997, Keck 2019); campo magnético induzido (Galileo); órbita de 3,5 dias e aquecimento por maré; 12 kg/s de oxigênio (Juno); lançamento da Europa Clipper em 14/10/2024 num Falcon Heavy, passagens por Marte (2025) e Terra (2026), chegada em 2030, 49 sobrevoos; 7 dos 9 instrumentos (REASON, E-THEMIS, MISE, ECM, MASPEX, Europa-UVS, EIS) e o experimento de gravidade e rádio; radiação de 5,4 Sv/dia; Galileo lançada em 1989, chegada em 1995, jogada em Júpiter em 2003; superfície de 40 a 90 milhões de anos; placa com o poema de Ada Limón; Thera Macula (Nature, 2011); fontes hidrotermais descobertas pelo Alvin em 1977 (WHOI).
+Ice 15 to 25 km thick and the REASON radar; an ocean 60 to 150 km deep with twice Earth's water; Conamara Chaos (Galileo); salt at Tara Regio (Hubble, 2019) and CO₂ (James Webb, 2023); plumes (Hubble 2012–2016, Galileo 1997, Keck 2019); induced magnetic field (Galileo); 3.5-day orbit and tidal heating; 12 kg/s of oxygen (Juno); Europa Clipper launch on 14 Oct 2024 on a Falcon Heavy, flybys of Mars (2025) and Earth (2026), arrival in 2030, 49 flybys; 7 of the 9 instruments (REASON, E-THEMIS, MISE, ECM, MASPEX, Europa-UVS, EIS) and the gravity and radio science experiment; radiation of 5.4 Sv/day; Galileo launched in 1989, arrived in 1995, sent into Jupiter in 2003; a surface 40 to 90 million years old; the plaque with Ada Limón's poem; Thera Macula (Nature, 2011); hydrothermal vents discovered by Alvin in 1977 (WHOI).
 
-Fontes: <https://science.nasa.gov/jupiter/jupiter-moons/europa/> e <https://europa.nasa.gov/>.
+Sources: <https://science.nasa.gov/jupiter/jupiter-moons/europa/> and <https://europa.nasa.gov/>.
